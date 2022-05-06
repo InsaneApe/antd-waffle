@@ -3,4 +3,22 @@
   justify-content: center;
   align-items: center;
   height: calc(100vh - 20px);
+  background-image: url("../../../ui/image/demo3.jpg");
+  opacity: 0.9;
+  background-repeat: round;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+
+.formBody {
+  width: 360px;
+  padding: 24px 16px;
+  box-shadow: 0 2px 4px 0 rgb(100 109 130 / 14%), 0 0 1px 0 rgb(100 109 130 / 10%);
+  border-radius: 18px;
+  background-color: #fff;
 }

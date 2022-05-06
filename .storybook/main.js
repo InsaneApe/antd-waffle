@@ -16,6 +16,9 @@ module.exports = {
     babelModeV7: true,
     postcss: false
   },
+  core: {
+    builder: 'webpack5',
+  },
   babel: async options => ({
     ...options
   }),

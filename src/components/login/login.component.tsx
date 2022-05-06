@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
-import 'antd/dist/antd.css';
+import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
 import './login.css';
 
 export interface LoginComponentProps {
@@ -10,18 +10,25 @@ export interface LoginComponentProps {
   handleChangeEmail?: () => void;
   handleChangePassword?: () => void;
   handleChangeRememberMe?: () => void;
+  handleLogin?: () => void;
 }
 
 export const LoginComponent = (props: LoginComponentProps) => {
-  const { email, password, isRememberMe, handleChangeEmail, handleChangePassword, handleChangeRememberMe } = props;
+  const { email, password, isRememberMe, handleChangeEmail, handleChangePassword, handleChangeRememberMe, handleLogin } = props;
 
-  const onFinish = (values: any) => {
+  const [isLogin, setIsLogin] = useState<boolean>(false);
+  const onLogin = (values: any) => {
+    console.log('Failed:', values.errorFields && values.errorFields.length);
+    setIsLogin(true);
+    if (values.errorFields && values.errorFields.length > 0) {
+      return setIsLogin(false);
+    }
     console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
+    handleLogin();
+    setTimeout(() => {
+      setIsLogin(false);
+    }, 3000);
+  }
 
   return (
     <div className='content'>
@@ -29,23 +36,34 @@ export const LoginComponent = (props: LoginComponentProps) => {
         name="basic"
         layout="vertical"
         initialValues={{layout: "Vertical"}}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={onLogin}
+        onFinishFailed={onLogin}
         autoComplete="off"
+        className='formBody'
       >
+        <p className='title'>SIGN IN</p>
         <Form.Item
-          label="Enter you email"
           name="email"
-          rules={[{ required: true, message: 'The email is required.' }]}
+          rules={[{ required: true, message: '' }]}
         >
-          <Input placeholder="Please input your email!" value={email} onChange={handleChangeEmail} />
+          <Input
+            placeholder="Enter you email"
+            value={email} onChange={handleChangeEmail}
+            prefix={<UserOutlined />}
+          />
         </Form.Item>
         <Form.Item
-          label="Enter you password"
           name="password"
-          rules={[{ required: true, message: 'The password is required.' }]}
+          rules={[{ required: true, message: '' }]}
         >
-          <Input placeholder="Please input your password!" value={password} onChange={handleChangePassword} />
+          <Input.Password
+            placeholder="Enter you password"
+            type="password"
+            value={password}
+            onChange={handleChangePassword}
+            prefix={<LockOutlined />}
+            iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+          />
         </Form.Item>
         <Form.Item name="remember" valuePropName="checked">
           <Checkbox value={isRememberMe} onChange={handleChangeRememberMe}>
@@ -53,7 +71,7 @@ export const LoginComponent = (props: LoginComponentProps) => {
           </Checkbox>
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" block disabled={isLogin}>
             Sign In
           </Button>
         </Form.Item>

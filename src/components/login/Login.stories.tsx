@@ -5,9 +5,7 @@ import { LoginComponent } from './login.component';
 export default {
   title: 'UI components/Login',
   component: LoginComponent,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  argTypes: {},
 } as ComponentMeta<typeof LoginComponent>;
 
 const Template: ComponentStory<typeof LoginComponent> = (args) => <LoginComponent {...args} />;
@@ -15,4 +13,11 @@ const Template: ComponentStory<typeof LoginComponent> = (args) => <LoginComponen
 export const Primary = Template.bind({});
 
 Primary.args = {
+  email: '登录使用的邮箱',
+  password: '登录使用的密码',
+  isRememberMe: true,
+  handleChangeEmail: ()=> { },
+  handleChangePassword: ()=> { },
+  handleChangeRememberMe: () => { },
+  handleLogin: () => { console.log('Login Success') }
 };
