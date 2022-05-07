@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
-import './login.css';
+import './login.less';
 
 export interface LoginComponentProps {
   email?: string;

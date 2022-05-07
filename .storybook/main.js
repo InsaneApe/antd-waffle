@@ -31,11 +31,13 @@ module.exports = {
         {
           loader: "less-loader",
           options: {
-            javascriptEnabled: true
+            lessOptions: {
+              javascriptEnabled: true
+            }
           }
         }
       ],
-      include: path.resolve(__dirname, "../stories/"),
+      include: path.resolve(__dirname, "../src"),
       exclude: [/node_modules/],
     });
     config.module.rules.push({
