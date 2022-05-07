@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, FC } from 'react';
 import Macy from 'macy';
 import { WaterFallProps } from './type';
-import { ConfigContext } from '@Constants/config-provide';
+import { ConfigContext } from '@constants/config-provide';
 import classnames from 'classnames';
 import './waterfall.less';
 

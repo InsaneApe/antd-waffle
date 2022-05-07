@@ -53,7 +53,7 @@ module.exports = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@Constants': path.resolve(__dirname, '../src/constants'),
+      '@constants': path.resolve(__dirname, '../src/constants'),
     };
     return config;
   }

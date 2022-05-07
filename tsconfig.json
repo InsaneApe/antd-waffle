@@ -31,8 +31,12 @@
     "baseUrl": ".",
     "outDir": "./build",
     "declarationDir": "./build",
+    "paths": {
+      "@constants/*": ["src/constants/*"],
+    },
   },
   "include": ["src/**/*"],
+  "files": ["./index.d.ts"],
   "exclude": [
     "node_modules",
     "dist",
