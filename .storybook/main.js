@@ -40,6 +40,7 @@ module.exports = {
       include: path.resolve(__dirname, "../src"),
       exclude: [/node_modules/],
     });
+
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve("babel-loader"),
@@ -47,8 +48,13 @@ module.exports = {
         presets: [["react-app", { flow: false, typescript: true }]]
       }
     });
+
     config.resolve.extensions.push(".ts", ".tsx");
 
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@Constants': path.resolve(__dirname, 'src/constants'),
+    };
     return config;
   }
 }

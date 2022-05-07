@@ -59,6 +59,14 @@ module.exports = {
         },
       ]
   },
+  resolve: {
+    extensions: [],
+    descriptionFiles: ['package.json'],
+    modules: ['node_modules'],
+    alias: {
+        '@Constants': path.resolve(__dirname, 'src/constants'),
+    }
+  },
   externals: {
   }
 };
