@@ -1,16 +1,8 @@
-import React, { useContext, FC, ReactNode } from 'react';
+import React, { useContext, FC } from 'react';
 import { ConfigContext } from '@constants/config-provide/context';
 import classnames from 'classnames';
 import './leftToRightLogin.less';
-
-
-export interface LeftToRightLoginProps {
-  backgroundImg?: string
-  background?: string
-  slogan?: string
-  logo?: string 
-  statement: string 
-}
+import { LeftToRightLoginProps } from './types';
 
 const LeftToRightLogin: FC<LeftToRightLoginProps> = (props) => {
   const {

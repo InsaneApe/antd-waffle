@@ -17,7 +17,7 @@ export interface LoginComponentProps {
   
 }
 
-export const LoginComponent = (props: LoginComponentProps) => {
+const LoginComponent = (props: LoginComponentProps) => {
   const { email, password, isRememberMe, className, handleChangeEmail, handleChangePassword, handleChangeRememberMe, handleLogin } = props;
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -86,3 +86,5 @@ export const LoginComponent = (props: LoginComponentProps) => {
     </div>
   );
 };
+
+export default LoginComponent;

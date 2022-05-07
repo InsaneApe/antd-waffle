@@ -13,5 +13,5 @@ const Template: ComponentStory<typeof TablePlus> = (args) => <TablePlus {...args
 export const TablePlusComponent = Template.bind({});
 
 TablePlusComponent.args = {
-  type:1
+  
 };
