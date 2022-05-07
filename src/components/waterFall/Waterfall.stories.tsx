@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import { COMPONENTS } from 'src/constants/common';
 import WaterFall from './waterfall';
 
 const dataImages = [
