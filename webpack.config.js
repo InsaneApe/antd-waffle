@@ -64,7 +64,7 @@ module.exports = {
     descriptionFiles: ['package.json'],
     modules: ['node_modules'],
     alias: {
-        '@Constants': path.resolve(__dirname, 'src/constants'),
+        '@Constants': path.resolve(__dirname, './src/constants'),
     }
   },
   externals: {
