@@ -17,10 +17,11 @@ const WaterFall:FC<WaterFallProps> = (props) => {
       columns: 2,
     }
   } = props;
+  
   const [masonry, setMasonry] = useState<any>();
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('waterfall');
-  console.log(1);
+
   useEffect(() => {
     if (masonry) {
       masonry.reInit();
