@@ -65,7 +65,7 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   logo :"http://localhost:6006/static/media/ui/image/shewai_logo.jpg",
-  slogan:"http://localhost:6006/static/media/ui/image/shewai_logo.jpg",
+  slogan:"http://localhost:6006/static/media/ui/image/whitetext.png",
   backgroundImg:'http://localhost:6006/static/media/ui/image/demo3.jpg',
   background:"#f0f0f0",
   statement:'湖南备案123456号',

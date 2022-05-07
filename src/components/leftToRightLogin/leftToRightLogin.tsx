@@ -8,8 +8,8 @@ export interface LeftToRightLoginProps {
   backgroundImg?: string
   background?: string
   slogan?: string
-  logo?: string
-  statement: string | ReactNode
+  logo?: string 
+  statement: string 
 }
 
 const LeftToRightLogin: FC<LeftToRightLoginProps> = (props) => {
@@ -27,30 +27,30 @@ const LeftToRightLogin: FC<LeftToRightLoginProps> = (props) => {
     <div className={classnames(prefixCls)}>
 
       <div
-        className='MuiPlus-left-container'
+        className='AntdPrivate-left-container'
         style={{
           backgroundImage: `url(${backgroundImg})`,
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <img className='MuiPlus-left-slogan' src={slogan} />
+        <img className='AntdPrivate-left-slogan' src={slogan} />
       </div>
 
-      <div className='MuiPlus-right-container' style={{ background: `${background}` }}>
-        <div className='MuiPlus-wrapper'>
+      <div className='AntdPrivate-right-container' style={{ background: `${background}` }}>
+        <div className='AntdPrivate-wrapper'>
           <div>
             <div style={{textAlign:'center'}}>
             {
-              logo && <img className='MuiPlus-logo' src={logo} alt="logo" />
+              logo && <img className='AntdPrivate-logo' src={logo} alt="logo" />
             }
             </div>
-            <div className='MuiPlus-form-container'>
+            <div className='AntdPrivate-form-container'>
               {children}
             </div>
           </div>
         </div>
-        <div className='MuiPlus-statement'>
+        <div className='AntdPrivate-statement'>
           {statement}
         </div>
       </div>
