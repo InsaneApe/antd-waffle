@@ -8,7 +8,7 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
 
-    return suffixCls ? `MuiPlus-${suffixCls}` : 'MuiPlus';
+    return suffixCls ? `antdPlus-${suffixCls}` : 'antdPlus';
   }
 });
 

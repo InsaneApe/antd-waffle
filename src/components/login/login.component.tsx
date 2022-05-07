@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Input, Checkbox, Button } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
+import classnames from 'classnames';
+import { ConfigContext } from '@constants/config-provide';
 import './login.less';
 
 export interface LoginComponentProps {
   email?: string;
   password?: string;
   isRememberMe?: boolean;
+  className?: string;
   handleChangeEmail?: () => void;
   handleChangePassword?: () => void;
   handleChangeRememberMe?: () => void;
   handleLogin?: () => void;
+  
 }
 
 export const LoginComponent = (props: LoginComponentProps) => {
-  const { email, password, isRememberMe, handleChangeEmail, handleChangePassword, handleChangeRememberMe, handleLogin } = props;
+  const { email, password, isRememberMe, className, handleChangeEmail, handleChangePassword, handleChangeRememberMe, handleLogin } = props;
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('login');
+
   const onLogin = (values: any) => {
     console.log('Failed:', values.errorFields && values.errorFields.length);
     setIsLogin(true);
@@ -31,7 +38,7 @@ export const LoginComponent = (props: LoginComponentProps) => {
   }
 
   return (
-    <div className='content'>
+    <div className={classnames(prefixCls, className)}>
       <Form
         name="basic"
         layout="vertical"
