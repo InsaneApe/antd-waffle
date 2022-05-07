@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { LoginComponent } from './login.component';
+import LoginComponent from "./login.component"
 
 export default {
   title: 'UI components/Login',

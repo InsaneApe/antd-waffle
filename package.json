@@ -2,7 +2,10 @@
   "name": "antd-private",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/src/index.js",
+  "module": "build/src/index.js",
+  "types": "build/src/index.d.ts",
+  "homepage": "https://github.com/mutou101/antd-private",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",
@@ -16,6 +19,10 @@
   "peerDependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mutou101/antd-private"
   },
   "dependencies": {
     "antd": "^4.20.1",
