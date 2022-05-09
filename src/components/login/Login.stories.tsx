@@ -115,7 +115,7 @@ LeftToRight.args = {
   logo :"http://localhost:6006/static/media/ui/image/shewai_logo.jpg",
   slogan:"http://localhost:6006/static/media/ui/image/whitetext.png",
   backImageUrl:'http://localhost:6006/static/media/ui/image/demo3.jpg',
-  background:"#f0f0f0",
+  background:"aquamarine",
   statement: '湖南备案123456号',
   isLeftAndRight: true,
   children:<LoginForm />
