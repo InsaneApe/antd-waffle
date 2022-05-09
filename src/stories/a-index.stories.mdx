@@ -8,7 +8,7 @@ import Plugin from './assets/plugin.svg';
 import Repo from './assets/repo.svg';
 import StackAlt from './assets/stackalt.svg';
 
-<Meta title="Introduction" />
+<Meta title="前言" />
 
 <style>{`
   .subheading {
@@ -111,109 +111,74 @@ import StackAlt from './assets/stackalt.svg';
     display: inline-block;
   }
 
-  
+  .title {
+    text-align: center;
+  }
+  .content {
+    text-align: center;
+    margin-bottom:40px;
+  }
+  .footer {
+    position:absolute;
+    bottom:20px;
+    text-align: center;
+    font-size: 12px;
+  }
 `}</style>
 
-# Welcome to Storybook
+<h1 className="title">antd-private</h1>
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
-
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/stories` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
-
-<div className="subheading">Configure</div>
-
-<div className="link-list">
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/addons/addon-types"
-    target="_blank"
-  >
-    <img src={Plugin} alt="plugin" />
-    <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/webpack"
-    target="_blank"
-  >
-    <img src={StackAlt} alt="Build" />
-    <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/configure/styling-and-css"
-    target="_blank"
-  >
-    <img src={Colors} alt="colors" />
-    <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a
-    className="link-item"
-    href="https://storybook.js.org/docs/react/get-started/setup#configure-storybook-for-your-stack"
-    target="_blank"
-  >
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
-    </span>
-  </a>
+<div className="content">
+  一个基于 antd 的偏业务组件封装
 </div>
 
-<div className="subheading">Learn</div>
-
 <div className="link-list">
-  <a className="link-item" href="https://storybook.js.org/docs" target="_blank">
+  <a 
+    className="link-item" 
+    href="http://localhost:6006/?path=/story/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B--page"
+  >
     <img src={Repo} alt="repo" />
     <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
+      <strong>快速上手 ↓</strong>
+      帮助你快速开发
     </span>
   </a>
   <a
     className="link-item"
-    href="https://storybook.js.org/tutorials/"
-    target="_blank"
+    href="http://localhost:6006/?path=/story/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98--page"
   >
     <img src={Direction} alt="direction" />
     <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
+      <strong>常见问题</strong>
+      提问之前，请先点击查看的常见问题。 
     </span>
   </a>
   <a
     className="link-item"
-    href="https://github.com/storybookjs/storybook"
+    href="http://localhost:6006/?path=/story/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97--page"
     target="_blank"
   >
     <img src={Code} alt="code" />
     <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/storybook" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with maintainers and the community
+      <strong>参与贡献</strong>
+      如何加入我们
     </span>
   </a>
 </div>
 
+<div className="subheading">特性</div>
+
+- 🚀 TypeScript: 使用 TypeScript 编写，提供完整的类型定义。
+- 💎 优雅美观: 基于 Ant Design。
+- 🎉 开箱即用: 高质量的 React 组件。
+- ⚡️ 按需加载: 支持按需加载，具体请查看[babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
+
 <div className="tip-wrapper">
-  <span className="tip">Tip</span>Edit the Markdown in{' '}
-  <code>src/stories/Introduction.stories.mdx</code>
+  <span className="tip">兼容性</span>
+  <code>antd-private</code>
+  由于依赖了 React@16.8.0+ 提供的 Hooks 特性，因此只支持 React 16.8.0 及以上版本。
+</div>
+
+<div class="footer">
+  组件库开发成员: | Copyright © 2022-present
 </div>
