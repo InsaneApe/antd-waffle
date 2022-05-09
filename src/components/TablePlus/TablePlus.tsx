@@ -1,7 +1,7 @@
 import React, { useContext ,ReactNode} from 'react';
 import {Table, TableProps} from 'antd';
 import classnames from 'classnames';
-import './tablePlus.less';
+import './tablePlus.component.less';
 import { ConfigContext } from '@constants/config-provide';
 
 export interface TablePlueProps<RecordType> extends Omit<TableProps<RecordType>,'title'>  {
