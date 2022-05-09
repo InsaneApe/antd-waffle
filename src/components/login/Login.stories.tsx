@@ -103,14 +103,15 @@ const LoginForm = () => {
   )
 }
 
-export const Primary = Template.bind({});
-export const Primary2 = Template.bind({});
+export const Default = Template.bind({});
+export const LeftToRight = Template.bind({});
 
-Primary.args = {
+Default.args = {
   backImageUrl: 'http://localhost:6006/static/media/ui/image/demo3.jpg',
   children: children
 };
-Primary2.args = {
+
+LeftToRight.args = {
   logo :"http://localhost:6006/static/media/ui/image/shewai_logo.jpg",
   slogan:"http://localhost:6006/static/media/ui/image/whitetext.png",
   backImageUrl:'http://localhost:6006/static/media/ui/image/demo3.jpg',
