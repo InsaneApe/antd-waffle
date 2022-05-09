@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import TablePlus  from './tablePlus';
 
 export default {
@@ -13,5 +12,5 @@ const Template: ComponentStory<typeof TablePlus> = (args) => <TablePlus {...args
 export const TablePlusComponent = Template.bind({});
 
 TablePlusComponent.args = {
-  
+  title:'表格标题'
 };
