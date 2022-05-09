@@ -7,8 +7,9 @@ import TablePlusOperatingLeft from './tablePlusOperatingLeft.component';
 const { Option } = Select;
 
 interface TablePlueOperatingProps {
-  searchPlaceholder?: string ;
-  onSearch?: (search: any) =>void ;
+  searchPlaceholder?: string;
+  onSearch?: (search: any) =>void;
+  size?: "large" | "middle" | "small";
 }
 
 const TablePlusOperating = (props: TablePlueOperatingProps) => {
@@ -22,8 +23,8 @@ const TablePlusOperating = (props: TablePlueOperatingProps) => {
     <div className={classnames('AntdPrivat-tablePlus-operating')}>
       <TablePlusOperatingLeft
         onSearch={onSearch}
-        placeholder={searchPlaceholder}
-      />
+        placeholder={searchPlaceholder} 
+          />
       <div className="AntdPrivate-right">
         <Space>
           <Button type="primary">新增</Button>

@@ -1,7 +1,7 @@
 import React, { useContext, ReactNode } from 'react';
 import { Table, TableProps } from 'antd';
 import TablePlusTitle from './tablePlusTitle.component';
-import TablePlueOperating from './tablePlusOperating/tablePlusOperating.component'
+import TablePlusOperating from './tablePlusOperating/tablePlusOperating.component'
 import classnames from 'classnames';
 import './tablePlus.component.less';
 import { ConfigContext } from '@constants/config-provide';
@@ -59,7 +59,7 @@ function TablePlus<RecordType extends object = any>(
       <TablePlusTitle
         title={title}
       />
-      <TablePlueOperating
+      <TablePlusOperating
 
       />
       <Table columns={col} dataSource={dataSource} />
