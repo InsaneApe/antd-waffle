@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import TablePlus  from './tablePlus.component';
+import TablePlus  from './tablePlus';
 
 export default {
   title: 'UI components/TablePlus',
