@@ -1,6 +1,7 @@
 @import '../index.less';
 
 @loginRoot: ~'@{PrefixCls}-login';
+@leftAndRightLoginRoot: ~'@{PrefixCls}-leftAndRight-login-root';
 
 .@{loginRoot} {
   display: flex;
@@ -18,6 +19,54 @@
       font-weight: 500;
       display: flex;
       justify-content: center;
+    }
+  }
+}
+
+
+.@{leftAndRightLoginRoot} {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .AntdPrivate-left-container{
+    display: inline-block;
+    width: 400px;
+    height: 100vh;
+    min-height: 180px;
+    margin: 0;
+    padding: 0;
+    .AntdPrivate-left-slogan{
+      max-width: 200px;
+      margin: 20px 0 0 50px;
+    }
+  }
+
+  .AntdPrivate-right-container{
+    position: relative;
+    float: right;
+    height: 100vh;
+    width: calc(100% - 400px);
+    .AntdPrivate-wrapper{
+      margin: 200px auto 0;
+      width: 500px;
+      display: flex;
+      justify-content: center;
+      .AntdPrivate-logo{
+        width: 200px;
+        height: 40px;
+        margin-top: 16px;
+      }
+      .AntdPrivate-form-container{
+        margin-top: 24px;
+        width: 100%;
+        min-width: 400px;
+      }
+    }
+    .AntdPrivate-statement{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
     }
   }
 }
