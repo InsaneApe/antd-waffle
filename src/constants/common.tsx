@@ -1,1 +1,4 @@
-export const COMPONENTS = 'UI components/';
+export const FileType = {
+  XLSX: 'xlsx',
+  CSV: 'csv'
+};
