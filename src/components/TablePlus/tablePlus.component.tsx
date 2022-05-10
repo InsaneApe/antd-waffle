@@ -60,7 +60,7 @@ function TablePlus<RecordType extends object = any>(
         title={title}
       />
       <TablePlusOperating
-
+        onSearch={(val)=>{console.log(val)}}
       />
       <Table columns={col} dataSource={dataSource} />
     </div>

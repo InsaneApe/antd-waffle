@@ -1,16 +1,10 @@
 import React, {ReactNode} from 'react';
-import {Space,Input} from 'antd';
+import {Space,Input, Button} from 'antd';
+import { TablePlusOperatingLeftProps, TablePlusOperatingLeftOptions } from '../type';
 
 const { Search } = Input;
 
-interface TablePlusOperatingLeftProps {
-  placeholder?: string ;
-  onSearch?: (search: any) =>void;
-  children?: ReactNode;
-  size?: "large" | "middle" | "small"
-}
-
-const option = [{
+const option:TablePlusOperatingLeftOptions[] = [{
   label:"新增",
   type:'button',
   onClick: () =>{
@@ -38,30 +32,67 @@ const option = [{
     label:'abc',
     value:'abc'
   }]
-}]
+},{
+  label:'导出',
+  type:'export',
+},{
+  label:'导入',
+  type:'import',
+}
+]
 
 const TablePlusOperatingLeft = (props: TablePlusOperatingLeftProps) => {
   const { placeholder, onSearch, children} = props;
 
   const onSearchClick = (val: any) => {
     onSearch && onSearch(val);
-  }
+  };
+
+  const renderButton = (params, index) => {
+    const {label, buttonType, ...other} = params;
+    if(buttonType === 'danger'){
+      return (
+        <Button
+        key={`AntdPrivat-button-item-${index}`}
+       {...other}
+       danger
+       >
+        {label}
+      </Button>
+      )
+    }
+    return (
+      <Button
+        key={`AntdPrivat-button-item-${index}`}
+       {...other}
+       type={buttonType}
+       >
+        {label}
+      </Button>
+    );
+  };
 
   return (
     <div className="AntdPrivate-left">
+      {
+        onSearch && 
+        <Space>
+          <Search
+            placeholder={placeholder}
+            onSearch={onSearchClick}
+            style={{ width: 200 }}
+          />
+        </Space>
+      }
       <Space>
-        <Search
-          placeholder={placeholder}
-          onSearch={onSearchClick}
-          style={{ width: 200 }}
-        />
-      </Space>
-      <Space>
-        <Search
-          placeholder={placeholder}
-          onSearch={onSearchClick}
-          style={{ width: 200 }}
-        />
+        {
+          option.map((item,index) => {
+            console.log(item);
+            if(item.type == 'button'){
+              return renderButton(item, index);
+            }
+          })
+        }
       </Space>
       {children}
     </div>
