@@ -15,4 +15,5 @@ export const TablePlusComponent = Template.bind({});
 
 TablePlusComponent.args = {
   title: '表格标题',
+  className:'liujian',
 };
