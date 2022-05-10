@@ -12,7 +12,8 @@
     "start": "start-storybook -p 6006",
     "build:sb": "build-storybook",
     "lint": "eslint --ext .ts --ext .tsx src/ --fix",
-    "tsc": "tsc -w"
+    "tsc": "tsc -w",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "author": "",
   "license": "ISC",
@@ -42,6 +43,8 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",
@@ -60,6 +63,7 @@
     "babel-preset-react-app": "^10.0.1",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^8.0.0",
     "less": "^4.1.2",
     "less-loader": "^10.2.0",
     "style-loader": "^3.3.1",
@@ -67,5 +71,10 @@
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.9.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
