@@ -1,15 +1,17 @@
 import React, { useContext, ReactNode } from 'react';
 import { Table, TableProps } from 'antd';
 import TablePlusTitle from './tablePlusTitle.component';
-import TablePlusOperating from './tablePlusOperating/tablePlusOperating.component'
+import TablePlusOperat from './tablePlusOperating/tablePlusOperat.component'
 import classnames from 'classnames';
 import './tablePlus.component.less';
-import { ConfigContext } from '@constants/config-provide';
+import { ConfigContext, TablePlusOptionContext } from '@constants/config-provide';
+import { TablePlusOperatingOptions } from './type';
 
 export interface TablePlueProps<RecordType>
   extends Omit<TableProps<RecordType>, 'title'> {
   title?: ReactNode | string;
   className?: string;
+  option?: TablePlusOperatingOptions[]
 }
 
 const dataSource = [
@@ -48,22 +50,27 @@ const col = [
 function TablePlus<RecordType extends object = any>(
   props: TablePlueProps<RecordType>
 ) {
-  const { title, className } = props;
+  const { title, className, option } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('tablePlue-container-root');
 
 
   return (
-    <div className={classnames(prefixCls, className)}>
-      <TablePlusTitle
-        title={title}
-      />
-      <TablePlusOperating
-        onSearch={(val)=>{console.log(val)}}
-      />
-      <Table columns={col} dataSource={dataSource} />
-    </div>
+    <TablePlusOptionContext.Provider value={{
+      leftOption: option,
+      rightOption: option
+    }}>
+      <div className={classnames(prefixCls, className)}>
+        <TablePlusTitle
+          title={title}
+        />
+        <TablePlusOperat
+          onSearch={(val)=>{console.log(val)}}
+        />
+        <Table columns={col} dataSource={dataSource} />
+      </div>
+    </TablePlusOptionContext.Provider>
   );
 }
 

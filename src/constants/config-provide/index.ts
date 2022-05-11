@@ -1,4 +1,4 @@
-import { ConfigConsumer, ConfigContext } from './context';
+import { ConfigConsumer, ConfigContext, TablePlusOptionContext, TablePlusOptionConsumer } from './context';
 
-export { ConfigConsumer, ConfigContext };
+export { ConfigConsumer, ConfigContext, TablePlusOptionContext, TablePlusOptionConsumer };
 
