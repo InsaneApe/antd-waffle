@@ -1,18 +1,19 @@
 import React, { FC } from 'react';
 import { Space,Input, Button, Select  } from 'antd';
 
-import { TablePlusOperatingOptions } from './type';
+import { TablePlusOperatOptions } from './type';
 
 interface ITablePlusOperating {
-  option: TablePlusOperatingOptions[];
+  option: TablePlusOperatOptions[];
 }
 
 const { Option } = Select;
 
-const TablePlusOperating: FC<ITablePlusOperating> = ({ option }) => {
+const TablePlusOperat: FC<ITablePlusOperating> = ({ option }) => {
 
   const renderButton = (params, index) => {
     const {label, buttonType, ...other} = params;
+    console.log(other);
     if(buttonType === 'danger'){
       return (
         <Button
@@ -88,7 +89,7 @@ const TablePlusOperating: FC<ITablePlusOperating> = ({ option }) => {
   };
 
   return (
-    <div className="AntdPrivate-tablePlusOperating">
+    <div className="AntdPrivate-tablePlusOperat">
       <Space>
       {
         option && option.map((item,index) => {
@@ -118,4 +119,4 @@ const TablePlusOperating: FC<ITablePlusOperating> = ({ option }) => {
   );
 };
 
-export default TablePlusOperating;
+export default TablePlusOperat;
