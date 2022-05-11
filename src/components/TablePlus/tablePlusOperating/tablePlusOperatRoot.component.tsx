@@ -10,16 +10,18 @@ interface TablePlueOperatProps {
 }
 
 const TablePlusOperatRoot = (props: TablePlueOperatProps) => {
-  const { searchPlaceholder='请输入', onSearch } = props;
+  const { searchPlaceholder='请输入', onSearch, size } = props;
 
   return (
     <div className={classnames('AntdPrivat-tablePlus-operat')}>
       <TablePlusOperatingLeft
         onSearch={onSearch}
         searchPlaceholder={searchPlaceholder} 
+        size={size}
       />
       <TablePlusOperatingRight
         onSearch={onSearch}
+        size={size}
       />
     </div>
   );

@@ -13,10 +13,7 @@ type ButtonTypeProps = Pick<ButtonProps, 'type'>;
 export interface TablePlusOperatOptions {
   label:string;
   type:'button' | 'input' | 'select' | 'export' | 'import';
-  buttonType?:{
-    type?:ButtonTypeProps,
-    danger?:'danger',
-  };
+  buttonType?:ButtonTypeProps;
   onClick?: (value?:any) => void;
   onChange?:(value: any) => void;
   option?:TablePlusOperatingOptionChildren[];

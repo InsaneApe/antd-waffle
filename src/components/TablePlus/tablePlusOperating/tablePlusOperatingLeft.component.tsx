@@ -4,10 +4,11 @@ import TablePlusOperat from '../tablePlusOperat.component'
 import { TablePlusLeftOperatProps } from '../type';
 import { TablePlusOptionContext } from '@constants/config-provide';
 import classnames from 'classnames';
+
 const { Search } = Input;
 
 const TablePlusOperatingLeft = (props: TablePlusLeftOperatProps) => {
-  const { searchPlaceholder, onSearch, width, leftOperatClassName } = props;
+  const { searchPlaceholder, onSearch, width, leftOperatClassName, size } = props;
   const { leftOption } = useContext(TablePlusOptionContext);
 
   return (
@@ -20,6 +21,7 @@ const TablePlusOperatingLeft = (props: TablePlusLeftOperatProps) => {
               placeholder={searchPlaceholder}
               onSearch={onSearch}
               style={{ width: width }}
+              size={size}
             />
           </Space>
         }

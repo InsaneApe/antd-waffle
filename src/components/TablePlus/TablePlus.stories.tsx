@@ -54,7 +54,9 @@ TablePlusComponent.args = {
       onClick: () => {
         console.log(1);
       },
-      buttonType: 'primary',
+      buttonType: {
+        type: 'primary'
+      },
       disabled: false,
       size: 'large',
     },
@@ -99,7 +101,9 @@ TablePlusComponent.args = {
       onClick: () => {
         console.log(1);
       },
-      buttonType: 'primary',
+      buttonType: {
+        type: 'primary'
+      },
       disabled: false,
       size: 'middle',
     },

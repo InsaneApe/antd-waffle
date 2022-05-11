@@ -42,6 +42,7 @@ function TablePlus<RecordType extends object = any>(
         <TablePlusTitle title={title} />
         <TablePlusOperatRoot
           onSearch={onSearchChanges}
+          size={size}
         />
         <Table 
           {...other}
