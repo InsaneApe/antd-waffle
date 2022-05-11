@@ -10,7 +10,7 @@ interface TablePlusOperatingOptionChildren {
 
 type ButtonTypeProps = Pick<ButtonProps, 'type'>;
  
-export interface TablePlusOperatingOptions {
+export interface TablePlusOperatOptions {
   label:string;
   type:'button' | 'input' | 'select' | 'export' | 'import';
   buttonType?:{
@@ -24,10 +24,22 @@ export interface TablePlusOperatingOptions {
   size?: "large" | "middle" | "small";
 }
 
-export interface TablePlusOperatingProps {
-  placeholder?: string ;
+export interface TablePlusOperatProps {
+  searchPlaceholder?: string ;
   onSearch?: (search: any) =>void;
   children?: ReactNode;
   size?: "large" | "middle" | "small"
-  option?: TablePlusOperatingOptions[];
+  option?: TablePlusOperatOptions[];
 }
+
+
+export interface TablePlusLeftOperatProps {
+  searchPlaceholder?: string ;
+  onSearch?: (search: any) =>void;
+  children?: ReactNode;
+  size?: "large" | "middle" | "small"
+  option?: TablePlusOperatOptions[];
+  width?: string | number;
+  leftOperatClassName?: string;
+}
+

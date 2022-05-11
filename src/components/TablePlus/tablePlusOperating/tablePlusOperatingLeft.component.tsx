@@ -1,35 +1,30 @@
-import React, { ReactNode, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Space, Input } from 'antd';
-import TablePlusOperating from '../tablePlusOperating.component'
-import { TablePlusOperatingProps } from '../type';
+import TablePlusOperat from '../tablePlusOperat.component'
+import { TablePlusLeftOperatProps } from '../type';
 import { TablePlusOptionContext } from '@constants/config-provide';
+import classnames from 'classnames';
 const { Search } = Input;
 
-const TablePlusOperatingLeft = (props: TablePlusOperatingProps) => {
-  const { placeholder, onSearch, children } = props;
-
+const TablePlusOperatingLeft = (props: TablePlusLeftOperatProps) => {
+  const { searchPlaceholder, onSearch, width, leftOperatClassName } = props;
   const { leftOption } = useContext(TablePlusOptionContext);
 
-  const onSearchClick = (val: any) => {
-    onSearch && onSearch(val);
-  };
-
   return (
-    <div className="AntdPrivate-left">
+    <div className={classnames("AntdPrivate-left", leftOperatClassName)}>
       <Space>
         {
           onSearch && 
           <Space>
             <Search
-              placeholder={placeholder}
-              onSearch={onSearchClick}
-              style={{ width: 200 }}
+              placeholder={searchPlaceholder}
+              onSearch={onSearch}
+              style={{ width: width }}
             />
           </Space>
         }
-        <TablePlusOperating option={leftOption} />
+        <TablePlusOperat option={leftOption} />
       </Space>
-      {children}
     </div>
   );
 };

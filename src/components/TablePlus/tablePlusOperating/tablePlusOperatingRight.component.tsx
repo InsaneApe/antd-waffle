@@ -1,35 +1,35 @@
-import React, { ReactNode, useContext } from 'react';
-import { Space, Input } from 'antd';
-import TablePlusOperating from '../tablePlusOperating.component'
-import { TablePlusOperatingProps } from '../type';
+import React, { useContext } from 'react';
+import { Space, Button, Select } from 'antd';
+import TablePlusOperat from '../tablePlusOperat.component'
+import { TablePlusOperatProps } from '../type';
 import { TablePlusOptionContext } from '@constants/config-provide';
 
-const { Search } = Input;
+const { Option } = Select;
 
-const TablePlusOperatingRight = (props: TablePlusOperatingProps) => {
-  const { placeholder, onSearch, children} = props;
-
-  const onSearchClick = (val: any) => {
-    onSearch && onSearch(val);
-  };
+const TablePlusOperatingRight = (props: TablePlusOperatProps) => {
+  const {  children} = props;
 
   const { rightOption } = useContext(TablePlusOptionContext);
 
   return (
     <div className="AntdPrivate-right">
-      <Space>
-        {
-          onSearch && 
+       <TablePlusOperat option={rightOption}/>
+       <div className="AntdPrivate-right">
           <Space>
-            <Search
-              placeholder={placeholder}
-              onSearch={onSearchClick}
-              style={{ width: 200 }}
-            />
+            <Button type="primary">新增</Button>
+            <Button danger type="primary">
+              删除
+            </Button>
+            <Select
+              placeholder="请选择"
+              style={{ width: 90 }}
+              // onChange={handClick}
+            >
+              <Option value={'import'}>导入</Option>
+              <Option value={'export'}>导出</Option>
+            </Select>
           </Space>
-        }
-        <TablePlusOperating option={rightOption}/>
-      </Space>
+        </div>
       {children}
     </div>
   );
