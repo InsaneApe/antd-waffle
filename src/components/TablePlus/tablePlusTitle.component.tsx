@@ -6,7 +6,6 @@ interface TablePlusTitleProps {
 }
 
 const TablePlusTitle = (props:TablePlusTitleProps) => {
-
   const { title } = props;
 
   return (
