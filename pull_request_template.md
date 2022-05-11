@@ -1,13 +1,13 @@
 ### 这次PR的修改变动是
-  1️⃣ - [ ] feature 新功能
-  2️⃣ - [ ] fix 修复bug
-  3️⃣ - [ ] build 编译修改
-  4️⃣ - [ ] chore 构建功能变动
-  5️⃣ - [ ] ci 集成修改
-  6️⃣ - [ ] docs 文档修改
-  7️⃣ - [ ] perf 优化相关
-  8️⃣ - [ ] refactor 重构
-  9️⃣ - [ ] test 增加测试
+- [ ] feature 新功能
+- [ ] fix 修复bug
+- [ ] build 编译修改
+- [ ] chore 构建功能变动
+- [ ] ci 集成修改
+- [ ] docs 文档修改
+- [ ] perf 优化相关
+- [ ] refactor 重构
+- [ ] test 增加测试
 
 
 ### 性质描述 
