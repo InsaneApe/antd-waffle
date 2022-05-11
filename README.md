@@ -1,4 +1,4 @@
-<h1 align="center">antd-private</h1>
+<h1 align="center">antd-waffle</h1>
 
 <div align="center">
 基于 ant-design 封装的偏业务组件集合
@@ -14,21 +14,21 @@
 
 兼容性
 
-`antd-private` 由于依赖了 React@16.8.0+ 提供的 Hooks 特性，因此只支持 React 16.8.0 及以上版本。
+`antd-waffle` 由于依赖了 React@16.8.0+ 提供的 Hooks 特性，因此只支持 React 16.8.0 及以上版本。
 
 ## 📦 安装
 
 ```
 // npm
-npm install antd-private --save
+npm install antd-waffle --save
 
 // yarn
-yarn add antd-private
+yarn add antd-waffle
 ```
 
 ## ⌨️ 本地开发
 
 ```
-...
+npx husky install
 
 ```
