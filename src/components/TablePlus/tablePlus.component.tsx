@@ -1,13 +1,13 @@
 import React, { useContext, ReactNode } from 'react';
 import { Table, TableProps } from 'antd';
 import TablePlusTitle from './tablePlusTitle.component';
-import TablePlusOperat from './tablePlusOperating/tablePlusOperat.component'
+import TablePlusOperate from './tablePlusOperate/tablePlusOperate.component'
 import classnames from 'classnames';
 import './tablePlus.component.less';
 import { ConfigContext, TablePlusOptionContext } from '@constants/config-provide';
 import { TablePlusOperatingOptions } from './type';
 
-export interface TablePlueProps<RecordType>
+export interface TablePlusProps<RecordType>
   extends Omit<TableProps<RecordType>, 'title'> {
   title?: ReactNode | string;
   className?: string;
@@ -48,12 +48,12 @@ const col = [
 ];
 
 function TablePlus<RecordType extends object = any>(
-  props: TablePlueProps<RecordType>
+  props: TablePlusProps<RecordType>
 ) {
   const { title, className, option } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('tablePlue-container-root');
+  const prefixCls = getPrefixCls('tablePlus-container-root');
 
 
   return (
@@ -65,7 +65,7 @@ function TablePlus<RecordType extends object = any>(
         <TablePlusTitle
           title={title}
         />
-        <TablePlusOperat
+        <TablePlusOperate
           onSearch={(val)=>{console.log(val)}}
         />
         <Table columns={col} dataSource={dataSource} />

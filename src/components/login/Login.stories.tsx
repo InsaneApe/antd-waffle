@@ -16,7 +16,7 @@ const onLogin = (values: any) => {
   if (values.errorFields && values.errorFields.length > 0) {
     return message.warn('登录失败');;
   }
-  setTimeout(() => {
+  return setTimeout(() => {
     message.success('登录成功');
   }, 3000);
 }

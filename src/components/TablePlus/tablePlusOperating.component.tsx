@@ -77,14 +77,14 @@ const TablePlusOperating: FC<ITablePlusOperating> = ({ option }) => {
   const renderExport = (params, index) => {
     const { label, type } = params;
 
-    console.log(label, type);
+    console.log(label, type, index);
 
   };
 
   const renderImport = (params, index) => {
     const { label, type } = params;
 
-    console.log(label, type);
+    console.log(label, type, index);
   };
 
   return (
