@@ -62,7 +62,6 @@ const LoginComponent = (props: LoginComponentProps) => {
           {statement}
         </div>
       </div>
-
     </div>
   );
 };

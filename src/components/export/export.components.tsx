@@ -21,7 +21,6 @@ export interface IExportComponentProps extends BaseButtonProps {
 const ExportComponent = (props: IExportComponentProps) => {
   const { className, data, label, headers, fileName, fileType, exportToXlsx, ...other } = props;
 
-
   const downloadType = () => {
     if (fileType === FileType.CSV) {
       return (

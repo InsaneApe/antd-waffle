@@ -1,11 +1,11 @@
 {
-  "name": "antd-private",
+  "name": "antd-waffle",
   "version": "1.2.0",
   "description": "",
   "main": "build/src/index.js",
   "module": "build/src/index.js",
   "types": "build/src/index.d.ts",
-  "homepage": "https://github.com/mutou101/antd-private",
+  "homepage": "https://github.com/FengBeans/antd-waffle",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server",
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mutou101/antd-private"
+    "url": "https://github.com/FengBeans/antd-waffle"
   },
   "dependencies": {
     "antd": "^4.20.1",
