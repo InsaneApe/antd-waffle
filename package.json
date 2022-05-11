@@ -7,10 +7,8 @@
   "types": "build/src/index.d.ts",
   "homepage": "https://github.com/FengBeans/antd-waffle",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server",
     "start": "start-storybook -p 6006",
-    "build:sb": "build-storybook",
+    "build": "build-storybook",
     "lint": "eslint --ext .ts --ext .tsx src/ --fix",
     "tsc": "tsc -w",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
