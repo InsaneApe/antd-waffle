@@ -1,31 +1,31 @@
 import React, { useContext, ReactNode } from 'react';
 import { Table, TableProps } from 'antd';
+import { TablePlusOperateOptions } from './type';
 import TablePlusTitle from './tablePlusTitle.component';
-import TablePlusOperatRoot from './tablePlusOperating/tablePlusOperatRoot.component';
+import TablePlusOperateRoot from './tablePlusOperate/tablePlusOperateRoot.component';
 import classnames from 'classnames';
 import './tablePlus.component.less';
 import {
   ConfigContext,
   TablePlusOptionContext,
 } from '@constants/config-provide';
-import { TablePlusOperatOptions } from './type';
 
-export interface TablePlueProps<RecordType>
+export interface TablePlusProps<RecordType>
   extends Omit<TableProps<RecordType>, 'title'|'size'> {
   title?: ReactNode | string;
   className?: string;
-  leftOption?: TablePlusOperatOptions[];
-  rightOption?: TablePlusOperatOptions[];
+  leftOption?: TablePlusOperateOptions[];
+  rightOption?: TablePlusOperateOptions[];
   size?: 'small' | 'middle' | 'large' | undefined;
   onSearch?: (value: string) => void;
 }
 
 function TablePlus<RecordType extends object = any>(
-  props: TablePlueProps<RecordType>
+  props: TablePlusProps<RecordType>
 ) {
   const { title, className, leftOption, rightOption, size, onSearch, ...other} = props;
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('tablePlue-container-root');
+  const prefixCls = getPrefixCls('tablePlus-container-root');
 
   const onSearchChanges = (val) => {
     onSearch && onSearch(val);
@@ -40,7 +40,7 @@ function TablePlus<RecordType extends object = any>(
     >
       <div className={classnames(prefixCls, className)}>
         <TablePlusTitle title={title} />
-        <TablePlusOperatRoot
+        <TablePlusOperateRoot
           onSearch={onSearchChanges}
           size={size}
         />

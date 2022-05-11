@@ -1,19 +1,19 @@
 import React from 'react';
 import classnames from 'classnames';
-import TablePlusOperatingLeft from './tablePlusOperatingLeft.component';
-import TablePlusOperatingRight from './tablePlusOperatingRight.component';
+import TablePlusOperatingLeft from './tablePlusOperateLeft.component';
+import TablePlusOperatingRight from './tablePlusOperateRight.component';
 
-interface TablePlueOperatProps {
+interface TablePlusOperateProps {
   searchPlaceholder?: string;
   onSearch?: (search: any) =>void;
   size?: "large" | "middle" | "small";
 }
 
-const TablePlusOperatRoot = (props: TablePlueOperatProps) => {
+const TablePlusOperateRoot = (props: TablePlusOperateProps) => {
   const { searchPlaceholder='请输入', onSearch, size } = props;
 
   return (
-    <div className={classnames('AntdPrivat-tablePlus-operat')}>
+    <div className={classnames('antd-waffle-tablePlus-operate')}>
       <TablePlusOperatingLeft
         onSearch={onSearch}
         searchPlaceholder={searchPlaceholder} 
@@ -28,4 +28,4 @@ const TablePlusOperatRoot = (props: TablePlueOperatProps) => {
 };
 
 
-export default TablePlusOperatRoot;
+export default TablePlusOperateRoot;

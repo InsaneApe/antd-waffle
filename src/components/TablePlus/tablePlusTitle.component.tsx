@@ -9,10 +9,10 @@ const TablePlusTitle = (props:TablePlusTitleProps) => {
   const { title } = props;
 
   return (
-    <div className="AntdPrivate-title">
+    <div className="antd-waffle-title">
       {
         isString(title)?
-        <div className="AntdPrivate-title-content">
+        <div className="antd-waffle-title-content">
           {title}
         </div>:
         <>{title}</>

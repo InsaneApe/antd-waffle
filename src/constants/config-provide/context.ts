@@ -7,7 +7,7 @@ export interface ConfigConsumerProps {
 export const ConfigContext = createContext<ConfigConsumerProps>({
   getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
     if (customizePrefixCls) return customizePrefixCls;
-    return suffixCls ? `AntdPrivate-${suffixCls}` : 'AntdPrivate';
+    return suffixCls ? `antd-waffle-${suffixCls}` : 'antd-waffle';
   },
 });
 

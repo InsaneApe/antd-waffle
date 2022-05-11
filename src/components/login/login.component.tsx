@@ -36,29 +36,29 @@ const LoginComponent = (props: LoginComponentProps) => {
   return (
     <div className={classnames(leftAndRightLoginPrefixCls)}>
       <div
-        className='AntdPrivate-left-container'
+        className='antd-waffle-left-container'
         style={{
           backgroundImage: `url(${backImageUrl})`,
           backgroundSize: "100% 100%",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <img className='AntdPrivate-left-slogan' src={slogan} />
+        <img className='antd-waffle-left-slogan' src={slogan} />
       </div>
-      <div className='AntdPrivate-right-container' style={{ background: `${background}` }}>
-        <div className='AntdPrivate-wrapper'>
+      <div className='antd-waffle-right-container' style={{ background: `${background}` }}>
+        <div className='antd-waffle-wrapper'>
           <div>
             <div style={{textAlign:'center'}}>
             {
-              logo && <img className='AntdPrivate-logo' src={logo} alt="logo" />
+              logo && <img className='antd-waffle-logo' src={logo} alt="logo" />
             }
             </div>
-            <div className='AntdPrivate-form-container'>
+            <div className='antd-waffle-form-container'>
               {children}
             </div>
           </div>
         </div>
-        <div className='AntdPrivate-statement'>
+        <div className='antd-waffle-statement'>
           {statement}
         </div>
       </div>
