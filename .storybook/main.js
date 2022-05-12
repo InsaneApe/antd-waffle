@@ -49,11 +49,17 @@ module.exports = {
       }
     });
 
+    config.module.rules.push({
+      test: /\.(woff(2)?|ttf|eot|svg|gif|png|jpg)(\?v=\d+\.\d+\.\d+)?$/,
+      type: 'asset/resource'
+    })
+
     config.resolve.extensions.push(".ts", ".tsx");
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@constants': path.resolve(__dirname, '../src/constants')
+      '@constants': path.resolve(__dirname, '../src/constants'),
+      "@components": path.resolve(__dirname, '../src/components')
     };
     return config;
   }

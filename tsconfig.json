@@ -40,7 +40,8 @@
     "outDir": "./build",
     "declarationDir": "./build",
     "paths": {
-      "@constants/*": [ "src/constants/*" ]
+      "@constants/*": [ "src/constants/*" ],
+      "@components/*": [ "src/components/*" ]
     },
   },
   "include": [
