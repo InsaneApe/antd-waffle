@@ -1,13 +1,15 @@
 import { LoginComponent } from './Login';
 import { WaterFall } from './WaterFall';
 import ExportComponent from './export/export.components';
-import VideoComponent from './video/video.components';
+import ChartsComponent from '@components/charts/charts.components';
+import VideoComponent from '@components/video/video.components';
 
 export {
   WaterFall,
   LoginComponent,
   ExportComponent,
   VideoComponent,
+  ChartsComponent
 };
 
 export default {
@@ -15,4 +17,5 @@ export default {
   LoginComponent,
   ExportComponent,
   VideoComponent,
+  ChartsComponent
 };
