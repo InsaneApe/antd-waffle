@@ -45,7 +45,8 @@
     },
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "ui/image/*.d.ts"
   ],
   "files": [
     "./index.d.ts"

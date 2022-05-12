@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from 'classnames';
+import Dome from '../../../ui/video/dome1.mp4';
 import './video.less';
 
 
@@ -18,7 +19,7 @@ const VideoComponent = (props: IVideoComponentProps) => {
       >
         <video
           controls
-          src={src}
+          src={Dome}
           className="video-content"
           autoPlay
         >
