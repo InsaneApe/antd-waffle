@@ -6,13 +6,14 @@ interface TablePlusTitleProps {
 }
 
 const TablePlusTitle = (props:TablePlusTitleProps) => {
+
   const { title } = props;
 
   return (
-    <div className="antd-waffle-title">
+    <div className="AntdPrivate-title">
       {
         isString(title)?
-        <div className="antd-waffle-title-content">
+        <div className="AntdPrivate-title-content">
           {title}
         </div>:
         <>{title}</>
@@ -22,5 +23,3 @@ const TablePlusTitle = (props:TablePlusTitleProps) => {
 };
 
 export default TablePlusTitle;
-
-
