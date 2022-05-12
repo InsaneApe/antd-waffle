@@ -6,21 +6,28 @@ import TablePlusOperatingRight from './tablePlusOperateRight.component';
 interface TablePlusOperateProps {
   searchPlaceholder?: string;
   onSearch?: (search: any) =>void;
-  size?: "large" | "middle" | "small";
+  size?: 'small' | 'middle' | 'large';
+  reverse:boolean;
+  rightOption?:any;
+  leftOption?:any;
+  onSelect?: (value: any) => void;
 }
 
 const TablePlusOperateRoot = (props: TablePlusOperateProps) => {
-  const { searchPlaceholder='请输入', onSearch, size } = props;
+  const { searchPlaceholder='请输入', onSearch, size,reverse,leftOption,rightOption,onSelect } = props;
 
   return (
-    <div className={classnames('antd-waffle-tablePlus-operate')}>
+    <div className={classnames('antd-waffle-tablePlus-operate',(reverse || (!leftOption))?'antd-waffle-tablePlus-operate-reverse':'')}>
       <TablePlusOperatingLeft
         onSearch={onSearch}
         searchPlaceholder={searchPlaceholder} 
         size={size}
+        option={leftOption}
       />
       <TablePlusOperatingRight
+        option={rightOption}
         onSearch={onSearch}
+        onSelect={onSelect}
         size={size}
       />
     </div>

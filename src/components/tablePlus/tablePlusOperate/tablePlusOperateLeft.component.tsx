@@ -1,35 +1,48 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Space, Input } from 'antd';
-import TablePlusOperate from '../tablePlusOperate.component'
+import TablePlusOperate from '../tablePlusOperate.component';
 import { TablePlusLeftOperateProps } from '../type';
-import { TablePlusOptionContext } from '@constants/config-provide';
 import classnames from 'classnames';
 
 const { Search } = Input;
 
 const TablePlusOperatingLeft = (props: TablePlusLeftOperateProps) => {
-  const { searchPlaceholder, onSearch, width, leftOperateClassName, size } = props;
-  const { leftOption } = useContext(TablePlusOptionContext);
+  const {
+    searchPlaceholder,
+    onSearch,
+    width = 150,
+    leftOperateClassName,
+    size,
+    option
+  } = props;
 
-  return (
-    <div className={classnames("antd-waffle-left", leftOperateClassName)}>
-      <Space>
-        {
-          onSearch && 
-          <Space>
-            <Search
-              placeholder={searchPlaceholder}
-              onSearch={onSearch}
-              style={{ width: width }}
-              size={size}
-            />
-          </Space>
-        }
-        <TablePlusOperate option={leftOption} />
-      </Space>
-    </div>
-  );
+  if (option || onSearch) {
+    return (
+      <div
+        className={classnames(
+          'antd-waffle-table-operate-left',
+          leftOperateClassName
+        )}
+      >
+        <Space>
+          {onSearch && (
+            <Space>
+              <Search
+                placeholder={searchPlaceholder}
+                onSearch={onSearch}
+                style={{ width: width }}
+                size={size}
+              />
+            </Space>
+          )}
+          {option && (
+            <TablePlusOperate styleSize={size} option={option} />
+          )}
+        </Space>
+      </div>
+    );
+  }
+  return null;
 };
-
 
 export default TablePlusOperatingLeft;

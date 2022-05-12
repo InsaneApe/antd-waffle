@@ -18,16 +18,17 @@ export interface TablePlusOperateOptions {
   onChange?:(value: any) => void;
   option?:TablePlusOperatingOptionChildren[];
   disabled?: boolean;
-  size?: "large" | "middle" | "small";
+  size?: 'small' | 'middle' | 'default';
 }
 
-export interface TablePlusOperateProps {
+export interface TablePlusRightOperateProps {
   searchPlaceholder?: string ;
   onSearch?: (search: any) =>void;
   children?: ReactNode;
   size?: "large" | "middle" | "small"
   option?: TablePlusOperateOptions[];
   placeholder?: string;
+  onSelect?: (value: any) => void;
 }
 
 
@@ -40,5 +41,6 @@ export interface TablePlusLeftOperateProps {
   width?: string | number;
   leftOperateClassName?: string;
   placeholder?: string;
+  position?:"left" | "right";
 }
 

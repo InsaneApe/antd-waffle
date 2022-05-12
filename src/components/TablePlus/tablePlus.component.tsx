@@ -18,12 +18,14 @@ export interface TablePlusProps<RecordType>
   rightOption?: TablePlusOperateOptions[];
   size?: 'small' | 'middle' | 'large' | undefined;
   onSearch?: (value: string) => void;
+  onSelect?: (value: any) => void;
+  reverse?:boolean;
 }
 
 function TablePlus<RecordType extends object = any>(
   props: TablePlusProps<RecordType>
 ) {
-  const { title, className, leftOption, rightOption, size, onSearch, ...other} = props;
+  const { title, className, leftOption, rightOption, size, onSearch,reverse=false,onSelect, ...other} = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('tablePlus-container-root');
 
@@ -42,7 +44,9 @@ function TablePlus<RecordType extends object = any>(
         <TablePlusTitle title={title} />
         <TablePlusOperateRoot
           onSearch={onSearchChanges}
+          onSelect={onSelect}
           size={size}
+          reverse={reverse}
         />
         <Table 
           {...other}
