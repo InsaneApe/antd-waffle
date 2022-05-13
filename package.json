@@ -6,6 +6,7 @@
   "module": "build/src/index.js",
   "types": "build/src/index.d.ts",
   "homepage": "https://github.com/FengBeans/antd-waffle",
+  "Keywords": ["antd","antd-waffle","react","less"],
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "build-storybook",

@@ -3,13 +3,15 @@ import { WaterFall } from './WaterFall';
 import ExportComponent from './export/export.components';
 import ChartsComponent from '@components/charts/charts.components';
 import VideoComponent from '@components/video/video.components';
+import TablePlus from '@components/tablePlus/tablePlus.component';
 
 export {
   WaterFall,
   LoginComponent,
   ExportComponent,
   VideoComponent,
-  ChartsComponent
+  ChartsComponent,
+  TablePlus
 };
 
 export default {
@@ -17,5 +19,6 @@ export default {
   LoginComponent,
   ExportComponent,
   VideoComponent,
-  ChartsComponent
+  ChartsComponent,
+  TablePlus
 };

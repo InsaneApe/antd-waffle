@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Button, Select } from 'antd';
+import { Space, Select } from 'antd';
 import TablePlusOperate from '../tablePlusOperate.component';
 import { TablePlusRightOperateProps } from '../type';
 
