@@ -14,5 +14,5 @@ const Template: ComponentStory<typeof VideoComponent> = (args) => <VideoComponen
 export const Primary = Template.bind({});
 
 Primary.args = {
-  src: 'http://localhost:6006/static/media/ui/video/dome1.mp4'
+  // src: 'http://localhost:6006/static/media/ui/video/dome1.mp4'
 };
