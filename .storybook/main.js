@@ -48,20 +48,6 @@ module.exports = {
         presets: [["react-app", { flow: false, typescript: true }]]
       }
     });
-    
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif|mp4)$/i,
-      use: [
-        {
-          loader: 'file-loader',
-        },
-      ],
-    })
-
-    config.module.rules.push({
-      test: /\.(woff(2)?|ttf|eot|svg|gif|png|jpg)(\?v=\d+\.\d+\.\d+)?$/,
-      type: 'asset/resource'
-    })
 
     config.resolve.extensions.push(".ts", ".tsx");
 
