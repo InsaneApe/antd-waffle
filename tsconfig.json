@@ -40,11 +40,13 @@
     "outDir": "./build",
     "declarationDir": "./build",
     "paths": {
-      "@constants/*": [ "src/constants/*" ]
+      "@constants/*": [ "src/constants/*" ],
+      "@components/*": [ "src/components/*" ]
     },
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "ui/image/*.d.ts"
   ],
   "files": [
     "./index.d.ts"

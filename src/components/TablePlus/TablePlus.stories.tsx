@@ -12,8 +12,11 @@ const Template: ComponentStory<typeof TablePlus> = (args) => (
 );
 
 export const TablePlusComponent = Template.bind({});
+export const TablePlusLeftComponent = Template.bind({});
+export const TablePlusRightComponent = Template.bind({});
 
 TablePlusComponent.args = {
+  size: 'small',
   title: '表格标题',
   dataSource: [
     {
@@ -142,3 +145,170 @@ TablePlusComponent.args = {
     },
   ],
 };
+
+TablePlusLeftComponent.args = {
+  title: '表格标题',
+  dataSource: [
+    {
+      key: '1',
+      name: '胡彦斌',
+      age: 32,
+      address: '西湖区湖底公园1号',
+    },
+    {
+      key: '2',
+      name: '胡彦祖',
+      age: 42,
+      address: '西湖区湖底公园1号',
+    },
+  ],
+  columns: [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ],
+  leftOption: [
+    {
+      label: '新增',
+      type: 'button',
+      onClick: () => {
+        console.log(1);
+      },
+      buttonType: {
+        type: 'primary'
+      },
+      disabled: false,
+      size: 'middle',
+    },
+    {
+      label: '新增',
+      type: 'input',
+      onChange: (value: any) => {
+        console.log(value);
+      },
+      disabled: false,
+    },
+    {
+      label: '新增',
+      type: 'select',
+      onChange: (value: any) => {
+        console.log(value);
+      },
+      option: [
+        {
+          label: 'abc',
+          value: 'abc',
+        },
+        {
+          label: 'abcd',
+          value: 'abcd',
+        },
+      ],
+    },
+    {
+      label: '导出',
+      type: 'export',
+    },
+    {
+      label: '导入',
+      type: 'import',
+    },
+  ],
+};
+
+TablePlusRightComponent.args = {
+  title: '表格标题',
+  dataSource: [
+    {
+      key: '1',
+      name: '胡彦斌',
+      age: 32,
+      address: '西湖区湖底公园1号',
+    },
+    {
+      key: '2',
+      name: '胡彦祖',
+      age: 42,
+      address: '西湖区湖底公园1号',
+    },
+  ],
+  columns: [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: (text) => <a>{text}</a>,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+  ],
+  // rightOption: [
+  //   {
+  //     label: '新增',
+  //     type: 'button',
+  //     onClick: () => {
+  //       console.log(1);
+  //     },
+  //     buttonType: {
+  //       type: 'primary'
+  //     },
+  //     disabled: false,
+  //     size: 'large',
+  //   },
+  //   {
+  //     label: '新增',
+  //     type: 'input',
+  //     onChange: (value: any) => {
+  //       console.log(value);
+  //     },
+  //     disabled: false,
+  //   },
+  //   {
+  //     label: '新增',
+  //     type: 'select',
+  //     onChange: (value: any) => {
+  //       console.log(value);
+  //     },
+  //     option: [
+  //       {
+  //         label: 'abc',
+  //         value: 'abc',
+  //       },
+  //       {
+  //         label: 'abcd',
+  //         value: 'abcd',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     label: '导出',
+  //     type: 'export',
+  //   },
+  //   {
+  //     label: '导入',
+  //     type: 'import',
+  //   },
+  // ],
+};
+

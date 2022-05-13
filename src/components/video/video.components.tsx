@@ -1,6 +1,7 @@
 import React, { useRef,useEffect, useState } from "react";
 import demo from '../../../ui/video/dome1.mp4'
 import classnames from 'classnames';
+import Dome from '../../../ui/video/dome1.mp4';
 import './video.less';
 import VideoControl from "./videoControl/videoControl.component";
 
