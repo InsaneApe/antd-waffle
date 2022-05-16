@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { ConfigContext } from '@constants/config-provide';
 import './login.less';
 
-export interface LoginComponentProps {
+export interface ILoginProps {
   className?: string;
   backImageUrl?: string;
   isLeftAndRight?: boolean;
@@ -14,7 +14,7 @@ export interface LoginComponentProps {
   statement?: React.ReactNode;
 }
 
-const LoginComponent = (props: LoginComponentProps) => {
+const Login = (props: ILoginProps) => {
   const { className, backImageUrl, children, isLeftAndRight, background, slogan, logo, statement } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const loginPrefixCls = getPrefixCls('login');
@@ -66,4 +66,4 @@ const LoginComponent = (props: LoginComponentProps) => {
   );
 };
 
-export default LoginComponent;
+export default Login;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TablePlus from './tablePlus.component';
+import { tableData } from '@constants/tableData';
 
 export default {
   title: 'UI components/TablePlus',
@@ -18,20 +19,7 @@ export const TablePlusRightComponent = Template.bind({});
 TablePlusComponent.args = {
   size: 'small',
   title: '表格标题',
-  dataSource: [
-    {
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号',
-    },
-    {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号',
-    },
-  ],
+  dataSource: tableData,
   columns: [
     {
       title: 'Name',
@@ -148,20 +136,7 @@ TablePlusComponent.args = {
 
 TablePlusLeftComponent.args = {
   title: '表格标题',
-  dataSource: [
-    {
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号',
-    },
-    {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号',
-    },
-  ],
+  dataSource: tableData,
   columns: [
     {
       title: 'Name',
@@ -231,24 +206,12 @@ TablePlusLeftComponent.args = {
 
 TablePlusRightComponent.args = {
   title: '表格标题',
-  dataSource: [
-    {
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号',
-    },
-    {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号',
-    },
-  ],
+  dataSource: tableData,
   columns: [
     {
       title: 'Name',
       dataIndex: 'name',
+      sorter: true,
       key: 'name',
       render: (text) => <a>{text}</a>,
     },
@@ -256,6 +219,7 @@ TablePlusRightComponent.args = {
       title: 'Age',
       dataIndex: 'age',
       key: 'age',
+      sorter: true,
     },
     {
       title: 'Address',
