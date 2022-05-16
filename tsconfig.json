@@ -41,7 +41,8 @@
     "declarationDir": "./build",
     "paths": {
       "@constants/*": [ "src/constants/*" ],
-      "@components/*": [ "src/components/*" ]
+      "@components/*": [ "src/components/*" ],
+      "@ui/image/*": ["ui/image/*"]
     },
   },
   "include": [
