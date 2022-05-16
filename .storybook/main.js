@@ -54,7 +54,8 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@constants': path.resolve(__dirname, '../src/constants'),
-      "@components": path.resolve(__dirname, '../src/components')
+      "@components": path.resolve(__dirname, '../src/components'),
+      "@ui/image": path.resolve(__dirname, '../ui/image'),
     };
     return config;
   }
