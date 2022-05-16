@@ -4,18 +4,21 @@ import { second } from "@constants/common";
 
 export interface IVideoProgressProps {
   progress: number;
+  currentTime: number;
 }
 
 const VideoProgress = (props: IVideoProgressProps) => {
-  const { progress } = props;
-  console.log(second(progress));
+  const { progress, currentTime } = props;
+  console.log(second(progress),currentTime);
   return (
     <div 
       className={classnames("antd-waffle-video-control-progress-wrapper")}
       
       >
           <span className="antd-waffle-video-playing-time">
-          00:10
+          {
+              second(currentTime)
+          }
           </span>
           <div className="antd-waffle-video-play-line">
             <div className="antd-waffle-video-play-button">
@@ -25,8 +28,6 @@ const VideoProgress = (props: IVideoProgressProps) => {
           <span className="antd-waffle-video-playing-time">
             {
               second(progress)
-              
-              //  Math.round(progress)
             }
           </span>
     </div>

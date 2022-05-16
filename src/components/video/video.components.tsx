@@ -1,71 +1,115 @@
-import React, { useRef, useState } from "react";
-import demo from '../../../ui/video/dome1.mp4'
+import React, { useRef, useEffect, useState, ReactNode } from 'react';
+import { Spin } from 'antd';
 import classnames from 'classnames';
+import { toCharts } from '../../constants/common';
 import './video.less';
-import VideoControl from "./videoControl/videoControl.component";
+import mp from '../../../ui/video/badapple.mp4';
+import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
+import VideoControl from './videoControl/videoControl.component';
 
-
-export interface IVideoComponentProps {
-  className?: string;
-  src?: string;
+export interface VideoProps {
+  source?: string | ReactNode;
+  paintedEggshell?: boolean;
 }
 
-const VideoComponent = (props: IVideoComponentProps) => {
-  const { className } = props;
+const VideoComponent = (props: VideoProps) => {
+  const { source, paintedEggshell = false } = props;
   const videoRef = useRef<any>(null);
-  const [hover, setHover] = useState<boolean>(false);
-  const [startPlay, setStartPlay] = useState<boolean>(true);
+  const cavRef = useRef<any>(null);
+  const [loadWaiting, setLoadingWaiting] = useState(true);
 
-  // useEffect(()=>{
-  //   console.log(videoRef?.current);
-  //   console.log(videoRef);
-  //   console.log(videoRef?.current?.duration);
-  // },[videoRef])
-  
-  const onMouseLeave = (_event) => {
-    setHover(false);
-  }
+  const [code, setCode] = useState('');
+  const playWidth = 500;
+  const playHeight = 300;
+  let timer: any = null;
 
-  const onMouseEnter = (_event) => {
-    setHover(true)
-  }
+  useEffect(() => {
+    videoRef.current.addEventListener('play', beginCapture);
+    videoRef.current.addEventListener('pause', endCapture);
+    videoRef.current.addEventListener('ended', endCapture);
+    videoRef.current.addEventListener('playing', () => {
+      endCapture();
+      beginCapture();
+    });
+  });
 
-  const onPlayAndPause = () => {
-
-    if(startPlay){
-      videoRef?.current.play();
-      setStartPlay(!startPlay);
-      return;
+  const captureImage = () => {
+    let ctx = null;
+    cavRef.current.width = videoRef.current.videoWidth;
+    cavRef.current.height = videoRef.current.videoHeight;
+    if (cavRef.current.width) {
+      ctx = cavRef.current.getContext('2d');
+      ctx.clearRect(
+        0,
+        0,
+        videoRef.current.videoWidth,
+        videoRef.current.videoHeight
+      );
+      ctx.drawImage(
+        videoRef.current,
+        0,
+        0,
+        videoRef.current.videoWidth,
+        videoRef.current.videoHeight
+      );
+      if (paintedEggshell) {
+        openPaintedEggShell(ctx);
+      }
     }
-    videoRef?.current.pause();
-    setStartPlay(!startPlay);
-    return;
-  }
+  };
 
+  const openPaintedEggShell = (ctx) => {
+    if (paintedEggshell) {
+      setCode(
+        toCharts({
+          context: ctx,
+          width: cavRef.current.width,
+          height: cavRef.current.height,
+          rowChars: 100,
+        })
+      );
+    }
+  };
+
+  const animate = () => {
+    captureImage();
+    timer = requestAnimationFrame(animate);
+  };
+
+  const beginCapture = function () {
+    animate();
+  };
+  const endCapture = function () {
+    cancelAnimationFrame(timer);
+  };
 
   return (
-    <React.Fragment>
-      <div
-        className={classnames('antd-waffle-video-root', className)}
-        onMouseEnter = {onMouseEnter}
-        onMouseLeave = {onMouseLeave}
-      >
-        <video
-          ref={videoRef}
-          controls={false}
-          src={demo}
-          className="antd-waffle-video-content"
-        >
-        </video>
+    <>
+      <video
+        ref={videoRef}
+        style={{ width: '200px', height: '200px' }}
+        src={mp}
+        controls
+      />
+      <div className={classnames('antd-waffle-video-container')}>
+        {
+          loadWaiting && 
+          <div className='antd-waffle-video-loading'>
+            <Spin/>
+          </div>
+        }
+        <canvas width={playWidth} height={playHeight} ref={cavRef} />
         <VideoControl
-          hovers={hover}
-          onPlayAndPause={onPlayAndPause}
-          startPlay={startPlay}
-          progress={videoRef?.current?.duration}
+          hovers={false}
+          startPlay={false}
+          onPlayAndPause={beginCapture}
+          progress={0}
+          currentTime={0}
         />
+        <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
       </div>
-    </React.Fragment>
+    </>
   );
-}
+};
 
 export default VideoComponent;
