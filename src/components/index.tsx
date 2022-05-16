@@ -1,24 +1,27 @@
-import { LoginComponent } from './Login';
+import { Login } from './Login';
 import { WaterFall } from './WaterFall';
-import ExportComponent from './export/export.components';
+import Export from './export/export.components';
 import ChartsComponent from '@components/charts/line/line.components';
 import VideoComponent from '@components/video/video.components';
 import TablePlus from '@components/tablePlus/tablePlus.component';
+import DropdownList from '@components/dropdownList/dropDownList.components';
 
 export {
   WaterFall,
-  LoginComponent,
-  ExportComponent,
+  Login,
+  Export,
   VideoComponent,
   ChartsComponent,
-  TablePlus
+  TablePlus,
+  DropdownList
 };
 
 export default {
   WaterFall,
-  LoginComponent,
-  ExportComponent,
+  Login,
+  Export,
   VideoComponent,
   ChartsComponent,
-  TablePlus
+  TablePlus,
+  DropdownList
 };

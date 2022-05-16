@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ExportComponent from './export.components';
+import Export from './export.components';
 import { FileType } from '@constants/common';
 import FileSaver from "file-saver";
 import * as XLSX from 'xlsx';
 
 export default {
   title: 'UI components/Export',
-  component: ExportComponent,
+  component: Export,
   argTypes: {},
-} as ComponentMeta<typeof ExportComponent>;
+} as ComponentMeta<typeof Export>;
 
-const Template: ComponentStory<typeof ExportComponent> = (args) => <ExportComponent {...args} />;
+const Template: ComponentStory<typeof Export> = (args) => <Export {...args} />;
 
 
 const headers = [

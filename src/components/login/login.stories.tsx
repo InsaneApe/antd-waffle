@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import LoginComponent from "./login.component"
+import Login from "./login.component"
 import { Form, Input, Checkbox, Button, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
 import demo3 from '@ui/image/demo3.jpg';
@@ -9,11 +9,11 @@ import whitetext from '@ui/image/whitetext.png'
 
 export default {
   title: 'UI components/Login',
-  component: LoginComponent,
+  component: Login,
   argTypes: {},
-} as ComponentMeta<typeof LoginComponent>;
+} as ComponentMeta<typeof Login>;
 
-const Template: ComponentStory<typeof LoginComponent> = (args) => <LoginComponent {...args} />;
+const Template: ComponentStory<typeof Login> = (args) => <Login {...args} />;
 
 const onLogin = (values: any) => {
   if (values.errorFields && values.errorFields.length > 0) {

@@ -8,7 +8,7 @@ import { FileType } from "@constants/common";
 import './export.less';
 
 
-export interface IExportComponentProps extends BaseButtonProps {
+export interface IExportProps extends BaseButtonProps {
   className?: string;
   label: string;
   data?: any[];
@@ -18,7 +18,7 @@ export interface IExportComponentProps extends BaseButtonProps {
   exportToXlsx?: () => void;
 }
 
-const ExportComponent = (props: IExportComponentProps) => {
+const Export = (props: IExportProps) => {
   const { className, data, label, headers, fileName, fileType, exportToXlsx, ...other } = props;
 
   const downloadType = () => {
@@ -37,7 +37,7 @@ const ExportComponent = (props: IExportComponentProps) => {
       <Button
         className={classnames('download-btn',className)}
         onClick={exportToXlsx}
-        icon={<DownloadOutlined />}
+        icon={<DownloadOutlined />}  
         {...other}
       >
         {downloadType()}
@@ -46,4 +46,4 @@ const ExportComponent = (props: IExportComponentProps) => {
   );
 }
 
-export default ExportComponent;
+export default Export;
