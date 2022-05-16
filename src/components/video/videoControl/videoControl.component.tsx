@@ -10,7 +10,7 @@ export interface IVideoComponentProps extends IVideoProgressProps {
 }
 
 const VideoControl = (props: IVideoComponentProps) => {
-  const { hovers, startPlay,onPlayAndPause,progress } = props;
+  const { hovers, startPlay,onPlayAndPause,progress,currentTime } = props;
 
   return (
     <div
@@ -21,6 +21,7 @@ const VideoControl = (props: IVideoComponentProps) => {
     >
       <VideoProgress 
         progress={progress}
+        currentTime={currentTime}
       />
       <VideoButtonGroup 
         startPlay={startPlay}
