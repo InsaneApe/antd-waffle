@@ -130,7 +130,7 @@ const VideoComponent = (props: VideoProps) => {
                   <PlayCircleOutlined 
                     onClick={handleClickStartPlay}
                     className='antd-waffle-'
-                    style={{color: 'white'}}
+                    style={{color: '#ccc'}}
                   />
                 :
                 null
