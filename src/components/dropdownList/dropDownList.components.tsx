@@ -1,58 +1,88 @@
 import React from "react";
 import classnames from 'classnames';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import { Avatar, List, Space } from "antd";
 import './dropdownList.less';
 
 export interface IDropdownListProps {
   className?: string
   data: any[];
-  footerChildren: React.ReactNode;
-  img: JSX.Element;
 }
 
 const DropdownList = (props: IDropdownListProps) => {
-  const { className, data, footerChildren, img, ...config } = props;
+  const { className, data } = props;
 
-  const IconText = ({ icon, text }) => (
-    <Space>
-      {React.createElement(icon)}
-      {text}
-    </Space>
-  );
+  const renderAction = (item: any) => {
+    return (
+      <div className="antd-waffle-dropdown-list-item-action">
+        <div className="antd-waffle-space">
+          <div className="ant-space-item">
+            <span className="action-star">
+              <StarOutlined />
+            </span>
+          </div>
+          <div className="ant-space-item">
+            {item.star}
+          </div>
+        </div>
+        <div className="antd-waffle-space">
+          <div className="ant-space-item">
+            <span className="action-star">
+              <LikeOutlined />
+            </span>
+          </div>
+          <div className="ant-space-item">
+            {item.like}
+          </div>
+        </div>
+        <div className="antd-waffle-space">
+          <div className="ant-space-item">
+            <span className="action-star">
+              <MessageOutlined />
+            </span>
+          </div>
+          <div className="ant-space-item">
+            {item.message}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={classnames('antd-waffle-dropdown-list-root', className)} >
-      <List
-        itemLayout="vertical"
-        size="large"
-        pagination={{
-          onChange: page => {
-            console.log(page);
-          },
-          pageSize: 3,
-        }}
-        dataSource={data}
-        footer={footerChildren}
-        renderItem={item => (
-          <List.Item
-            key={item.title}
-            actions={[
-              <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-              <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-              <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
-            ]}
-            extra={img}
-          >
-            <List.Item.Meta
-              avatar={<Avatar src={item.avatar} />}
-              title={<a href={item.href}>{item.title}</a>}
-              description={item.description}
-            />
-            {item.content}
-          </List.Item>
-        )}
-      />
+      <ul className="antd-waffle-dropdown-list-items">
+        {data.map(item => {
+          return (
+            <li className="antd-waffle-dropdown-list-item">
+              <div className="antd-waffle-dropdown-list-item-container">
+                <div className="antd-waffle-dropdown-list-left-container">
+                  <div className="antd-waffle-dropdown-list-meta">
+                    <div className="antd-waffle-dropdown-list-meta-avatar">
+                      <span className="antd-waffle-dropdown-list-meta-avatar-img">
+                        <img className="avatar-img" src={item.avatar} />
+                      </span>
+                    </div>
+                    <div className="antd-waffle-dropdown-list-meta-content">
+                      <h4 className="antd-waffle-dropdown-list-meta-title">
+                        <a href={item.href}>{item.title}</a>
+                      </h4>
+                      <div className="antd-waffle-dropdown-list-meta-description">
+                        {item.description}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="antd-waffle-dropdown-list-meta-other-description">
+                    {item.content}
+                  </div>
+                  {renderAction(item)}
+                </div>
+                <div className="antd-waffle-dropdown-list-right-container">
+                  
+                </div>
+              </div>
+            </li>);
+        })}
+      </ul>
     </div>
   );
 }
