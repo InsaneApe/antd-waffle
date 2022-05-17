@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 import classnames from 'classnames';
 import { toCharts } from '../../constants/common';
 import './video.less';
-import mp from '../../../ui/video/badapple.mp4';
+import mp from '../../../ui/video/dome1.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
 import { PlayCircleOutlined,PauseCircleOutlined } from '@ant-design/icons';
