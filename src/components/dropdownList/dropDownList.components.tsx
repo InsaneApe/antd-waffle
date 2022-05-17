@@ -1,17 +1,18 @@
 import React from "react";
 import classnames from 'classnames';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
+import { DropdownListModel } from "./type";
 import './dropdownList.less';
 
 export interface IDropdownListProps {
   className?: string
-  data: any[];
+  data: DropdownListModel[];
 }
 
 const DropdownList = (props: IDropdownListProps) => {
   const { className, data } = props;
 
-  const renderAction = (item: any) => {
+  const renderAction = (item: DropdownListModel) => {
     return (
       <div className="antd-waffle-dropdown-list-item-action">
         <div className="antd-waffle-space">
@@ -21,7 +22,7 @@ const DropdownList = (props: IDropdownListProps) => {
             </span>
           </div>
           <div className="ant-space-item">
-            {item.star}
+            {item.starCount}
           </div>
         </div>
         <div className="antd-waffle-space">
@@ -31,7 +32,7 @@ const DropdownList = (props: IDropdownListProps) => {
             </span>
           </div>
           <div className="ant-space-item">
-            {item.like}
+            {item.likeCount}
           </div>
         </div>
         <div className="antd-waffle-space">
@@ -41,7 +42,7 @@ const DropdownList = (props: IDropdownListProps) => {
             </span>
           </div>
           <div className="ant-space-item">
-            {item.message}
+            {item.messageCount}
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ const DropdownList = (props: IDropdownListProps) => {
   return (
     <div className={classnames('antd-waffle-dropdown-list-root', className)} >
       <ul className="antd-waffle-dropdown-list-items">
-        {data.map(item => {
+        {data.map((item: DropdownListModel) => {
           return (
             <li className="antd-waffle-dropdown-list-item">
               <div className="antd-waffle-dropdown-list-item-container">
