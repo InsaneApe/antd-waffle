@@ -9,7 +9,7 @@ export interface IVideoProgressProps {
 
 const VideoProgress = (props: IVideoProgressProps) => {
   const { progress, currentTime } = props;
-  console.log(second(progress),currentTime);
+  // console.log(second(progress),currentTime);
   return (
     <div 
       className={classnames("antd-waffle-video-control-progress-wrapper")}

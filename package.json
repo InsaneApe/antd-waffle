@@ -6,7 +6,12 @@
   "module": "build/src/index.js",
   "types": "build/src/index.d.ts",
   "homepage": "https://github.com/FengBeans/antd-waffle",
-  "Keywords": ["antd","antd-waffle","react","less"],
+  "Keywords": [
+    "antd",
+    "antd-waffle",
+    "react",
+    "less"
+  ],
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "build-storybook",
@@ -37,6 +42,7 @@
     "git-cz": "^4.8.0",
     "lodash": "^4.17.21",
     "macy": "^2.5.1",
+    "rc-animate": "^3.1.1",
     "react": "^17.0.2",
     "react-csv": "^2.2.2",
     "react-dom": "^17.0.2",

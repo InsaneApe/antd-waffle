@@ -6,7 +6,8 @@ import './video.less';
 import mp from '../../../ui/video/badapple.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
-
+import { PlayCircleOutlined,PauseCircleOutlined } from '@ant-design/icons';
+import Animate from 'rc-animate';
 export interface VideoProps {
   source?: string | ReactNode;
   paintedEggshell?: boolean;
@@ -16,14 +17,15 @@ const VideoComponent = (props: VideoProps) => {
   const { source, paintedEggshell = false } = props;
   const videoRef = useRef<any>(null);
   const cavRef = useRef<any>(null);
-  const [loadWaiting, setLoadingWaiting] = useState(true);
-
+  const [loadWaiting, setLoadingWaiting] = useState(false);
+  const [startPlay, setStartPlay] = useState(true);
   const [code, setCode] = useState('');
   const playWidth = 500;
   const playHeight = 300;
   let timer: any = null;
 
   useEffect(() => {
+    console.log(videoRef)
     videoRef.current.addEventListener('play', beginCapture);
     videoRef.current.addEventListener('pause', endCapture);
     videoRef.current.addEventListener('ended', endCapture);
@@ -31,6 +33,16 @@ const VideoComponent = (props: VideoProps) => {
       endCapture();
       beginCapture();
     });
+    videoRef.current.addEventListener('onwaiting', () => {
+      console.log('onwaiting');
+    })
+    videoRef.current.addEventListener('onseeking', () => {
+      console.log('onseeking');
+    })
+    videoRef.current.addEventListener('oncanplaythrough', () => {
+      setLoadingWaiting(false);
+      console.log('oncanplaythrough');
+    })
   });
 
   const captureImage = () => {
@@ -83,11 +95,21 @@ const VideoComponent = (props: VideoProps) => {
     cancelAnimationFrame(timer);
   };
 
+  const handleClickStartPlay = () => {
+    if(startPlay){
+      videoRef?.current.play();
+      setStartPlay(false);
+    }else {
+      setStartPlay(true);
+      videoRef?.current.pause();
+    }
+  }
+
   return (
     <>
       <video
+        // style={{display:'none'}}
         ref={videoRef}
-        style={{ width: '200px', height: '200px' }}
         src={mp}
         controls
       />
@@ -98,16 +120,38 @@ const VideoComponent = (props: VideoProps) => {
             <Spin/>
           </div>
         }
+
+          <div className='antd-waffle-playAndPause-icons'>
+            <Animate
+              transitionName="fade"
+            >
+              {
+                startPlay?
+                  <PlayCircleOutlined 
+                    onClick={handleClickStartPlay}
+                    className='antd-waffle-'
+                    style={{color: 'white'}}
+                  />
+                :
+                null
+              }
+            </Animate>    
+          </div>
+
         <canvas width={playWidth} height={playHeight} ref={cavRef} />
         <VideoControl
           hovers={false}
-          startPlay={false}
-          onPlayAndPause={beginCapture}
+          startPlay={startPlay}
+          onPlayAndPause={handleClickStartPlay}
           progress={0}
           currentTime={0}
         />
         <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
+        
       </div>
+      <button onClick={handleClickStartPlay}>
+          点击
+        </button>
     </>
   );
 };
