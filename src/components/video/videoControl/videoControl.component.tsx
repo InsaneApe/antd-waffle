@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import VideoProgress, { IVideoProgressProps } from './videoProgress.component';
-import VideoButtonGroup from './videoButtonGroup.component';
+import VideoControlBottom from './videoControlBottom.component';
 
 export interface IVideoComponentProps extends IVideoProgressProps {
   hovers: boolean;
@@ -23,7 +23,7 @@ const VideoControl = (props: IVideoComponentProps) => {
         progress={progress}
         currentTime={currentTime}
       />
-      <VideoButtonGroup 
+      <VideoControlBottom 
         startPlay={startPlay}
         onPlayAndPause={onPlayAndPause}
       />

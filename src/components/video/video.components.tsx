@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, ReactNode } from 'react';
+import React, { useRef, useEffect, useState, useMemo, ReactNode } from 'react';
 import { Spin } from 'antd';
 import classnames from 'classnames';
 import { toCharts } from '../../constants/common';
@@ -25,7 +25,6 @@ const VideoComponent = (props: VideoProps) => {
   let timer: any = null;
 
   useEffect(() => {
-    console.log(videoRef)
     videoRef.current.addEventListener('play', beginCapture);
     videoRef.current.addEventListener('pause', endCapture);
     videoRef.current.addEventListener('ended', endCapture);
@@ -44,6 +43,11 @@ const VideoComponent = (props: VideoProps) => {
       console.log('oncanplaythrough');
     })
   });
+
+  const currentTime = useMemo(() =>{
+    console.log(videoRef.current?.currentTime)
+    return videoRef.current?.currentTime;
+  },[videoRef.current?.currentTime])
 
   const captureImage = () => {
     let ctx = null;
@@ -129,7 +133,6 @@ const VideoComponent = (props: VideoProps) => {
                 startPlay?
                   <PlayCircleOutlined 
                     onClick={handleClickStartPlay}
-                    className='antd-waffle-'
                     style={{color: '#ccc'}}
                   />
                 :
@@ -144,12 +147,12 @@ const VideoComponent = (props: VideoProps) => {
           startPlay={startPlay}
           onPlayAndPause={handleClickStartPlay}
           progress={0}
-          currentTime={0}
+          currentTime={currentTime}
         />
         <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
         
       </div>
-      <button onClick={handleClickStartPlay}>
+      <button onClick={currentTime}>
           点击
         </button>
     </>
