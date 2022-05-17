@@ -30,7 +30,6 @@ export const second = (value) => {
     let result = "";
     // result = '' + parseInt(theTime) +'' + result + '' +  + result;
     result = (parseInt(hour)<9?`0${parseInt(hour)}`:parseInt(hour)) + ':' + (parseInt(middle)<9?`0${parseInt(middle)}`:parseInt(middle))  + ':' + (parseInt(theTime)<9?`0${parseInt(theTime)}`:parseInt(theTime))
-    console.log(result);
     return result;
   }; 
   return "00:00:00";
