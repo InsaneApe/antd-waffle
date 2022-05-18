@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/FengBeans/antd-waffle/compare/v1.1.0...v1.2.0) (2022-05-18)
+
+
+### Features
+
+* 播放按钮过场动画 ([2175491](https://github.com/FengBeans/antd-waffle/commit/2175491f921968f2b1c309a2c5b4471d9a9fe5ef))
+* 更新Dropdown list组件 ([f2fde68](https://github.com/FengBeans/antd-waffle/commit/f2fde6805f29dbc3fcf3954c2ea59dac3966bb97))
+* 更新echarts的库 ([f385ef0](https://github.com/FengBeans/antd-waffle/commit/f385ef060dc4313d73dd4bffaf56ac2e62bd7b98))
+* 删除多余图片 ([252d959](https://github.com/FengBeans/antd-waffle/commit/252d9591d788d37687cc68b5cd35600dccd7825d))
+* 删除了示例视频 ([c3fb13c](https://github.com/FengBeans/antd-waffle/commit/c3fb13c167209a365bfa1098898ff6d5e7c12200))
+* 添加柱状,饼状图表 ([a99ab5e](https://github.com/FengBeans/antd-waffle/commit/a99ab5ebb8a556e8442937ad0879cad7b6cd3861))
+* 添加Dropdown list组件 ([d76bea8](https://github.com/FengBeans/antd-waffle/commit/d76bea867bab5a8b5ac2eb51affc71eb2317738e))
+* 添加DropdownListModel ([8f62f98](https://github.com/FengBeans/antd-waffle/commit/8f62f98bdc1eb365d8511105f013dcf6ba158aa2))
+* 新增淡入淡出效果 ([0df695f](https://github.com/FengBeans/antd-waffle/commit/0df695f502a0094400d17754e35924cd5676e5fe))
+* 新增自动更新入口文件 ([dc269ab](https://github.com/FengBeans/antd-waffle/commit/dc269ab32873e493c9df629c92c3e5730435c8fb))
+* 修改变量命名 ([7ba5275](https://github.com/FengBeans/antd-waffle/commit/7ba5275608f6a885e5ebfc3cd93b6df2ac66d1ac))
+* add login.stories ([23c9f69](https://github.com/FengBeans/antd-waffle/commit/23c9f69a32ac03ae0915a8c5d54476a8ba44c6cd))
+* update drodown list ([49b3d91](https://github.com/FengBeans/antd-waffle/commit/49b3d911777a7bd40ced29aee79eae07f344cf20))
+* update dropdown list ([d1e422f](https://github.com/FengBeans/antd-waffle/commit/d1e422f39ff74ffee464687a59407ad27614e902))
+
+
+### Bug Fixes
+
+* 更新import地址 ([69ccb8c](https://github.com/FengBeans/antd-waffle/commit/69ccb8cf505601f5a6e1f8b4049994b51233f621))
+
 ## [1.1.0](https://github.com/FengBeans/antd-waffle/compare/v1.3.1...v1.1.0) (2022-05-16)
 
 
