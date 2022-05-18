@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import DropdownList from './dropDownList.components';
+import demo3 from '@ui/image/demo3.jpg';
 
 export default {
   title: 'UI components/Dropdown',
@@ -28,5 +29,6 @@ for (let i = 0; i < 23; i++) {
 }
 
 Default.args = {
- data: listData
+  data: listData,
+  messageImg: demo3
 }

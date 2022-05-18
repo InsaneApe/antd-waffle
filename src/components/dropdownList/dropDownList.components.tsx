@@ -2,16 +2,16 @@ import React from "react";
 import classnames from 'classnames';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import { DropdownListModel } from "./type";
-import demo3 from '@ui/image/demo3.jpg';
 import './dropdownList.less';
 
 export interface IDropdownListProps {
   className?: string
   data: DropdownListModel[];
+  messageImg?: string;
 }
 
 const DropdownList = (props: IDropdownListProps) => {
-  const { className, data } = props;
+  const { className, data, messageImg } = props;
 
   const renderAction = (item: DropdownListModel) => {
     return (
@@ -79,7 +79,7 @@ const DropdownList = (props: IDropdownListProps) => {
                   {renderAction(item)}
                 </div>
                 <div className="antd-waffle-dropdown-list-right-container">
-                  <img className='antd-waffle-img' src={demo3} />
+                  <img className='antd-waffle-img' src={messageImg} />
                 </div>
               </div>
             </li>);
