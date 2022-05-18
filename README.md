@@ -25,10 +25,3 @@ npm install antd-waffle --save
 // yarn
 yarn add antd-waffle
 ```
-
-## ⌨️ 本地开发
-
-```
-npx husky install
-
-```
