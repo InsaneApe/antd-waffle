@@ -22,4 +22,4 @@ const Chart = (props: IChartProps) => {
   )
 }
 
-export default Chart
+export default Chart;

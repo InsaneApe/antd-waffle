@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import VideoComponent from './video.components';
+import VideoComponent from './video.component';
 
 export default {
   title: 'UI components/Video',

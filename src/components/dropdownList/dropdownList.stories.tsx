@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import DropdownList from './dropDownList.components';
+import DropdownList from './dropDownList.component';
 import demo3 from '@ui/image/demo3.jpg';
 
 export default {
