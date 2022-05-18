@@ -1,5 +1,5 @@
 {
-  "name": "antd-waffle",
+  "name": "@fengbeans/antd-waffle",
   "version": "1.2.0",
   "description": "",
   "main": "build/src/index.js",
