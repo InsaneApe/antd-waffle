@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import WaterFall from './waterfall';
+import WaterFall from './waterfall.component';
 
 const dataImages = [
   "https://picsum.photos/640/200/?random",

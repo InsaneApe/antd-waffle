@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Chart from './charts.components';
+import Chart from './charts.component';
 
 export default {
   title: 'UI components/Charts',

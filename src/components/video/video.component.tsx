@@ -13,7 +13,7 @@ export interface VideoProps {
   paintedEggshell?: boolean;
 }
 
-const VideoComponent = (props: VideoProps) => {
+const Video = (props: VideoProps) => {
   const { source, paintedEggshell = false } = props;
   const videoRef = useRef<any>(null);
   const cavRef = useRef<any>(null);
@@ -159,4 +159,4 @@ const VideoComponent = (props: VideoProps) => {
   );
 };
 
-export default VideoComponent;
+export default Video;
