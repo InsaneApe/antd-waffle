@@ -7,10 +7,11 @@ import './dropdownList.less';
 export interface IDropdownListProps {
   className?: string
   data: DropdownListModel[];
+  messageImg?: string;
 }
 
 const DropdownList = (props: IDropdownListProps) => {
-  const { className, data } = props;
+  const { className, data, messageImg } = props;
 
   const renderAction = (item: DropdownListModel) => {
     return (
@@ -78,7 +79,7 @@ const DropdownList = (props: IDropdownListProps) => {
                   {renderAction(item)}
                 </div>
                 <div className="antd-waffle-dropdown-list-right-container">
-                  
+                  <img className='antd-waffle-img' src={messageImg} />
                 </div>
               </div>
             </li>);

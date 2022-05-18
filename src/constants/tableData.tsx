@@ -52,17 +52,5 @@ export const tableData = [
     name: '黄蓉',
     age: 24,
     address: '娄底市涟源市湄江镇031县道旁',
-  },
-  {
-    key: '10',
-    name: '桃木乃奈香',
-    age: 28,
-    address: '湖南省邵阳市大祥区蔡锷乡蔡锷村',
-  },
-  {
-    key: '11',
-    name: '小泽玛丽',
-    age: 32,
-    address: '邵阳市邵东市九龙岭镇界方村',
-  },
+  }
 ]
