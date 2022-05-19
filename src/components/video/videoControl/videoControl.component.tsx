@@ -1,16 +1,15 @@
 import React from 'react';
 import classnames from 'classnames';
 import VideoProgress, { IVideoProgressProps } from './videoProgress.component';
-import VideoControlBottom from './videoControlBottom.component';
+import VideoControlBottom, { IVideoButtonGroupProps } from './videoControlBottom.component';
 
-export interface IVideoComponentProps extends IVideoProgressProps {
+export interface IVideoComponentProps extends IVideoComponentChildProps {
   hovers: boolean;
-  startPlay: boolean;
-  onPlayAndPause:()=>void;
 }
+type IVideoComponentChildProps = IVideoProgressProps & IVideoButtonGroupProps
 
 const VideoControl = (props: IVideoComponentProps) => {
-  const { hovers, startPlay,onPlayAndPause,progress,currentTime } = props;
+  const { hovers, isStartPlay,onPlayAndPause,progress,currentTime,isFullscreen } = props;
 
   return (
     <div
@@ -24,7 +23,8 @@ const VideoControl = (props: IVideoComponentProps) => {
         currentTime={currentTime}
       />
       <VideoControlBottom 
-        startPlay={startPlay}
+        isFullscreen={isFullscreen}
+        isStartPlay={isStartPlay}
         onPlayAndPause={onPlayAndPause}
       />
     </div>

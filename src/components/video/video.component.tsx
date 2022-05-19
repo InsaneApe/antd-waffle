@@ -3,25 +3,41 @@ import { Spin } from 'antd';
 import classnames from 'classnames';
 import { toCharts } from '../../constants/common';
 import './video.less';
-import mp from '../../../ui/video/dome1.mp4';
+import mp from '../../../ui/video/badapple.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
-import { PlayCircleOutlined,PauseCircleOutlined } from '@ant-design/icons';
+import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import ResizeObserver from 'resize-observer-polyfill';
 import Animate from 'rc-animate';
 export interface VideoProps {
   source?: string | ReactNode;
   paintedEggshell?: boolean;
+  width?: number;
+  height?: number;
 }
 
 const Video = (props: VideoProps) => {
-  const { source, paintedEggshell = false } = props;
+  const { paintedEggshell = false, width = 900, height = 600 } = props;
   const videoRef = useRef<any>(null);
   const cavRef = useRef<any>(null);
+  const rootRef = useRef<any>(null);
   const [loadWaiting, setLoadingWaiting] = useState(false);
-  const [startPlay, setStartPlay] = useState(true);
+  const [isStartPlay, setIsStartPlay] = useState(true);
+  const handle = useFullScreenHandle();
   const [code, setCode] = useState('');
-  const playWidth = 500;
-  const playHeight = 300;
+  const initWidthAndHeight = {
+    width: width,
+    height: height
+  }
+  const [playWidthAndHeight, setPlayWidthAndHeight] = useState<any>({
+    ...initWidthAndHeight
+  });
+  const [rootWidthAndHeight, setRootWidthAndHeight] = useState<any>({
+    ...initWidthAndHeight
+  });
+
+  let isFullscreen = false;
   let timer: any = null;
 
   useEffect(() => {
@@ -34,40 +50,62 @@ const Video = (props: VideoProps) => {
     });
     videoRef.current.addEventListener('onwaiting', () => {
       console.log('onwaiting');
-    })
+    });
     videoRef.current.addEventListener('onseeking', () => {
       console.log('onseeking');
-    })
+    });
     videoRef.current.addEventListener('oncanplaythrough', () => {
       setLoadingWaiting(false);
       console.log('oncanplaythrough');
-    })
+    });
   });
 
-  const currentTime = useMemo(() =>{
-    console.log(videoRef.current?.currentTime)
+  const ResizeRootAttribute = () => {
+    const root = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { left, top } = entry.contentRect;
+        const rootWidth = entry.contentRect.width;
+        const rootHeight = entry.contentRect.height;
+        setRootWidthAndHeight({
+          width: rootWidth,
+          height: rootHeight
+        })
+        console.log('Element:', entry.target);
+        console.log(`Element's size: ${rootWidth}px x ${rootHeight}px`);
+        console.log(`Element's paddings: ${top}px ; ${left}px`);
+      }
+    });
+
+    root.observe(handle.node?.current);
+  }
+
+  useEffect(() => {
+    ResizeRootAttribute();
+
+    if (handle.active) {
+      const widthAndHeight = {
+        width:'100%',
+        height:'100vh'
+      }
+      setPlayWidthAndHeight({...widthAndHeight})
+    } else {
+      setPlayWidthAndHeight({...initWidthAndHeight})
+    }
+  }, [handle.active]);
+
+  const currentTime = useMemo(() => {
     return videoRef.current?.currentTime;
-  },[videoRef.current?.currentTime])
+  }, [videoRef.current?.currentTime]);
 
   const captureImage = () => {
     let ctx = null;
-    cavRef.current.width = videoRef.current.videoWidth;
-    cavRef.current.height = videoRef.current.videoHeight;
+    cavRef.current.width = playWidthAndHeight.width;
+    cavRef.current.height = playWidthAndHeight.height;
+
     if (cavRef.current.width) {
       ctx = cavRef.current.getContext('2d');
-      ctx.clearRect(
-        0,
-        0,
-        videoRef.current.videoWidth,
-        videoRef.current.videoHeight
-      );
-      ctx.drawImage(
-        videoRef.current,
-        0,
-        0,
-        videoRef.current.videoWidth,
-        videoRef.current.videoHeight
-      );
+      ctx.clearRect(0, 0, playWidthAndHeight.width, playWidthAndHeight.height);
+      ctx.drawImage(videoRef.current, 0, 0, playWidthAndHeight.width, playWidthAndHeight.height);
       if (paintedEggshell) {
         openPaintedEggShell(ctx);
       }
@@ -79,8 +117,8 @@ const Video = (props: VideoProps) => {
       setCode(
         toCharts({
           context: ctx,
-          width: cavRef.current.width,
-          height: cavRef.current.height,
+          width: playWidthAndHeight.width as number,
+          height: playWidthAndHeight.height as number,
           rowChars: 100,
         })
       );
@@ -100,61 +138,78 @@ const Video = (props: VideoProps) => {
   };
 
   const handleClickStartPlay = () => {
-    if(startPlay){
+    if (isStartPlay) {
       videoRef?.current.play();
-      setStartPlay(false);
-    }else {
-      setStartPlay(true);
+      setIsStartPlay(false);
+    } else {
+      setIsStartPlay(true);
       videoRef?.current.pause();
     }
-  }
+  };
 
-  return (
-    <>
+  const handleClickFullscreen = () => {
+    if (isFullscreen) {
+      handle.exit();
+    } else {
+      handle.enter();
+    }
+  };
+
+  const renderVideo = useMemo(() => {
+    return (
       <video
-        // style={{display:'none'}}
+        style={{ width: width, height: height }}
         ref={videoRef}
         src={mp}
         controls
       />
-      <div className={classnames('antd-waffle-video-container')}>
-        {
-          loadWaiting && 
-          <div className='antd-waffle-video-loading'>
-            <Spin/>
-          </div>
-        }
+    );
+  }, [videoRef, width, height]);
 
-          <div className='antd-waffle-playAndPause-icons'>
-            <Animate
-              transitionName="fade"
-            >
-              {
-                startPlay?
-                  <PlayCircleOutlined 
-                    onClick={handleClickStartPlay}
-                    style={{color: '#ccc'}}
-                  />
-                :
-                null
-              }
-            </Animate>    
-          </div>
+  return (
+    <>
+      {renderVideo}
 
-        <canvas width={playWidth} height={playHeight} ref={cavRef} />
-        <VideoControl
-          hovers={false}
-          startPlay={startPlay}
-          onPlayAndPause={handleClickStartPlay}
-          progress={0}
-          currentTime={currentTime}
-        />
-        <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
-        
-      </div>
-      <button onClick={currentTime}>
-          点击
-        </button>
+      <FullScreen handle={handle}>
+        <div
+          ref={rootRef}
+          className={classnames('antd-waffle-video-container')}
+          style={{ width: playWidthAndHeight.width, height: playWidthAndHeight.height }}
+        >
+          {loadWaiting && (
+            <div className="antd-waffle-video-loading">
+              <Spin />
+            </div>
+          )}
+
+          <div className="antd-waffle-playAndPause-icons">
+            <Animate transitionName="fade">
+              {isStartPlay ? (
+                <PlayCircleOutlined
+                  onClick={handleClickStartPlay}
+                  style={{ color: '#fff' }}
+                />
+              ) : null}
+            </Animate>
+          </div>
+          {console.log(rootWidthAndHeight.width)}
+          {console.log(rootWidthAndHeight.height)}
+          <canvas width={rootWidthAndHeight.width} height={rootWidthAndHeight.height} ref={cavRef} />
+          <VideoControl
+            hovers={false}
+            isFullscreen={handle.active}
+            isStartPlay={isStartPlay}
+            onPlayAndPause={handleClickStartPlay}
+            // onFullscreen={handleClickFullscreen}
+            progress={0}
+            currentTime={currentTime}
+          />
+          <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
+        </div>
+      </FullScreen>
+
+      <button onClick={currentTime}>点击</button>
+      <button onClick={handleClickFullscreen}>Enter fullscreen</button>
     </>
   );
 };
