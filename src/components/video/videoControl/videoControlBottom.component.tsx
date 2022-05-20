@@ -6,10 +6,15 @@ export interface IVideoButtonGroupProps {
   isStartPlay: boolean;
   isFullscreen: boolean;
   onPlayAndPause: () => void;
+  onFullscreen: () => void;
 }
 
 const VideoControlBottom = (props: IVideoButtonGroupProps) => {
-  const { isStartPlay, isFullscreen, onPlayAndPause } = props;
+  const { isStartPlay, isFullscreen, onPlayAndPause,onFullscreen } = props;
+
+  const handleClickFullscreen = () => {
+    onFullscreen && onFullscreen();
+  }
 
   return (
     <div className={'antd-waffle-video-button-group'}>
@@ -32,10 +37,10 @@ const VideoControlBottom = (props: IVideoButtonGroupProps) => {
       </Space>
       {/* <Input style={{ width: '400px' }} /> */}
       {
-        (isFullscreen)? 
-        <FullscreenOutlined className="play-icon" />:
+        (!isFullscreen)? 
+        <FullscreenOutlined onClick={handleClickFullscreen} className="play-icon" />:
          
-        <FullscreenExitOutlined className="play-icon" />
+        <FullscreenExitOutlined onClick={handleClickFullscreen} className="play-icon" />
       }
     
     </div>

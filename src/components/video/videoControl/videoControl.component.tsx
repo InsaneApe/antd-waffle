@@ -9,7 +9,7 @@ export interface IVideoComponentProps extends IVideoComponentChildProps {
 type IVideoComponentChildProps = IVideoProgressProps & IVideoButtonGroupProps
 
 const VideoControl = (props: IVideoComponentProps) => {
-  const { hovers, isStartPlay,onPlayAndPause,progress,currentTime,isFullscreen } = props;
+  const { hovers, isStartPlay,onPlayAndPause,progress,currentTime,isFullscreen,onFullscreen } = props;
 
   return (
     <div
@@ -26,6 +26,7 @@ const VideoControl = (props: IVideoComponentProps) => {
         isFullscreen={isFullscreen}
         isStartPlay={isStartPlay}
         onPlayAndPause={onPlayAndPause}
+        onFullscreen={onFullscreen}
       />
     </div>
   );

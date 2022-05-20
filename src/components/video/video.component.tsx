@@ -6,8 +6,8 @@ import './video.less';
 import mp from '../../../ui/video/badapple.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
-import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
-import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import { PlayCircleOutlined } from '@ant-design/icons';
+import { FullScreen, useFullScreenHandle } from '@components/fullScreen/fullScreen.component';
 import ResizeObserver from 'resize-observer-polyfill';
 import Animate from 'rc-animate';
 export interface VideoProps {
@@ -15,10 +15,11 @@ export interface VideoProps {
   paintedEggshell?: boolean;
   width?: number;
   height?: number;
+  className: string;
 }
 
 const Video = (props: VideoProps) => {
-  const { paintedEggshell = false, width = 900, height = 600 } = props;
+  const { paintedEggshell = false, width = 900, height = 600,className } = props;
   const videoRef = useRef<any>(null);
   const cavRef = useRef<any>(null);
   const rootRef = useRef<any>(null);
@@ -37,7 +38,6 @@ const Video = (props: VideoProps) => {
     ...initWidthAndHeight
   });
 
-  let isFullscreen = false;
   let timer: any = null;
 
   useEffect(() => {
@@ -63,16 +63,13 @@ const Video = (props: VideoProps) => {
   const ResizeRootAttribute = () => {
     const root = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        const { left, top } = entry.contentRect;
+        // const { left, top } = entry.contentRect;
         const rootWidth = entry.contentRect.width;
         const rootHeight = entry.contentRect.height;
         setRootWidthAndHeight({
           width: rootWidth,
           height: rootHeight
         })
-        console.log('Element:', entry.target);
-        console.log(`Element's size: ${rootWidth}px x ${rootHeight}px`);
-        console.log(`Element's paddings: ${top}px ; ${left}px`);
       }
     });
 
@@ -80,9 +77,8 @@ const Video = (props: VideoProps) => {
   }
 
   useEffect(() => {
-    ResizeRootAttribute();
-
     if (handle.active) {
+      ResizeRootAttribute();
       const widthAndHeight = {
         width:'100%',
         height:'100vh'
@@ -148,7 +144,7 @@ const Video = (props: VideoProps) => {
   };
 
   const handleClickFullscreen = () => {
-    if (isFullscreen) {
+    if (handle.active) {
       handle.exit();
     } else {
       handle.enter();
@@ -158,22 +154,21 @@ const Video = (props: VideoProps) => {
   const renderVideo = useMemo(() => {
     return (
       <video
-        style={{ width: width, height: height }}
+        style={{ width: rootWidthAndHeight.width, height: rootWidthAndHeight.height,display:'none' }}
         ref={videoRef}
         src={mp}
         controls
       />
     );
-  }, [videoRef, width, height]);
+  }, [videoRef,rootWidthAndHeight]);
 
   return (
     <>
       {renderVideo}
-
       <FullScreen handle={handle}>
         <div
           ref={rootRef}
-          className={classnames('antd-waffle-video-container')}
+          className={classnames('antd-waffle-video-container',className)}
           style={{ width: playWidthAndHeight.width, height: playWidthAndHeight.height }}
         >
           {loadWaiting && (
@@ -200,7 +195,7 @@ const Video = (props: VideoProps) => {
             isFullscreen={handle.active}
             isStartPlay={isStartPlay}
             onPlayAndPause={handleClickStartPlay}
-            // onFullscreen={handleClickFullscreen}
+            onFullscreen={handleClickFullscreen}
             progress={0}
             currentTime={currentTime}
           />
@@ -208,8 +203,8 @@ const Video = (props: VideoProps) => {
         </div>
       </FullScreen>
 
-      <button onClick={currentTime}>点击</button>
-      <button onClick={handleClickFullscreen}>Enter fullscreen</button>
+      {/* <button onClick={currentTime}>点击</button>
+      <button onClick={handleClickFullscreen}>Enter fullscreen</button> */}
     </>
   );
 };

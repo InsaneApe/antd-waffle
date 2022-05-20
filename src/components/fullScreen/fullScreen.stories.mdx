@@ -1,0 +1,75 @@
+import { Meta, Story, Props ,Preview, Canvas } from '@storybook/addon-docs/blocks';
+import {FullScreen, useFullScreenHandle} from './fullScreen.component';
+import FullScreenExample from './fullScreen.example';
+import {BUtton} from 'antd';
+
+<Meta  title='UI components/FullScreen 全屏组件'  component= {FullScreen} />
+
+<br/>
+
+# FullScreen 全屏组件
+
+<br/>
+
+export const Template = (args) => <FullScreenExample {...args} />;
+
+<Story 
+  name='Default'
+  args= {{
+    handle:useFullScreenHandle,
+    onChange:(state,handle) =>{
+      console.log(state,handle)
+    },
+    className:" "
+  }}
+>
+  <div style={{display:'flex'}}>
+      <div style={{width:'320px'}} >
+          <FullScreenExample/>
+      </div>
+  </div>
+</Story>
+
+
+
+``` tsx
+
+import React from 'react';
+import { FullScreen, useFullScreenHandle } from './fullScreen.component';
+import {Button} from 'antd';
+
+const FullScreenExample = () => {
+  const handle = useFullScreenHandle();
+  return (
+    <>
+      <Button 
+        onClick={()=>{
+          if(handle.active){
+            handle.exit();
+          }else{
+            handle.enter();
+          }
+
+        }}
+      >
+        放大
+      </Button>
+      <FullScreen handle={handle}>
+        <div style={{color:(handle.active)?'white':'black',fontSize:'48px'}}>
+          我是需要放大全屏的文字
+        </div>
+      </FullScreen>
+    </>
+  )
+}
+
+export default FullScreenExample;
+
+``` 
+
+|Name | Description| Type | Default | 
+| :----:| :----: | :----:| :----: |
+|handle | 绑定useFullScreenHandle可使用hooks | FullScreenHandle | useFullScreenHandle
+|onChange | 点击全屏发生事件 | (state:boolean, handle:FullScreenHandle) => void | ' ' |
+|className | 添加全屏类名| string | ' ' |
+
