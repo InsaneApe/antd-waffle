@@ -12,7 +12,6 @@ export interface IDropdownListProps {
 
 const DropdownList = (props: IDropdownListProps) => {
   const { className, data, messageImg } = props;
-
   const renderAction = (item: DropdownListModel) => {
     return (
       <div className="antd-waffle-dropdown-list-item-action">
@@ -82,7 +81,8 @@ const DropdownList = (props: IDropdownListProps) => {
                   <img className='antd-waffle-img' src={messageImg} />
                 </div>
               </div>
-            </li>);
+            </li>
+          );
         })}
       </ul>
     </div>

@@ -4,7 +4,7 @@ import DropdownList from './dropDownList.component';
 import demo3 from '@ui/image/demo3.jpg';
 
 export default {
-  title: 'UI components/Dropdown',
+  title: 'UI components/DropdownList',
   component: DropdownList,
   argTypes: {},
 } as ComponentMeta<typeof DropdownList>;
@@ -30,5 +30,5 @@ for (let i = 0; i < 23; i++) {
 
 Default.args = {
   data: listData,
-  messageImg: demo3
+  messageImg: demo3,
 }
