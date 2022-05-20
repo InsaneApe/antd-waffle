@@ -1,6 +1,6 @@
-import React, { useContext, ReactNode } from 'react';
-import { Table, TableProps } from 'antd';
-import { TablePlusOperateOptions } from './type';
+import React, { useContext } from 'react';
+import { Table } from 'antd';
+import { TablePlusProps } from './type';
 import TablePlusTitle from './tablePlusTitle.component';
 import TablePlusOperateRoot from './tablePlusOperate/tablePlusOperateRoot.component';
 import classnames from 'classnames';
@@ -10,29 +10,23 @@ import {
   TablePlusOptionContext,
 } from '@constants/config-provide';
 
-export interface TablePlusProps<RecordType>
-  extends Omit<TableProps<RecordType>, 'title'|'size'> {
-  title?: ReactNode | string;
-  className?: string;
-  leftOption?: TablePlusOperateOptions[];
-  rightOption?: TablePlusOperateOptions[];
-  size?: 'small' | 'middle' | 'large' | undefined;
-  onSearch?: (value: string) => void;
-  onSelect?: (value: any) => void;
-  reverse?:boolean;
-}
-
 function TablePlus<RecordType extends object = any>(
   props: TablePlusProps<RecordType>
 ) {
-  const { title, className, leftOption, rightOption, size, onSearch,reverse=false,onSelect, ...other} = props;
+  const {
+    title,
+    className,
+    leftOption,
+    rightOption,
+    size,
+    onSearch,
+    reverse = false,
+    onSelect,
+    ...other
+  } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('tablePlus-container-root');
 
-  const onSearchChanges = (val) => {
-    onSearch && onSearch(val);
-  }
-  
   return (
     <TablePlusOptionContext.Provider
       value={{
@@ -43,15 +37,14 @@ function TablePlus<RecordType extends object = any>(
       <div className={classnames(prefixCls, className)}>
         <TablePlusTitle title={title} />
         <TablePlusOperateRoot
-          onSearch={onSearchChanges}
+          onSearch={onSearch}
           onSelect={onSelect}
           size={size}
           reverse={reverse}
+          operateLeftOption={leftOption}
+          rightOption={rightOption}
         />
-        <Table 
-          {...other}
-          size={size} 
-          />
+        <Table {...other} size={size} />
       </div>
     </TablePlusOptionContext.Provider>
   );

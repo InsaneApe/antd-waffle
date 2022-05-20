@@ -16,9 +16,23 @@ export const TablePlusComponent = Template.bind({});
 export const TablePlusLeftComponent = Template.bind({});
 export const TablePlusRightComponent = Template.bind({});
 
+const rowSelection = {
+  onChange: (selectedRowKeys: React.Key[], selectedRows:any) => {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  },
+  getCheckboxProps: (record: any) => ({
+    disabled: record.name === 'Disabled User', // Column configuration not to be checked
+    name: record.name,
+  }),
+};
+
 TablePlusComponent.args = {
   size: 'small',
   title: '表格标题',
+  rowSelection:{
+    type: 'checkbox',
+    ...rowSelection,
+  },
   dataSource: tableData,
   columns: [
     {
@@ -41,19 +55,19 @@ TablePlusComponent.args = {
   rightOption: [
     {
       label: '新增',
-      type: 'button',
+      styleType: 'button',
       onClick: () => {
         console.log(1);
       },
       buttonType: {
-        type: 'primary'
+        styleType: 'primary'
       },
       disabled: false,
       size: 'large',
     },
     {
       label: '新增',
-      type: 'input',
+      styleType: 'input',
       onChange: (value: any) => {
         console.log(value);
       },
@@ -61,7 +75,7 @@ TablePlusComponent.args = {
     },
     {
       label: '新增',
-      type: 'select',
+      styleType: 'select',
       onChange: (value: any) => {
         console.log(value);
       },
@@ -78,58 +92,11 @@ TablePlusComponent.args = {
     },
     {
       label: '导出',
-      type: 'export',
+      styleType: 'export',
     },
     {
       label: '导入',
-      type: 'import',
-    },
-  ],
-  leftOption: [
-    {
-      label: '新增',
-      type: 'button',
-      onClick: () => {
-        console.log(1);
-      },
-      buttonType: {
-        type: 'primary'
-      },
-      disabled: false,
-      size: 'middle',
-    },
-    {
-      label: '新增',
-      type: 'input',
-      onChange: (value: any) => {
-        console.log(value);
-      },
-      disabled: false,
-    },
-    {
-      label: '新增',
-      type: 'select',
-      onChange: (value: any) => {
-        console.log(value);
-      },
-      option: [
-        {
-          label: 'abc',
-          value: 'abc',
-        },
-        {
-          label: 'abcd',
-          value: 'abcd',
-        },
-      ],
-    },
-    {
-      label: '导出',
-      type: 'export',
-    },
-    {
-      label: '导入',
-      type: 'import',
+      styleType: 'import',
     },
   ],
 };
@@ -158,19 +125,19 @@ TablePlusLeftComponent.args = {
   leftOption: [
     {
       label: '新增',
-      type: 'button',
+      styleType: 'button',
       onClick: () => {
         console.log(1);
       },
       buttonType: {
-        type: 'primary'
+        styleType: 'primary'
       },
       disabled: false,
       size: 'middle',
     },
     {
       label: '新增',
-      type: 'input',
+      styleType: 'input',
       onChange: (value: any) => {
         console.log(value);
       },
@@ -178,7 +145,7 @@ TablePlusLeftComponent.args = {
     },
     {
       label: '新增',
-      type: 'select',
+      styleType: 'select',
       onChange: (value: any) => {
         console.log(value);
       },
@@ -195,11 +162,11 @@ TablePlusLeftComponent.args = {
     },
     {
       label: '导出',
-      type: 'export',
+      styleType: 'export',
     },
     {
       label: '导入',
-      type: 'import',
+      styleType: 'import',
     },
   ],
 };

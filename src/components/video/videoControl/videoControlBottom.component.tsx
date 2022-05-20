@@ -1,7 +1,7 @@
 import React from 'react';
 import Icons from '../../icons/icons.component';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
-import { Input, Space } from 'antd';
+import { Space } from 'antd';
 export interface IVideoButtonGroupProps {
   isStartPlay: boolean;
   isFullscreen: boolean;
