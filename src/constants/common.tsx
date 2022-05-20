@@ -45,7 +45,6 @@ export const toCharts = (imageContext: toChartsProps) => {
     const  char_h = width / newRowChars,
     char_w = char_h,
     rows = height / char_h,
-    map = getCharsMap(),
     cols = newRowChars
 
     const getBlockGray = (x: number, y: number, w: number, h: number) => {

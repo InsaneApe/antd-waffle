@@ -2,19 +2,20 @@ import React from 'react';
 import { Space, Select } from 'antd';
 import TablePlusOperate from '../tablePlusOperate.component';
 import { TablePlusRightOperateProps } from '../type';
+import classnames from 'classnames';
 
 const { Option } = Select;
 
 const TablePlusOperatingRight = (props: TablePlusRightOperateProps) => {
 
-    const {option,onSelect} = props;
+    const {operateRightOption, onSelect,rightOperateClassName} = props;
 
     const handleSelect = (value: any) =>{
       onSelect && onSelect(value)
     };
 
     return (
-      <div className="antd-waffle-right">
+      <div className={classnames("antd-waffle-right",rightOperateClassName)}>
         <Space>
           <Select
             placeholder="请选择"
@@ -25,7 +26,7 @@ const TablePlusOperatingRight = (props: TablePlusRightOperateProps) => {
             <Option value={'export'}>导出</Option>
           </Select>
           {
-            option && <TablePlusOperate option={option} />
+            operateRightOption && <TablePlusOperate option={operateRightOption} />
           }   
         </Space>
       </div>
