@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import { DropdownListModel } from "./type";
 import './dropdownList.less';
+import { childrenKey } from "@constants/common";
 
 export interface IDropdownListProps {
   className?: string
@@ -54,7 +55,7 @@ const DropdownList = (props: IDropdownListProps) => {
       <ul className="antd-waffle-dropdown-list-items">
         {data.map((item: DropdownListModel) => {
           return (
-            <li className="antd-waffle-dropdown-list-item">
+            <li className="antd-waffle-dropdown-list-item" key={childrenKey()}>
               <div className="antd-waffle-dropdown-list-item-container">
                 <div className="antd-waffle-dropdown-list-left-container">
                   <div className="antd-waffle-dropdown-list-meta">

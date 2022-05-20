@@ -91,3 +91,7 @@ export const getCharsMap = ()=>{
   };  
   return map; 
 }
+
+export const childrenKey = () => {
+  return new Date().getTime() + Math.random();
+}
