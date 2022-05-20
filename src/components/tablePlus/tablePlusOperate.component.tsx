@@ -104,22 +104,22 @@ const TablePlusOperate: FC<ITablePlusOperating> = (props) => {
     <div className="antd-waffle-tablePlusOperate">
       <Space>
         {option.map((item, index) => {
-          if (item.type === 'button') {
+          if (item.styleType === 'button') {
             return renderButton(item, index);
           }
 
-          if (item.type === 'input') {
+          if (item.styleType === 'input') {
             return renderInput(item, index);
           }
 
-          if (item.type === 'select') {
+          if (item.styleType === 'select') {
             return renderSelect(item, index);
           }
 
-          if (item.type === 'export') {
+          if (item.styleType === 'export') {
             return renderExport(item, index);
           }
-          if (item.type === 'import') {
+          if (item.styleType === 'import') {
             return renderImport(item, index);
           }
         })}

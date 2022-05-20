@@ -6,17 +6,21 @@ import classnames from 'classnames';
 
 const { Search } = Input;
 
-const TablePlusOperatingLeft = (props: TablePlusLeftOperateProps) => {
+const TablePlusOperateLeft = (props: TablePlusLeftOperateProps) => {
   const {
     searchPlaceholder,
     onSearch,
-    width = 150,
+    searchWidth = 150,
     leftOperateClassName,
     size,
-    option
+    operateLeftOption
   } = props;
 
-  if (option || onSearch) {
+  const handleClickSearch = (val) => {
+    onSearch && onSearch(val)
+  }
+
+  if (operateLeftOption || onSearch) {
     return (
       <div
         className={classnames(
@@ -29,14 +33,14 @@ const TablePlusOperatingLeft = (props: TablePlusLeftOperateProps) => {
             <Space>
               <Search
                 placeholder={searchPlaceholder}
-                onSearch={onSearch}
-                style={{ width: width }}
+                onSearch={handleClickSearch}
+                style={{ width: searchWidth }}
                 size={size}
               />
             </Space>
           )}
-          {option && (
-            <TablePlusOperate styleSize={size} option={option} />
+          {operateLeftOption && (
+            <TablePlusOperate styleSize={size} option={operateLeftOption} />
           )}
         </Space>
       </div>
@@ -45,4 +49,4 @@ const TablePlusOperatingLeft = (props: TablePlusLeftOperateProps) => {
   return null;
 };
 
-export default TablePlusOperatingLeft;
+export default TablePlusOperateLeft;

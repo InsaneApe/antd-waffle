@@ -1,6 +1,6 @@
 
 import {ReactNode} from 'react';
-import {ButtonProps } from 'antd';
+import {ButtonProps,TableProps } from 'antd';
 
 
 interface TablePlusOperatingOptionChildren {
@@ -9,10 +9,33 @@ interface TablePlusOperatingOptionChildren {
 }
 
 type ButtonTypeProps = Pick<ButtonProps, 'type'>;
+
+export interface TablePlusProps<RecordType>
+  extends Omit<TableProps<RecordType>, 'title' | 'size'> {
+  title?: ReactNode | string;
+  className?: string;
+  leftOption?: TablePlusOperateOptions[];
+  rightOption?: TablePlusOperateOptions[];
+  size?: 'small' | 'middle' | 'large' | undefined;
+  onSearch?: (value: string) => void;
+  onSelect?: (value: any) => void;
+  reverse?: boolean;
+}
+export interface TablePlusOperateRootProps extends TablePlusOperateProps {
+  reverse:boolean;
+  rightOption?:any;
+  onSelect?: (value: any) => void;
+}
+
+export type TablePlusOperateProps = TablePlusRightOperateProps & TablePlusLeftOperateProps
  
+export interface TablePlusTitleProps {
+  title?: string | React.ReactNode
+}
+
 export interface TablePlusOperateOptions {
   label:string;
-  type:'button' | 'input' | 'select' | 'export' | 'import';
+  styleType:'button' | 'input' | 'select' | 'export' | 'import';
   buttonType?:ButtonTypeProps;
   onClick?: (value?:any) => void;
   onChange?:(value: any) => void;
@@ -22,25 +45,17 @@ export interface TablePlusOperateOptions {
 }
 
 export interface TablePlusRightOperateProps {
-  searchPlaceholder?: string ;
-  onSearch?: (search: any) =>void;
-  children?: ReactNode;
   size?: "large" | "middle" | "small"
-  option?: TablePlusOperateOptions[];
+  operateRightOption?: TablePlusOperateOptions[];
   placeholder?: string;
   onSelect?: (value: any) => void;
+  rightOperateClassName?:string;
 }
-
-
 export interface TablePlusLeftOperateProps {
   searchPlaceholder?: string ;
   onSearch?: (search: any) =>void;
-  children?: ReactNode;
   size?: "large" | "middle" | "small"
-  option?: TablePlusOperateOptions[];
-  width?: string | number;
+  operateLeftOption?: TablePlusOperateOptions[];
+  searchWidth?: string | number;
   leftOperateClassName?: string;
-  placeholder?: string;
-  position?:"left" | "right";
 }
-

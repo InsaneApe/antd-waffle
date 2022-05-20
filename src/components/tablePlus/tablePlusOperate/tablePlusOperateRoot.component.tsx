@@ -1,38 +1,46 @@
 import React from 'react';
 import classnames from 'classnames';
-import TablePlusOperatingLeft from './tablePlusOperateLeft.component';
+import TablePlusOperateLeft from './tablePlusOperateLeft.component';
 import TablePlusOperatingRight from './tablePlusOperateRight.component';
+import { TablePlusOperateRootProps } from '../type';
 
-interface TablePlusOperateProps {
-  searchPlaceholder?: string;
-  onSearch?: (search: any) =>void;
-  size?: 'small' | 'middle' | 'large';
-  reverse:boolean;
-  rightOption?:any;
-  leftOption?:any;
-  onSelect?: (value: any) => void;
-}
-
-const TablePlusOperateRoot = (props: TablePlusOperateProps) => {
-  const { searchPlaceholder='请输入', onSearch, size,reverse,leftOption,rightOption,onSelect } = props;
+const TablePlusOperateRoot = (props: TablePlusOperateRootProps) => {
+  const {
+    searchPlaceholder = '请输入',
+    onSearch,
+    size,
+    reverse,
+    operateLeftOption,
+    rightOption,
+    onSelect,
+    searchWidth,
+    leftOperateClassName,
+  } = props;
 
   return (
-    <div className={classnames('antd-waffle-tablePlus-operate',(reverse || (!leftOption))?'antd-waffle-tablePlus-operate-reverse':'')}>
-      <TablePlusOperatingLeft
+    <div
+      className={classnames(
+        'antd-waffle-tablePlus-operate',
+        reverse || !operateLeftOption
+          ? 'antd-waffle-tablePlus-operate-reverse'
+          : ''
+      )}
+    >
+      <TablePlusOperateLeft
+        searchPlaceholder={searchPlaceholder}
         onSearch={onSearch}
-        searchPlaceholder={searchPlaceholder} 
+        searchWidth={searchWidth}
+        leftOperateClassName={leftOperateClassName}
         size={size}
-        option={leftOption}
+        operateLeftOption={operateLeftOption}
       />
       <TablePlusOperatingRight
-        option={rightOption}
-        onSearch={onSearch}
+        operateRightOption={rightOption}
         onSelect={onSelect}
         size={size}
       />
     </div>
   );
 };
-
 
 export default TablePlusOperateRoot;
