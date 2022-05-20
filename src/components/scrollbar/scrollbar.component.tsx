@@ -24,7 +24,11 @@ const Scrollbar = (props: IScrollbarProps) => {
   };
   
   return (
-    <div ref={scrollRef} className={classnames("antd-waffle-scrollbar", className)} style={{ height: height }} onScroll={handelOnScroll}>
+    <div
+      ref={scrollRef}
+      className={classnames("antd-waffle-scrollbar", className)}
+      style={{ height: height }}
+      onScroll={() => { onScroll && handelOnScroll(); }}>
      {children}
     </div>
   );
