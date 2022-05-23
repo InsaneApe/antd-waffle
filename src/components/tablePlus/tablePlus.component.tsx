@@ -8,7 +8,7 @@ import './tablePlus.component.less';
 import {
   ConfigContext,
   TablePlusOptionContext,
-} from '@constants/config-provide';
+} from '../../constants/config-provide';
 
 function TablePlus<RecordType extends object = any>(
   props: TablePlusProps<RecordType>

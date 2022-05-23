@@ -1,6 +1,6 @@
 {
   "name": "@fengbeans/antd-waffle",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "",
   "main": "build/src/index.js",
   "module": "build/src/index.js",
@@ -56,7 +56,7 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
-    "@fengbeans/waffle-tool": "^1.0.2",
+    "@fengbeans/waffle-tool": "^1.0.3",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
     "@storybook/addon-interactions": "^6.4.22",

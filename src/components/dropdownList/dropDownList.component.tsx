@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import { DropdownListModel } from "./type";
 import './dropdownList.less';
-import { childrenKey } from "@constants/common";
+import { childrenKey } from "../../constants/common";
 
 export interface IDropdownListProps {
   className?: string

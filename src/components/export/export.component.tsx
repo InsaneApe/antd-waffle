@@ -4,7 +4,7 @@ import { CSVLink } from "react-csv";
 import { DownloadOutlined } from '@ant-design/icons';
 import { BaseButtonProps } from "antd/lib/button/button";
 import classnames from 'classnames';
-import { FileType } from "@constants/common";
+import { FileType } from "../../constants/common";
 import './export.less';
 
 
