@@ -13,10 +13,11 @@
     "less"
   ],
   "scripts": {
+    "build": "webpack",
     "start": "start-storybook -p 6006",
     "build:sb": "build-storybook",
     "lint": "eslint --ext .ts --ext .tsx src/ --fix",
-    "build": "waffle-tool && tsc",
+    "build-tsc": "waffle-tool && tsc",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
     "release": "standard-version"
   },
