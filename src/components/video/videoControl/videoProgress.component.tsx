@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from 'classnames';
-import { second } from "@constants/common";
+import { second } from "../../../constants/common";
 
 export interface IVideoProgressProps {
   progress: number;
