@@ -1,14 +1,13 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, ButtonProps } from "antd";
 import { CSVLink } from "react-csv";
 import { DownloadOutlined } from '@ant-design/icons';
-import { BaseButtonProps } from "antd/lib/button/button";
 import classnames from 'classnames';
 import { FileType } from "../../constants/common";
 import './export.less';
 
 
-export interface IExportProps extends BaseButtonProps {
+export interface IExportProps extends ButtonProps {
   className?: string;
   label: string;
   data?: any[];
