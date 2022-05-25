@@ -11,7 +11,7 @@ const paths = {
     esm: 'esm', // ES module 文件存放的目录名 - 暂时不关心
     dist: 'dist', // umd文件存放的目录名 - 暂时不关心
   },
-  styles: 'src/**/*.less', // 样式文件路径 - 暂时不关心
+  styles: 'src/**/*.less', 
   scripts: ['src/**/*.{ts,tsx}', '!src/**/*.stories.{ts,tsx}'], // 脚本文件路径
 };
 
@@ -87,7 +87,7 @@ function compileESM() {
  function less2css() {
   return gulp
     .src(paths.styles)
-    .pipe(less()) // 处理less文件
+    .pipe(less({javascriptEnabled: true})) // 处理less文件
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
     .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
     .pipe(gulp.dest(paths.dest.lib))
