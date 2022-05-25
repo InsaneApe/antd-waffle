@@ -8,7 +8,7 @@ export interface IChartProps {
   height?: string;
 }
 
-const Chart = (props: IChartProps) => {
+const Charts = (props: IChartProps) => {
   const { options, className, width, height } = props;
   const chartRef = useRef(null);
   UseChart(chartRef, options);
@@ -22,4 +22,4 @@ const Chart = (props: IChartProps) => {
   )
 }
 
-export default Chart;
+export default Charts;

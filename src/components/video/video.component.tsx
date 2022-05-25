@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 import classnames from 'classnames';
 import { toCharts } from '../../constants/common';
 import './video.less';
-import mp from '../../../ui/video/badapple.mp4';
+// import mp from '../../../ui/video/badapple.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
 import { PlayCircleOutlined } from '@ant-design/icons';
@@ -156,7 +156,7 @@ const Video = (props: VideoProps) => {
       <video
         style={{ width: rootWidthAndHeight.width, height: rootWidthAndHeight.height,display:'none' }}
         ref={videoRef}
-        src={mp}
+        src={'./'}
         controls
       />
     );
