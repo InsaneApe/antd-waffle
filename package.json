@@ -5,9 +5,19 @@
   "main": "lib/index.js",
   "module": "esm/index.js",
   "typings": "lib/index.d.ts",
-  "sideEffects": ["dist/*", "esm/**/style/*", "lib/**/style/*", "*.less"],
+  "sideEffects": [
+    "dist/*",
+    "esm/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
   "homepage": "https://github.com/FengBeans/antd-waffle",
-  "Keywords": ["antd", "antd-waffle", "react", "less"],
+  "Keywords": [
+    "antd",
+    "antd-waffle",
+    "react",
+    "less"
+  ],
   "scripts": {
     "start": "start-storybook -p 6006",
     "build:sb": "build-storybook",
@@ -28,7 +38,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/FengBeans/antd-waffle"
