@@ -8,45 +8,15 @@ import React from 'react';
 import ReactIs from 'react-is';
 import ReactDOM from 'react-dom';
 import ts from 'typescript';
+import { externalArr, globals, processLess } from './rollup.global.options';
 const { babel } = require('@rollup/plugin-babel');
-const less = require('less');
-
-const processLess = function (context, payload) {
-  return new Promise((resolve, reject) => {
-    less.render(
-      {
-        file: context,
-      },
-      function (err, result) {
-        if (!err) {
-          resolve(result);
-        } else {
-          reject(err);
-        }
-      }
-    );
-    less.render(context, {}).then(
-      function (output) {
-        if (output && output.css) {
-          resolve(output.css);
-        } else {
-          reject({});
-        }
-      },
-      function (err) {
-        reject(err);
-      }
-    );
-  });
-};
-
-const externalArr = ['react', 'react-dom', 'react-is','lodash','antd','react-csv','@ant-design/icons']
 
 export default [
   {
     input: ['src/**/*.ts', 'src/**/*.tsx'],
     output: [
-      { dir: './build/es', format: 'es',export: 'auto' },
+      { dir: './esm', format: 'es', export: 'auto' },
+      { dir: './lib', format: 'cjs', export: 'auto' },
     ],
     plugins: [
       resolve(),
@@ -62,9 +32,9 @@ export default [
         external: ['less', 'css'],
         namedExports: {
           'react-is': Object.keys(ReactIs),
-          'react': Object.keys(React),
+          react: Object.keys(React),
           'react-dom': Object.keys(ReactDOM),
-        }
+        },
       }),
       json(),
       postcss({
@@ -77,9 +47,11 @@ export default [
         plugins: [['import', { libraryName: 'antd', style: true }]],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
         exclude: /\**node_modules\**/,
+        babelHelpers: 'runtime',
       }),
       multiInput(),
     ],
     external: externalArr,
+    globals: globals,
   },
 ];
