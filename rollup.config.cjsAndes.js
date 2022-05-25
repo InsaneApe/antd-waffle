@@ -8,7 +8,7 @@ import React from 'react';
 import ReactIs from 'react-is';
 import ReactDOM from 'react-dom';
 import ts from 'typescript';
-import { externalArr, globals, processLess } from './rollup.global';
+import { externalArr, globals, processLess } from './rollup.global.options';
 const { babel } = require('@rollup/plugin-babel');
 
 export default [
