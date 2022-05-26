@@ -5,7 +5,7 @@ import { Form, Input, Checkbox, Button, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
 import demo3 from '@ui/image/demo3.jpg';
 import logo from '@ui/image/shewai_logo.jpg';
-import whitetext from '@ui/image/whitetext.png'
+import whitetext from '@ui/image/whitetext.png';
 
 export default {
   title: 'UI components/Login',

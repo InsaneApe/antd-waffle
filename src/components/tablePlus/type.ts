@@ -20,6 +20,7 @@ export interface TablePlusProps<RecordType>
   onSearch?: (value: string) => void;
   onSelect?: (value: any) => void;
   reverse?: boolean;
+  prefixClsTablePlus?: string;
 }
 export interface TablePlusOperateRootProps extends TablePlusOperateProps {
   reverse:boolean;
@@ -58,4 +59,5 @@ export interface TablePlusLeftOperateProps {
   operateLeftOption?: TablePlusOperateOptions[];
   searchWidth?: string | number;
   leftOperateClassName?: string;
+  
 }

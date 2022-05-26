@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState, useMemo, ReactNode } from 'react';
 import { Spin } from 'antd';
 import classnames from 'classnames';
 import { toCharts } from '../../constants/common';
-import './video.less';
+import './style/index.less';
 // import mp from '../../../ui/video/badapple.mp4';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
@@ -16,10 +16,13 @@ export interface VideoProps {
   width?: number;
   height?: number;
   className: string;
+  prefixClsVideo?:string;
 }
 
+const prefixCls = 'antd-waffle';
+
 const Video = (props: VideoProps) => {
-  const { paintedEggshell = false, width = 900, height = 600,className } = props;
+  const { paintedEggshell = false, width = 900, height = 600, className, prefixClsVideo } = props;
   const videoRef = useRef<any>(null);
   const cavRef = useRef<any>(null);
   const rootRef = useRef<any>(null);
@@ -168,16 +171,16 @@ const Video = (props: VideoProps) => {
       <FullScreen handle={handle}>
         <div
           ref={rootRef}
-          className={classnames('antd-waffle-video-container',className)}
+          className={classnames(`${prefixClsVideo}-container`,className)}
           style={{ width: playWidthAndHeight.width, height: playWidthAndHeight.height }}
         >
           {loadWaiting && (
-            <div className="antd-waffle-video-loading">
+            <div className={`${prefixClsVideo}-loading`}>
               <Spin />
             </div>
           )}
 
-          <div className="antd-waffle-playAndPause-icons">
+          <div className={`${prefixClsVideo}-playAndPause-icons`}>
             <Animate transitionName="fade">
               {isStartPlay ? (
                 <PlayCircleOutlined
@@ -208,5 +211,9 @@ const Video = (props: VideoProps) => {
     </>
   );
 };
+
+Video.defaultProps = {
+  prefixClsVideo: `${prefixCls}-video`,
+}
 
 export default Video;

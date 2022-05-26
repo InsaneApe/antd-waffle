@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext, FC } from 'react';
 import Macy from 'macy';
 import { WaterFallProps } from './type';
-import { ConfigContext } from '@constants/config-provide';
+import { ConfigContext } from '../../constants/config-provide';
 import classnames from 'classnames';
-import './waterfall.less';
+import './style/index.less';
 
 const WaterFall:FC<WaterFallProps> = (props) => {
   const {
