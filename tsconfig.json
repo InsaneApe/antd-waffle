@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "./",
     "declaration": true,
     "module": "esnext",
     "target": "es5",
@@ -31,6 +31,11 @@
     "baseUrl": ".",
     "outDir": "./lib",
     "declarationDir": "./lib",
+    "paths": {
+      "@constants/*": [ "src/constants/*" ],
+      "@components/*": [ "src/components/*" ],
+      "@ui/image/*": ["src/ui/image/*"]
+    },
   },
   "include": ["src/**/*", "ui/image/*.d.ts"],
   "files": ["./index.d.ts"],

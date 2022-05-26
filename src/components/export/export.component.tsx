@@ -8,6 +8,7 @@ import './export.less';
 
 
 export interface IExportProps extends ButtonProps {
+  PrefixCls:string;
   className?: string;
   label: string;
   data?: any[];
@@ -17,8 +18,10 @@ export interface IExportProps extends ButtonProps {
   exportToXlsx?: () => void;
 }
 
+const PrefixCls = `antd-waffle`;
+
 const Export = (props: IExportProps) => {
-  const { className, data, label, headers, fileName, fileType, exportToXlsx, ...other } = props;
+  const {PrefixCls, className, data, label, headers, fileName, fileType, exportToXlsx, ...other } = props;
 
   const downloadType = () => {
     if (fileType === FileType.CSV) {
@@ -34,7 +37,7 @@ const Export = (props: IExportProps) => {
   return (
     <React.Fragment>
       <Button
-        className={classnames('download-btn',className)}
+        className={classnames('download-btn',className,PrefixCls)}
         onClick={exportToXlsx}
         icon={<DownloadOutlined />}  
         {...other}
@@ -43,6 +46,10 @@ const Export = (props: IExportProps) => {
       </Button>
     </React.Fragment>
   );
+}
+
+Export.defaultProps = {
+  PrefixCls:`${PrefixCls}-export`
 }
 
 export default Export;
