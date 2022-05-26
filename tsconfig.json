@@ -31,11 +31,6 @@
     "baseUrl": ".",
     "outDir": "./lib",
     "declarationDir": "./lib",
-    "paths": {
-      "@constants/*": ["src/constants/*"],
-      "@components/*": ["src/components/*"],
-      "@ui/image/*": ["ui/image/*"]
-    }
   },
   "include": ["src/**/*", "ui/image/*.d.ts"],
   "files": ["./index.d.ts"],

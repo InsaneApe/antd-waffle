@@ -1,4 +1,4 @@
-import { toChartsProps } from "@components/video/type";
+import { toChartsProps } from "../components/video/type";
 import { isNumber, isString } from "lodash";
 
 export const FileType = {
