@@ -9,4 +9,4 @@ export { default as Palette } from './components/palette/palette.component';
 export { default as Scrollbar } from './components/scrollbar/scrollbar.component';
 export { default as TablePlus } from './components/tablePlus/tablePlus.component';
 export { default as Video } from './components/video/video.component';
-export { default as Waterfall } from './components/waterfall/waterfall.component';
+export { default as WaterFall } from './components/waterFall/waterFall.component';

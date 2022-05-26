@@ -13,7 +13,7 @@ const TablePlusOperateLeft = (props: TablePlusLeftOperateProps) => {
     searchWidth = 150,
     leftOperateClassName,
     size,
-    operateLeftOption
+    operateLeftOption,
   } = props;
 
   const handleClickSearch = (val) => {

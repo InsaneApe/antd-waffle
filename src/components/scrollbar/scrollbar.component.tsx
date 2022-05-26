@@ -1,17 +1,19 @@
 import React, {  useRef } from 'react';
 import classnames from 'classnames';
-import './scrollbar.less';
+import './style/index.less';
 
 export interface IScrollbarProps {
   children?: React.ReactNode;
   height?: string;
   className?: string;
   onScroll?: () => void;
+  prefixClsScrollbar?: string;
 }
 
+const prefixCls = 'antd-waffle';
 
 const Scrollbar = (props: IScrollbarProps) => {
-  const { children, height, className, onScroll } = props;
+  const { children, height, className, onScroll, prefixClsScrollbar } = props;
   const scrollRef = useRef(null);
 
   const handelOnScroll = () => {
@@ -26,12 +28,17 @@ const Scrollbar = (props: IScrollbarProps) => {
   return (
     <div
       ref={scrollRef}
-      className={classnames("antd-waffle-scrollbar", className)}
+      className={classnames(prefixClsScrollbar, className)}
       style={{ height: height }}
       onScroll={() => { onScroll && handelOnScroll(); }}>
      {children}
     </div>
   );
 };
+
+Scrollbar.defaultProps = {
+  prefixClsScrollbar: `${prefixCls}-scrollbar`,
+}
+
 
 export default Scrollbar;

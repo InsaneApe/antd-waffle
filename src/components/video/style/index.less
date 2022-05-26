@@ -1,0 +1,142 @@
+@import '../../../theme/index.less';
+
+.antd-waffle-video-container {
+  height: 400px;
+  width: 600px;
+  position: relative;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .antd-waffle-video-loading{
+    position: absolute;
+    
+  }
+
+  .antd-waffle-video-playAndPause-icons{
+    font-size:48px;
+    cursor: pointer;
+    position: absolute;
+  }
+  .antd-waffle-video-control{
+    position: absolute;
+    // bottom: -60px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(rgba(204, 204, 204,0.5),rgba(0,0,0,0.5));
+    transition: all .75s;
+    opacity: 1;
+    z-index: 133;
+    padding: 0 12px 6px 12px;
+    box-sizing: border-box;
+    .antd-waffle-video-control-progress-wrapper{
+      display: flex;
+      color:white;
+      font-size: 12px;
+      height: 30px;
+      line-height: 30px;
+      justify-content: center;
+      align-items: center;
+      .antd-waffle-video-play-line{
+        width:calc(100% - 84px);
+        background-color:rgba(205, 205, 205, .5);
+        border-radius: 2px;
+        height: 2px;
+        position: relative;
+        cursor: pointer;
+        .antd-waffle-video-play-button{
+          width: 18px;
+          height: 18px;
+          background-color: white;
+          position: absolute;
+          left: -9px;
+          bottom: -8px;
+          border-radius: 50%;
+        }
+      }
+      .antd-waffle-video-playing-time{
+        min-width: 30px;
+        &:nth-child(1) {
+          padding-right:18px;
+        }
+        &:nth-child(3) {
+          padding-left:18px;
+        }
+      }
+    }
+    .antd-waffle-video-button-group{
+      .play-icon{
+        font-size: 24px;
+        color:white;
+        cursor: pointer;
+      }
+    }
+  }
+  .antd-waffle-video-control-hover{
+    // bottom: 0px;
+    // opacity: 1;
+  }
+  .antd-waffle-video-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//css 动画
+.fade-enter {
+  opacity: 0;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused;
+}
+
+.fade-appear {
+  opacity: 0;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused;
+}
+
+.fade-leave {
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-play-state: paused;
+}
+
+.fade-enter.fade-enter-active {
+  animation-name: fadeIn;
+  animation-play-state: running;
+}
+
+.fade-appear.fade-appear-active {
+  animation-name: fadeIn;
+  animation-play-state: running;
+}
+
+.fade-leave.fade-leave-active {
+  animation-name: fadeOut;
+  animation-play-state: running;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+

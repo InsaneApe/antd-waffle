@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Table } from 'antd';
 import { TablePlusProps } from './type';
 import TablePlusTitle from './tablePlusTitle.component';
 import TablePlusOperateRoot from './tablePlusOperate/tablePlusOperateRoot.component';
 import classnames from 'classnames';
-import './tablePlus.component.less';
+import './style/index.less';
 import {
-  ConfigContext,
   TablePlusOptionContext,
 } from '../../constants/config-provide';
+
+const prefixCls = 'antd-waffle';
 
 function TablePlus<RecordType extends object = any>(
   props: TablePlusProps<RecordType>
@@ -22,10 +23,9 @@ function TablePlus<RecordType extends object = any>(
     onSearch,
     reverse = false,
     onSelect,
+    prefixClsTablePlus,
     ...other
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('tablePlus-container-root');
 
   return (
     <TablePlusOptionContext.Provider
@@ -34,7 +34,7 @@ function TablePlus<RecordType extends object = any>(
         rightOption: rightOption,
       }}
     >
-      <div className={classnames(prefixCls, className)}>
+      <div className={classnames(`${prefixClsTablePlus}-container-root`, className)}>
         <TablePlusTitle title={title} />
         <TablePlusOperateRoot
           onSearch={onSearch}
@@ -49,5 +49,10 @@ function TablePlus<RecordType extends object = any>(
     </TablePlusOptionContext.Provider>
   );
 }
+
+TablePlus.defaultProps = {
+  prefixClsTablePlus: `${prefixCls}-tablePlus`,
+}
+
 
 export default TablePlus;
