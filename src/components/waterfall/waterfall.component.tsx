@@ -1,50 +1,78 @@
 import React, { useEffect, useState, useContext, FC } from 'react';
 import Macy from 'macy';
 import { WaterFallProps } from './type';
-import { ConfigContext } from '../../constants/config-provide';
+import { ConfigContext } from '@constants/config-provide';
 import classnames from 'classnames';
-import './style/index.less';
+import { Image as ImageBox } from "antd";
 
-const WaterFall:FC<WaterFallProps> = (props) => {
+const WaterFall: FC<WaterFallProps> = (props) => {
   const {
     className,
-    source=[],
-    waterFallSetting={
-      trueOrder:false,
-      waitForImages:false,
-      useOwnImageLoader:false,
-      margin: { x: 10, y: 15 },
-      columns: 2,
-    }
+    source = [],
+    waterFallSetting = {}
   } = props;
-  
-  const [masonry, setMasonry] = useState<any>();
+
+  const [macyInstance, setMacyInstance] = useState<any>();
+  const [imgs, setImgs] = useState([]);
   const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('waterfall');
 
-  useEffect(() => {
-    if (masonry) {
-      masonry.reInit();
-    } else {
-      let masonry = new Macy({
-        container: `.${prefixCls}`, 
-        ...waterFallSetting
-      })
-      setMasonry(masonry);
-    };
-  }, []);
+
+  function loadImage(src) {
+    return new Promise(function (resolve, reject) {
+      let img = new Image()
+      img.src = src
+
+      img.onload = function () {
+        resolve(img)
+      }
+      img.onerror = function () {
+        reject(src)
+      }
+    })
+  }
+
+
+  useEffect(() => {    
+    if(imgs.length===0) {
+      if (macyInstance) {
+        macyInstance.reInit();
+      } else {
+        let macyInstance = new Macy({
+          container: `.${prefixCls}`,
+          ...waterFallSetting
+        })
+        setMacyInstance(macyInstance);
+      };
+    }
+
+    loadImage(source[imgs.length]).then(() => {
+      if (imgs.length < source.length - 1) {
+        setImgs([...imgs, source[imgs.length]]);
+      }
+      macyInstance.recalculate();
+    })
+  }, [imgs]);
 
   return (
     <div className={classnames(prefixCls, className)}>
       {
-        source && source.map((item: any, index: any) => {
+        imgs && imgs.map((item: any, index: any) => {
           return (
-            <img src={item} className="img_item" key={`${prefixCls}-img-${index}`} />
+            <ImageBox
+              src={item}
+              key={`${prefixCls}-img-${index}`}
+              className="img_item"
+            />
           )
         })
       }
     </div>
   )
+}
+
+WaterFall.defaultProps = {
+
 }
 
 export default WaterFall;
