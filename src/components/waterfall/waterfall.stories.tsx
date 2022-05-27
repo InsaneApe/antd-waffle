@@ -1,17 +1,22 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import WaterFall from './waterfall.component';
+import {WaterFall} from './index';
 
 const dataImages = [
-  "https://picsum.photos/640/200/?random",
-  "https://picsum.photos/360/640/?random",
-  "https://picsum.photos/480/720/?random",
-  "https://picsum.photos/480/640/?random",
-  "https://picsum.photos/360/?random",
-  "https://picsum.photos/360/520/?random",
-  "https://picsum.photos/520/360/?random",
-  "https://picsum.photos/520/360/?random",
-  "https://picsum.photos/520/360/?random",
+  "https://picsum.photos/200/300",
+  "https://picsum.photos/200/400",
+  "https://picsum.photos/300/300",
+  "https://picsum.photos/250/300",
+  "https://picsum.photos/200/320",
+  "https://picsum.photos/300/400",
+  "https://picsum.photos/200/300",
+  "https://picsum.photos/150/100",
+  "https://picsum.photos/100/320",
+  "https://picsum.photos/580/320",
+  "https://picsum.photos/580/300",
+  "https://picsum.photos/580/300",
+
+
 ]
 
 
@@ -37,5 +42,8 @@ export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
   source :dataImages,
-  waterFallSetting:{}
+  waterFallSetting: {
+    margin: { x: 10, y: 30 },
+    columns: 3,
+  }
 };
