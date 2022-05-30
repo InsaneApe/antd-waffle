@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { ConfigContext } from '../../constants/config-provide';
-import './login.less';
+import './index'
 
 export interface ILoginProps {
   className?: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Login from "./login.component"
+import { Login } from "./index"
 import { Form, Input, Checkbox, Button, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@ant-design/icons';
 import demo3 from '@ui/image/demo3.jpg';
