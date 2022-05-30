@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Export from './export.component';
+import { Export } from './index';
 import { FileType } from '@constants/common';
 import FileSaver from "file-saver";
 import * as XLSX from 'xlsx';
