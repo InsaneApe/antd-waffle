@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Palette from './palette.component';
+import { Palette } from './index';
 
 export default {
   title: 'UI components/Palette',
