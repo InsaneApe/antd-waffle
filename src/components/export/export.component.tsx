@@ -4,7 +4,6 @@ import { CSVLink } from "react-csv";
 import { DownloadOutlined } from '@ant-design/icons';
 import classnames from 'classnames';
 import { FileType } from "../../constants/common";
-import './index';
 
 export interface IExportProps extends ButtonProps {
   PrefixCls:string;
