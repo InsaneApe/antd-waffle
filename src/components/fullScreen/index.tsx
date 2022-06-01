@@ -5,6 +5,5 @@ export type {FullScreenProps,FullScreenHandle} from 'react-full-screen';
 
 export {
   useFullScreenHandle,
-}
-
-export default FullScreen;
+  FullScreen
+};
