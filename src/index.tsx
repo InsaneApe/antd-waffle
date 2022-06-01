@@ -2,13 +2,13 @@
 import { Charts} from  './components/charts';
 import { DropdownList} from  './components/dropdownList';
 import { Export} from  './components/export';
-import { FullScreen } from  './components/fullScreen';
-import { Icons } from  './components/icons';
+import { FullScreen} from  './components/fullScreen';
+import { Icons} from  './components/icons';
 import { Login} from  './components/login';
 import { Palette} from  './components/palette';
 import { Scrollbar} from  './components/scrollbar';
 import { TablePlus} from  './components/tablePlus';
-import { Video } from  './components/video';
+import { Video} from  './components/video';
 import { Waterfall} from  './components/waterfall';
 export {
  	Charts,
