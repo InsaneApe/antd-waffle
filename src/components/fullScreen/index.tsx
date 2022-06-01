@@ -1,2 +1,10 @@
 import './style';
-export { default as FullScreenExample } from './fullScreen.example';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+
+export type {FullScreenProps,FullScreenHandle} from 'react-full-screen';
+
+export {
+  useFullScreenHandle,
+}
+
+export default FullScreen;
