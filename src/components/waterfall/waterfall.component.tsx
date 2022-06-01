@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useContext, FC } from 'react';
 import Macy from 'macy';
-import { WaterFallProps } from './type';
+import { WaterfallProps } from './type';
 import { ConfigContext } from '@constants/config-provide';
 import classnames from 'classnames';
 import { Image as ImageBox } from "antd";
 
-const WaterFall: FC<WaterFallProps> = (props) => {
+const Waterfall: FC<WaterfallProps> = (props) => {
   const {
     className,
     source = [],
@@ -71,8 +71,8 @@ const WaterFall: FC<WaterFallProps> = (props) => {
   )
 }
 
-WaterFall.defaultProps = {
+Waterfall.defaultProps = {
 
 }
 
-export default WaterFall;
+export default Waterfall;

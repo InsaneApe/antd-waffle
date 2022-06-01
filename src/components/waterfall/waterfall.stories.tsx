@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import {WaterFall} from './index';
+import {Waterfall} from './index';
 
 const dataImages = [
   "https://picsum.photos/200/300",
@@ -22,8 +22,8 @@ const dataImages = [
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'UI components/WaterFall',
-  component: WaterFall,
+  title: 'UI components/Waterfall',
+  component: Waterfall,
   argTypes: {
     source: {
       description: '图片地址的数组',
@@ -36,7 +36,7 @@ export default {
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof WaterFall> = (args) => <WaterFall {...args} />;
+const Template: ComponentStory<typeof Waterfall> = (args) => <Waterfall {...args} />;
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
