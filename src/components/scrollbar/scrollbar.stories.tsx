@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Scrollbar from './scrollbar.component';
+import { Scrollbar } from './index';
 
 export default {
   title: 'UI components/Scrollbar',
