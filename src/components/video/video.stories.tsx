@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { VideoComponent } from './index';
+import { Video } from './index';
 
 export default {
   title: 'UI components/Video',
-  component: VideoComponent,
+  component: Video,
   argTypes: {},
-} as ComponentMeta<typeof VideoComponent>;
+} as ComponentMeta<typeof Video>;
 
-const Template: ComponentStory<typeof VideoComponent> = (args) => <VideoComponent {...args} />;
+const Template: ComponentStory<typeof Video> = (args) => <Video {...args} />;
 
 
 export const Primary = Template.bind({});
