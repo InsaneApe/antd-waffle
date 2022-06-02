@@ -5,8 +5,8 @@ import {
   Preview,
   Canvas,
 } from '@storybook/addon-docs/blocks';
-import { FullScreen, useFullScreenHandle } from './fullScreen.component';
-import FullScreenExample from './fullScreen.example';
+import FullScreen, { useFullScreenHandle } from './index';
+import { FullScreenExample } from './fullScreen.example';
 import { BUtton } from 'antd';
 
 <Meta title="UI components/FullScreen 全屏组件" component={FullScreen} />
@@ -68,6 +68,7 @@ const FullScreenExample = () => {
 };
 
 export default FullScreenExample;
+
 ```
 
 |   Name    |              Description              |                       Type                       |       Default       |

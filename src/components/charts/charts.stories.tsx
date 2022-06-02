@@ -1,14 +1,14 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Chart from './charts.component';
+import { Charts } from './index';
 
 export default {
   title: 'UI components/Charts',
-  component: Chart,
+  component: Charts,
   argTypes: {},
-} as ComponentMeta<typeof Chart>;
+} as ComponentMeta<typeof Charts>;
 
-const Template: ComponentStory<typeof Chart> = (args) => <Chart {...args} />;
+const Template: ComponentStory<typeof Charts> = (args) => <Charts {...args} />;
 
 export const Column = Template.bind({});
 export const Line = Template.bind({});

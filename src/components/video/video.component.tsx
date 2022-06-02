@@ -7,7 +7,7 @@ import './style/index.less';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
 import { PlayCircleOutlined } from '@ant-design/icons';
-import FullScreen,{ useFullScreenHandle } from '../fullScreen/fullScreen.component';
+import { FullScreen, useFullScreenHandle } from '../fullScreen/index';
 import ResizeObserver from 'resize-observer-polyfill';
 import Animate from 'rc-animate';
 export interface VideoProps {
