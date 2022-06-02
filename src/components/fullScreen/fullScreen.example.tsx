@@ -1,5 +1,5 @@
 import React from 'react';
-import FullScreen, { useFullScreenHandle } from './index';
+import {FullScreen, useFullScreenHandle } from './index';
 import {Button} from 'antd';
 
 const FullScreenExample = () => {
