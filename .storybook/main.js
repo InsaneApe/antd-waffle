@@ -56,6 +56,7 @@ module.exports = {
       '@constants': path.resolve(__dirname, '../src/constants'),
       "@components": path.resolve(__dirname, '../src/components'),
       "@ui/image": path.resolve(__dirname, '../src/ui/image'),
+      "@fengbeans/antd-waffle": path.resolve(__dirname, '../src/index')
     };
     return config;
   }
