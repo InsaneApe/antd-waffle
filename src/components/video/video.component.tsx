@@ -7,7 +7,7 @@ import './style/index.less';
 import VideoPaintedEggShell from './videoPaintedEggShell/index.component';
 import VideoControl from './videoControl/videoControl.component';
 import { PlayCircleOutlined } from '@ant-design/icons';
-import { FullScreen, useFullScreenHandle } from '../fullScreen/index';
+// import { FullScreen, useFullScreenHandle } from '../fullScreen/index';
 import ResizeObserver from 'resize-observer-polyfill';
 import Animate from 'rc-animate';
 export interface VideoProps {
@@ -28,7 +28,7 @@ const Video = (props: VideoProps) => {
   const rootRef = useRef<any>(null);
   const [loadWaiting, setLoadingWaiting] = useState(false);
   const [isStartPlay, setIsStartPlay] = useState(true);
-  const handle = useFullScreenHandle();
+  // const handle = useFullScreenHandle();
   const [code, setCode] = useState('');
   const initWidthAndHeight = {
     width: width,
@@ -76,21 +76,21 @@ const Video = (props: VideoProps) => {
       }
     });
 
-    root.observe(handle.node?.current);
+    // root.observe(handle.node?.current);
   }
 
-  useEffect(() => {
-    if (handle.active) {
-      ResizeRootAttribute();
-      const widthAndHeight = {
-        width:'100%',
-        height:'100vh'
-      }
-      setPlayWidthAndHeight({...widthAndHeight})
-    } else {
-      setPlayWidthAndHeight({...initWidthAndHeight})
-    }
-  }, [handle.active]);
+  // useEffect(() => {
+  //   if (handle.active) {
+  //     ResizeRootAttribute();
+  //     const widthAndHeight = {
+  //       width:'100%',
+  //       height:'100vh'
+  //     }
+  //     setPlayWidthAndHeight({...widthAndHeight})
+  //   } else {
+  //     setPlayWidthAndHeight({...initWidthAndHeight})
+  //   }
+  // }, [handle.active]);
 
   const currentTime = useMemo(() => {
     return videoRef.current?.currentTime;
@@ -146,13 +146,13 @@ const Video = (props: VideoProps) => {
     }
   };
 
-  const handleClickFullscreen = () => {
-    if (handle.active) {
-      handle.exit();
-    } else {
-      handle.enter();
-    }
-  };
+  // const handleClickFullscreen = () => {
+  //   if (handle.active) {
+  //     handle.exit();
+  //   } else {
+  //     handle.enter();
+  //   }
+  // };
 
   const renderVideo = useMemo(() => {
     return (
@@ -168,7 +168,7 @@ const Video = (props: VideoProps) => {
   return (
     <>
       {renderVideo}
-      <FullScreen handle={handle}>
+      {/* <FullScreen handle={handle}> */}
         <div
           ref={rootRef}
           className={classnames(`${prefixClsVideo}-container`,className)}
@@ -193,7 +193,7 @@ const Video = (props: VideoProps) => {
           {console.log(rootWidthAndHeight.width)}
           {console.log(rootWidthAndHeight.height)}
           <canvas width={rootWidthAndHeight.width} height={rootWidthAndHeight.height} ref={cavRef} />
-          <VideoControl
+          {/* <VideoControl
             hovers={false}
             isFullscreen={handle.active}
             isStartPlay={isStartPlay}
@@ -201,10 +201,10 @@ const Video = (props: VideoProps) => {
             onFullscreen={handleClickFullscreen}
             progress={0}
             currentTime={currentTime}
-          />
+          /> */}
           <VideoPaintedEggShell code={code} paintedEggshell={paintedEggshell} />
         </div>
-      </FullScreen>
+      {/* </FullScreen> */}
 
       {/* <button onClick={currentTime}>点击</button>
       <button onClick={handleClickFullscreen}>Enter fullscreen</button> */}
