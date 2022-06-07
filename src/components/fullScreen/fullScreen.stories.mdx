@@ -5,8 +5,8 @@ import {
   Preview,
   Canvas,
 } from '@storybook/addon-docs/blocks';
-import FullScreen, { useFullScreenHandle } from './index';
-import { FullScreenExample } from './fullScreen.example';
+import { FullScreen, useFullScreenHandle } from './index';
+import FullScreenExample from './fullScreen.example';
 import { BUtton } from 'antd';
 
 <Meta title="UI components/FullScreen 全屏组件" component={FullScreen} />
@@ -37,6 +37,7 @@ export const Template = (args) => <FullScreenExample {...args} />;
 </Story>
 
 ```tsx
+
 import React from 'react';
 import { FullScreen, useFullScreenHandle } from './fullScreen.component';
 import { Button } from 'antd';
