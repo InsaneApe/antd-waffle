@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/FengBeans/antd-waffle/compare/v1.4.0...v1.5.0) (2022-06-07)
+
+
+### Features
+
+* 更新构建包 ([4af11d3](https://github.com/FengBeans/antd-waffle/commit/4af11d3e6cb2dc8525cb727cc6f049797e96bde0))
+* 新增别名 ([6cf0235](https://github.com/FengBeans/antd-waffle/commit/6cf0235ffc77aa6b5e6853db2f4f270ed42119b5))
+* 修复案例bug ([3f5a511](https://github.com/FengBeans/antd-waffle/commit/3f5a511a64e763799db21de30cecc827e60c86c0))
+* 修复实例文档 ([f97463d](https://github.com/FengBeans/antd-waffle/commit/f97463deb163aef165439d6ae94adf9d369c7857))
+
 ## [1.4.0](https://github.com/FengBeans/antd-waffle/compare/v1.3.1...v1.4.0) (2022-06-06)
 
 
