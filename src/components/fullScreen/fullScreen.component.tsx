@@ -6,6 +6,7 @@ import React, {
   useMemo,
 } from 'react';
 import fscreen from 'fscreen';
+import classnames from 'classnames';
 
 export interface FullScreenHandle {
   active: boolean;
@@ -62,16 +63,6 @@ export function useFullScreenHandle(): FullScreenHandle {
 
 export const FullScreen: React.FC<FullScreenProps> = (props) => {
   const { handle, onChange, children, className } = props;
-  const classNames = [];
-  if (className) {
-    classNames.push(className);
-  }
-
-  classNames.push('fullscreen');
-
-  if (handle.active) {
-    classNames.push('fullscreen-enabled');
-  }
 
   useEffect(() => {
     if (onChange) {
@@ -81,7 +72,7 @@ export const FullScreen: React.FC<FullScreenProps> = (props) => {
 
   return (
     <div
-      className={classNames.join(' ')}
+      className={classnames('fullscreen','fullscreen-enabled',className)}
       ref={handle.node}
       style={handle.active ? { height: '100%', width: '100%' } : undefined}
     >
