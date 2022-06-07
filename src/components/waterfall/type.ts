@@ -1,4 +1,4 @@
-export interface WaterFallProps {
+export interface WaterfallProps {
   /**
    * 添加额外的classname
    */
@@ -10,10 +10,10 @@ export interface WaterFallProps {
   /**
    *  waterFallSetting 瀑布流设置
    */
-   waterFallSetting: WaterFallSettingProps
+   waterFallSetting: WaterfallSettingProps
 };
 
-export interface WaterFallSettingProps {
+export interface WaterfallSettingProps {
   /**
    * 将此设置为 false 将优先考虑使每列的高度高于项目本身的顺序。
    */

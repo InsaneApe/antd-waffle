@@ -5,7 +5,7 @@ import {
   Preview,
   Canvas,
 } from '@storybook/addon-docs/blocks';
-import { FullScreen, useFullScreenHandle } from './fullScreen.component';
+import { FullScreen, useFullScreenHandle } from './index';
 import FullScreenExample from './fullScreen.example';
 import { BUtton } from 'antd';
 
@@ -37,6 +37,7 @@ export const Template = (args) => <FullScreenExample {...args} />;
 </Story>
 
 ```tsx
+
 import React from 'react';
 import { FullScreen, useFullScreenHandle } from './fullScreen.component';
 import { Button } from 'antd';
@@ -68,6 +69,7 @@ const FullScreenExample = () => {
 };
 
 export default FullScreenExample;
+
 ```
 
 |   Name    |              Description              |                       Type                       |       Default       |

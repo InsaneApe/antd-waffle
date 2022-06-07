@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TablePlus from './tablePlus.component';
+import { TablePlus } from './index';
 import { tableData } from '@constants/tableData';
 
 export default {
