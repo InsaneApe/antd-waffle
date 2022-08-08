@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "compilerOptions": { "emitDeclarationOnly": true, "rootDir": "./src" },
+  "compilerOptions": { "emitDeclarationOnly": true, "rootDir": "./src"},
   "exclude": [
     "**/__tests__/**",
     "node_modules",

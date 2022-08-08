@@ -1,0 +1,33 @@
+{
+  "name": "@fengbeans/waffle-tool",
+  "version": "1.2.0",
+  "description": "tool class",
+  "main": "./cli.js",
+  "bin": {
+    "waffle-tool": "./cli.js"
+  },
+  "files": [
+    "cli.js",
+    "config.js",
+    "auto-entry",
+    "compile-way",
+    "util"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FengBeans/waffle-tool.git"
+  },
+  "author": "jian.liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FengBeans/waffle-tool/issues"
+  },
+  "homepage": "https://github.com/FengBeans/waffle-tool#readme",
+  "dependencies": {
+    "commander": "^9.2.0",
+    "semver": "^7.3.7",
+    "yargs-parser": "^21.0.1"
+  },
+  "devDependencies": {
+  }
+}
