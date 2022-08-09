@@ -31,7 +31,7 @@ export interface TablePlusOperateRootProps extends TablePlusOperateProps {
 export type TablePlusOperateProps = TablePlusRightOperateProps & TablePlusLeftOperateProps
  
 export interface TablePlusTitleProps {
-  title?: string | ReactNode
+  title?: string | React.ReactNode
 }
 
 export interface TablePlusOperateOptions {

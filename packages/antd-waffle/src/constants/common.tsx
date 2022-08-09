@@ -8,9 +8,9 @@ export const FileType = {
 
 export const second = (value) => {
   if(isNumber(value) || isString(value)) {
-    let theTime: any = parseInt(value as string); // 秒
-    let middle: any = 0; // 分
-    let hour: any = 0; // 小时
+    let theTime:any = parseInt(value as string); // 秒
+    let middle:any = 0; // 分
+    let hour:any = 0; // 小时
   
     if (theTime >= 60) {
       middle = parseInt(theTime / 60 as any) ;
@@ -19,7 +19,7 @@ export const second = (value) => {
         hour = parseInt(middle / 60 as any) ;
         middle = parseInt(middle % 60 as any) ;
       }
-    };
+    }
     // let result = '' + parseInt(theTime);
     // if (middle > 0) {
     //   result = '' + parseInt(middle) + ':' + result;

@@ -8,3 +8,4 @@ declare module "macy";
 declare module "*.mp4";
 declare module "*.jpg";
 declare module "resize-observer-polyfill";
+declare module "fscreen";

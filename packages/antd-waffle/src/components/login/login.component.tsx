@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, ReactNode,FC  } from 'react';
 import classnames from 'classnames';
 import { ConfigContext } from '../../constants/config-provide';
 
@@ -9,11 +9,11 @@ export interface ILoginProps {
   background?: string,
   slogan?: string,
   logo?: string,
-  children: React.ReactNode;
-  statement?: React.ReactNode;
+  children: ReactNode;
+  statement?: ReactNode;
 }
 
-const Login = (props: ILoginProps) => {
+const Login:FC<ILoginProps> = (props ) => {
   const { className, backImageUrl, children, isLeftAndRight, background, slogan, logo, statement } = props;
   const { getPrefixCls } = useContext(ConfigContext);
   const loginPrefixCls = getPrefixCls('login');
