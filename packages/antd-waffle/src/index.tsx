@@ -7,6 +7,5 @@ export { default as Icons } from './components/icons/icons.component';
 export { default as Login } from './components/login/login.component';
 export { default as Palette } from './components/palette/palette.component';
 export { default as Scrollbar } from './components/scrollbar/scrollbar.component';
-export { default as TablePlus } from './components/tablePlus/tablePlus.component';
 export { default as Video } from './components/video/video.component';
 export { default as Waterfall } from './components/waterfall/waterfall.component';

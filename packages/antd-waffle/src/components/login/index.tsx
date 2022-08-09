@@ -1,2 +1,3 @@
 import './style';
-export { default as Login } from './login.component';
+import Login from './login.component';
+export default Login;
