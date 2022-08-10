@@ -6,8 +6,8 @@ module.exports = function config() {
   }
   try{
     const waffle = require(`${process.cwd()}/.waffle.ts`);
-    if(waffle.autoEntry){
-      createComponentsEntry();
+    if(waffle.autoEntryConfig.autoEntry){
+      createComponentsEntry(waffle.autoEntryConfig.autoEntryFilter);
     }
     if(waffle.build==='rollup'){
       return
@@ -19,5 +19,3 @@ module.exports = function config() {
     return console.log('没有.waffle.ts文件');
   }
 };
-
-

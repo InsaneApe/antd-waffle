@@ -9,7 +9,7 @@ const through2 = require('through2');
 const paths = {
   dest: {
     lib: 'lib', // commonjs 文件存放的目录名 - 本块关注
-    esm: 'esm', // ES module 文件存放的目录名 - 暂时不关心
+    es: 'es', // ES module 文件存放的目录名 - 暂时不关心
     dist: 'dist', // umd文件存放的目录名 - 暂时不关心
   },
   styles: 'src/**/*.less', 
@@ -72,14 +72,14 @@ function compileCJS() {
  */
 function compileESM() {
   const { dest } = paths;
-  return compileScripts('esm', dest.esm);
+  return compileScripts('es', dest.es);
 }
 
 /**
  * 拷贝less文件
  */
  function copyLess() {
-  return gulp.src(paths.styles).pipe(gulp.dest(paths.dest.lib)).pipe(gulp.dest(paths.dest.esm));
+  return gulp.src(paths.styles).pipe(gulp.dest(paths.dest.lib)).pipe(gulp.dest(paths.dest.es));
 }
 
 /**
@@ -92,7 +92,7 @@ function compileESM() {
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
     .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
     .pipe(gulp.dest(paths.dest.lib))
-    .pipe(gulp.dest(paths.dest.esm))
+    .pipe(gulp.dest(paths.dest.es))
     .pipe(concat('antd-waffle.css'))
     .pipe(gulp.dest(paths.dest.dist));
 }

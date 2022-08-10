@@ -7,4 +7,4 @@ lib/
 storybook-static/
 yarn.lock
 badapple.mp4
-esm
+es

@@ -1,9 +1,2 @@
 //请勿手动更新，自动更新;
-export { default as Charts } from './components/charts/charts.component';
-export { default as DropdownList } from './components/dropdownList/dropdownList.component';
-export { default as Export } from './components/export/export.component';
-export { default as FullScreen } from './components/fullScreen/fullScreen.component';
-export { default as Login } from './components/login/login.component';
-export { default as Palette } from './components/palette/palette.component';
-export { default as Scrollbar } from './components/scrollbar/scrollbar.component';
-export { default as Waterfall } from './components/waterfall/waterfall.component';
+export { default as Login } from './login/login.component';
