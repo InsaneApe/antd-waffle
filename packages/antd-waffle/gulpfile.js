@@ -8,9 +8,9 @@ const through2 = require('through2');
 
 const paths = {
   dest: {
-    lib: 'lib', // commonjs 文件存放的目录名 - 本块关注
-    es: 'es', // ES module 文件存放的目录名 - 暂时不关心
-    dist: 'dist', // umd文件存放的目录名 - 暂时不关心
+    lib: 'lib', // commonjs 文件存放的目录名
+    es: 'es', // ES module 文件存放的目录名 
+    dist: 'dist', // umd文件存放的目录名 
   },
   styles: 'src/**/*.less', 
   scripts: ['src/**/*.{ts,tsx}', '!src/**/*.stories.{ts,tsx}'], // 脚本文件路径

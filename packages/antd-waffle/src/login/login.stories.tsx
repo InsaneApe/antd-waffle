@@ -6,6 +6,7 @@ import demo3 from '../ui/image/demo3.jpg';
 import logo from '../ui//image/shewai_logo.jpg';
 import whitetext from '../ui//image/whitetext.png';
 import Login from "./index";
+import './style/index';
 
 export default {
   title: 'UI components/Login',

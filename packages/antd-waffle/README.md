@@ -14,7 +14,7 @@
 
 兼容性
 
-`antd-waffle` 由于依赖了 React@16.8.0+ 提供的 Hooks 特性，因此只支持 React 16.8.0 及以上版本。
+`antd-waffle` 由于依赖了 React@17.0.0+ 提供的 Hooks 特性，因此只支持 React@17.0.0 及以上版本。
 
 ## 📦 安装
 

@@ -13,15 +13,11 @@ module.exports = {
   framework: "@storybook/react",
   features: {
     storyStoreV7: true,
-    babelModeV7: true,
     postcss: false
   },
   core: {
     builder: 'webpack5',
   },
-  babel: async options => ({
-    ...options
-  }),
   "webpackFinal":  async (config) => {
     config.module.rules.push({
       test: /\.less$/,
@@ -42,20 +38,18 @@ module.exports = {
     });
 
     config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve("babel-loader"),
+      test: /\.(js|jsx)$/,
+      loader: 'esbuild-loader',
       options: {
-        presets: [["react-app", { flow: false, typescript: true }]]
-      }
+          loader: 'jsx',
+          target: 'es2015'
+      },
     });
 
     config.resolve.extensions.push(".ts", ".tsx");
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@constants': path.resolve(__dirname, '../src/constants'),
-      "@components": path.resolve(__dirname, '../src/components'),
-      "@ui/image": path.resolve(__dirname, '../src/ui/image'),
       "@fengbeans/antd-waffle": path.resolve(__dirname, '../src/index')
     };
     return config;
