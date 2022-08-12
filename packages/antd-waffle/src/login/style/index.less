@@ -2,20 +2,38 @@
 
 
 @loginRoot: ~'@{PrefixCls}-login';
-@leftAndRightLoginRoot: ~'@{PrefixCls}-leftAndRight-login-root';
+@leftAndRightLoginRoot: ~'@{PrefixCls}-leftAndRight-login';
+
+.statement(){
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  text-align: center;
+  color:white;
+}
 
 .@{loginRoot} {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  .formBody {
+  .@{loginRoot}-slogan {
+    position: absolute;
+    left: 0;
+    top:0;
+    max-width: 200px;
+    margin: 24px 0 0 30px;
+  }
+  .@{loginRoot}-statement {
+    .statement();
+  }
+  .@{loginRoot}-form {
     width: 360px;
     padding: 24px 16px;
     box-shadow: 0 2px 4px 0 rgb(100 109 130 / 14%), 0 0 1px 0 rgb(100 109 130 / 10%);
     border-radius: 18px;
     background-color: #fff;
-    .title {
+    .@{loginRoot}-title {
       font-size: 1.125rem;
       font-weight: 500;
       display: flex;
@@ -24,50 +42,56 @@
   }
 }
 
-
 .@{leftAndRightLoginRoot} {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  .antd-waffle-left-container{
+  display: flex;
+  flex: 1;
+ .@{leftAndRightLoginRoot}-left-container{
     display: inline-block;
     width: 70%;
     height: 100vh;
     min-height: 180px;
     margin: 0;
     padding: 0;
-    .antd-waffle-left-slogan{
+    .@{leftAndRightLoginRoot}-left-slogan{
       max-width: 200px;
-      margin: 20px 0 0 50px;
+      margin: 24px 0 0 30px;
     }
   }
-
-  .antd-waffle-right-container{
+  .@{leftAndRightLoginRoot}-right-container{
     position: relative;
     float: right;
     height: 100vh;
-    width: 30%;
-    .antd-waffle-wrapper{
-      margin: 200px auto 0;
-      width: 500px;
-      display: flex;
-      justify-content: center;
-      .antd-waffle-logo{
-        width: 200px;
-        height: 40px;
-        margin-top: 16px;
+    min-width: 450px;
+   
+    .@{leftAndRightLoginRoot}-wrapper{
+      margin: 400px auto 0;
+      padding: 0 18px;
+      width: 100%;
+      .@{leftAndRightLoginRoot}-header{
+        text-align: center;
+        margin: 0 auto;
+        .@{leftAndRightLoginRoot}-title{
+          font-size: 16px;
+          color: white;
+          font-weight: 600;
+        }
+        .@{leftAndRightLoginRoot}-logo{
+          width: 240px;
+          height: 40px;
+          margin-top: 16px;
+        }
       }
-      .antd-waffle-form-container{
+      .@{leftAndRightLoginRoot}-container{
         margin-top: 24px;
         width: 100%;
-        min-width: 400px;
+        min-width: 360px;
       }
     }
-    .antd-waffle-statement{
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
+    .@{leftAndRightLoginRoot}-statement{
+      .statement();
     }
   }
 }

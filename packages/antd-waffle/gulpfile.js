@@ -13,7 +13,7 @@ const paths = {
     dist: 'dist', // umd文件存放的目录名 
   },
   styles: 'src/**/*.less', 
-  scripts: ['src/**/*.{ts,tsx}', '!src/**/*.stories.{ts,tsx}'], // 脚本文件路径
+  scripts: ['src/**/*.{ts,tsx}', '!src/**/*.stories.{ts,tsx}', '!src/**/*.example.{ts,tsx}'], // 脚本文件路径
 };
 
 

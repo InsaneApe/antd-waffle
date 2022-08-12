@@ -6,9 +6,6 @@
     "paths": {
       "@fengbeans/antd-waffle": ["./src/index.ts"],
       "@fengbeans/antd-waffle/es/*": ["./src/*"],
-      "@constants/*": [ "./src/constants/*" ],
-      "@components/*": [ "./src/components/*" ],
-      "@ui/image/*": ["./src/ui/image/*"]
     },
     "jsx": "react",
   },

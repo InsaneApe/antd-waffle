@@ -5,7 +5,7 @@ import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined, LockOutlined } from '@a
 import demo3 from '../ui/image/demo3.jpg';
 import logo from '../ui//image/shewai_logo.jpg';
 import whitetext from '../ui//image/whitetext.png';
-import Login from "./index";
+import { Login } from "@fengbeans/antd-waffle";
 import './style/index';
 
 export default {
@@ -25,7 +25,7 @@ const onLogin = (values: any) => {
   }, 3000);
 }
 
-const children = (
+const LoginFormDefault =() => (
   <Form
     name="basic"
     layout="vertical"
@@ -33,9 +33,7 @@ const children = (
     onFinish={onLogin}
     onFinishFailed={onLogin}
     autoComplete="off"
-    className='formBody'
   >
-    <p className='title'>SIGN IN</p>
     <Form.Item
       name="email"
       rules={[{ required: true, message: '' }]}
@@ -70,57 +68,60 @@ const children = (
 );
 
 const FormLayout = {
-  labelCol: { span: 6 },
+  labelCol: { span: 4 },
   wrapperCol: { span: 18 },
 }
 
-const LoginForm = () => {
-  return (
-    <Form
-      {...FormLayout}
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onLogin}
-      onFinishFailed={onLogin}
-      autoComplete="off"
+const LoginForm = () => (
+  <Form
+    {...FormLayout}
+    name="basic"
+    initialValues={{ remember: true }}
+    onFinish={onLogin}
+    onFinishFailed={onLogin}
+    autoComplete="off"
+  >
+    <Form.Item
+      label="账号"
+      name="username"
+      rules={[{ required: true, message: '请输入你的账号!' }]}
     >
-      <Form.Item
-        label="账号"
-        name="username"
-        rules={[{ required: true, message: '请输入你的账号!' }]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        label="密码"
-        name="password"
-        rules={[{ required: true, message: '请输入你的密码!' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          登录
-        </Button>
-      </Form.Item>
-    </Form>
-  )
-}
+      <Input />
+    </Form.Item>
+    <Form.Item
+      label="密码"
+      name="password"
+      rules={[{ required: true, message: '请输入你的密码!' }]}
+    >
+      <Input.Password />
+    </Form.Item>
+    <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Button type="primary" htmlType="submit">
+        登录
+      </Button>
+    </Form.Item>
+  </Form>
+);
 
 export const Default = Template.bind({});
 export const LeftToRight = Template.bind({});
 
 Default.args = {
-  backImageUrl: demo3,
-  children: children
-};
-
-LeftToRight.args = {
   logo : logo,
   slogan: whitetext,
   backImageUrl: demo3,
-  background:"aquamarine",
+  children: <LoginFormDefault />,
+  statement: '湖南备案123456号',
+  formTitle: "sign in"
+};
+
+LeftToRight.args = {
+  logo : whitetext,
+  slogan: whitetext,
+  backImageUrl: demo3,
+  background:"#F0F2F5",
   statement: '湖南备案123456号',
   isLeftAndRight: true,
+  formTitle: "sign in",
   children:<LoginForm />
 } 

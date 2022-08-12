@@ -11,7 +11,7 @@
     "url": "https://github.com/FengBeans/antd-waffle"
   },
   "scripts": {
-    "start": "start-storybook -p 6006",
+    "start": "npm run waffle-tool && start-storybook -p 6006",
     "build:sb": "build-storybook",
     "clean": "rimraf lib es dist",
     "build:types": "tsc -p tsconfig.build.json && cpr lib es",
