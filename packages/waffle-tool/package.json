@@ -25,9 +25,8 @@
   "homepage": "https://github.com/FengBeans/waffle-tool#readme",
   "dependencies": {
     "commander": "^9.2.0",
+    "lodash": "^4.17.21",
     "semver": "^7.3.7",
     "yargs-parser": "^21.0.1"
-  },
-  "devDependencies": {
   }
 }

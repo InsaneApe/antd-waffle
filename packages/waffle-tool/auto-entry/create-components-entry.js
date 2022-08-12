@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { titleCase } = require("../util");
+const { camelCase } = require('lodash');
 
 const tips = "//请勿手动更新，自动更新;\n";
 
@@ -16,21 +17,12 @@ const createComponentsEntry = (filter) => {
   let entryFiles = tips;
   let entryFilesComponentsLess = tips;
   let entryFilesComponents = tips;
-  let componentExportString = "export {\n ";
-  let componentExportDefaultString = "export default {\n";
   const componentNameArray = [];
   for (let file = 0; file < filterFilesArray.length; file++) {
-    componentNameArray.push(titleCase(filterFilesArray[file]));
-    componentExportString += `\t${componentNameArray[file]},\n`;
-    componentExportDefaultString += `\t${componentNameArray[file]},\n`;
-
-    entryFiles += `export { default as ${componentNameArray[file]} } from './${filterFilesArray[file]}/${filterFilesArray[file]}.component';\n`;
-    //entryFiles += `export { default as ${componentNameArray[file]} } from './${filterFilesArray[file]}';\n`;
+    componentNameArray.push(titleCase(camelCase(filterFilesArray[file])));
+    entryFiles += `export { default as ${componentNameArray[file]} } from './${filterFilesArray[file]}/${camelCase(filterFilesArray[file])}.component';\n`;;
     entryFilesComponentsLess += `@import '../${filterFilesArray[file]}/style/index.less';\n`;
   }
-  componentExportString += "};\n";
-  componentExportDefaultString += "};\n";
-
   entryFilesComponents = `import './components.less';\nimport './index.less';\n`;
 
   fs.writeFileSync(path.resolve(`${url}/src/index.tsx`), entryFiles);
