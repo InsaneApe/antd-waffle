@@ -193,10 +193,12 @@ importers:
   packages/waffle-tool:
     specifiers:
       commander: ^9.2.0
+      lodash: ^4.17.21
       semver: ^7.3.7
       yargs-parser: ^21.0.1
     dependencies:
       commander: 9.4.0
+      lodash: 4.17.21
       semver: 7.3.7
       yargs-parser: 21.0.1
 
