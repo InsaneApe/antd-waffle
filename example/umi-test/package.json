@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "umi-test",
   "scripts": {
     "start": "umi dev",
     "build": "umi build",

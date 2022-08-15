@@ -10,7 +10,10 @@
     "clear:node_modules": "npkill",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "reslease": "pnpm changeset publish"
+    "reslease": "pnpm changeset publish",
+    "start:sb": "pnpm -r run start",
+    "start:u": "pnpm -r -filter=umi-test run start",
+    "start:tr":"pnpm -r -filter=react-typescript run start"
   },
   "dependencies": {
     "rimraf": "^3.0.2",
