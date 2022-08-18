@@ -79,6 +79,7 @@
     "antd": "^4.22.3",
     "classnames": "^2.3.1",
     "echarts": "^5.3.3",
+    "ejs": "^3.1.8",
     "file-saver": "^2.0.5",
     "fscreen": "^1.2.0",
     "lodash": "^4.17.21",

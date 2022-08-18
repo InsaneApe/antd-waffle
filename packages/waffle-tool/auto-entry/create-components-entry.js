@@ -9,7 +9,7 @@ const createComponentsEntry = (filter) => {
   const url = process.cwd();
   const filesArray = fs.readdirSync(path.resolve(`${url}/src`));
   const filterFilesArray  = filesArray.filter((file)=>{
-    if(filter.includes(file)){
+    if(!!filter && filter.includes(file)){
       return false
     }
     return true
