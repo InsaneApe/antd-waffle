@@ -16,8 +16,8 @@
     "clean": "rimraf lib es dist",
     "build:types": "tsc -p tsconfig.build.json && cpr lib es",
     "build:gulp": "gulp",
-    "waffle-tool": "waffle-tool",
-    "build": "npm run waffle-tool && npm run clean && npm run build:types && gulp ",
+    "waffle-tool":"waffle-tool",
+    "build": "npm run waffle-tool entry && npm run clean && npm run build:types && gulp ",
     "lint": "eslint --ext .ts --ext .tsx src/ --fix"
   },
   "Keywords": [
