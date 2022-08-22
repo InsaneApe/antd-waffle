@@ -1,29 +1,18 @@
 const Generator = require("yeoman-generator");
 const glob = require("glob");
 const path = require("path");
-const { writeFileSync } = require("fs");
-const paths = require("../constants/paths");
-const { CREATE_GENERATOR } = require("../constants");
+const { COMPONENT_MODULE } = require("../constants");
 const { camelCase } = require('lodash');
 const {titleCase } = require('../util')
 const debug = require('debug')("create-generator:debug");
 
-const temPath = async (file) => {
-  const { absToolPath } = await paths(path.dirname(__dirname));
 
-  return path.resolve(
-    absToolPath,
-    CREATE_GENERATOR,
-    "generators",
-    file ? file : ""
-  );
-};
 
 class componentGenerator extends Generator {
   constructor(opt) {
     super(opt);
     this.context = opt.componentConfig;
-    this.opt = opt;
+    this.opt = opt;    
   }
 
   createComponentFile() {
@@ -37,7 +26,7 @@ class componentGenerator extends Generator {
       const ${componentName}PrefixCls = getPrefixCls('${componentName}');
 
       return (
-        <div>
+        <div className={classnames(${componentName}PrefixCls)}>
         ${componentName}
         </div>
       );
@@ -45,21 +34,21 @@ class componentGenerator extends Generator {
 
     export default ${titleCase(componentName)};
     `;
-    writeFileSync(`${path.resolve(this.destinationPath(),camelCase(name))}.tsx`, content, {encoding:"utf-8"});
+    this.fs.write(`${path.resolve(this.destinationPath(),camelCase(name))}.tsx`, content, {encoding:"utf-8"});
   }
 
   async writeFile() {
-    const templatePath = await temPath();
-
+    const templatePath = await temPath(COMPONENT_MODULE);
+    console.log(this.templatePath())
+    
     glob
       .sync("**/*", {
         cwd: templatePath,
         dot: true,
       })
       .forEach(async (file) => {
-        console.log(file)
         debug(`file:${file}`);
-        console.log(await temPath(file));
+        // console.log(await temPath(file));
         // this.fs.copyTpl(
         //   await temPath(file),
         //   this.destinationPath(),

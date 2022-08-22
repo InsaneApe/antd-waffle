@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/FengBeans/waffle-tool#readme",
   "dependencies": {
+    "chalk": "4.0.0",
     "commander": "^9.2.0",
     "debug": "^4.3.4",
     "lodash": "^4.17.21",

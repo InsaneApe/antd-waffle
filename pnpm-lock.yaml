@@ -196,6 +196,7 @@ importers:
 
   packages/waffle-tool:
     specifiers:
+      chalk: 4.0.0
       commander: ^9.2.0
       debug: ^4.3.4
       lodash: ^4.17.21
@@ -205,6 +206,7 @@ importers:
       yeoman-environment: ^3.10.0
       yeoman-generator: ^5.7.0
     dependencies:
+      chalk: 4.0.0
       commander: 9.4.0
       debug: 4.3.4
       lodash: 4.17.21
@@ -9408,6 +9410,14 @@ packages:
   /chalk/3.0.0:
     resolution: {integrity: sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==}
     engines: {node: '>=8'}
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
+    dev: false
+
+  /chalk/4.0.0:
+    resolution: {integrity: sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==}
+    engines: {node: '>=10'}
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
