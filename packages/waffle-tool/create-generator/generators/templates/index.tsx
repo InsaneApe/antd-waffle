@@ -1,5 +1,5 @@
 //给样例添加样式
 import './style';
-import <%= name %> from './<%= componentNameHavSuffix %>';
+import <%= componentName %> from './<%= componentNameHavSuffix %>';
 
 export default <%= componentName %>;

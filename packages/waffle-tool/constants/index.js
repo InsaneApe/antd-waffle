@@ -1,6 +1,6 @@
 const DEFAULT_CONFIG = '/.waffle';
 const CREATE_GENERATOR = 'create-generator';
-const COMPONENT_MODULE = 'componentModule'
+const TEMPLATE_PATH = 'templates';
 
 module.exports = {
   DEFAULT_CONFIG,

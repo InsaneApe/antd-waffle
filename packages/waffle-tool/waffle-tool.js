@@ -13,8 +13,7 @@ program
   .alias('-c')
   .description('创建组件模板')
   .action(async function(type){
-    console.log(type)
-    console.log(chalk.green('创建组件模板'));
+    console.log(chalk.green('🚀 创建组件模板,请稍等'));
     await runGenerator({type});
   })
 
@@ -23,7 +22,7 @@ program
   .alias('-e')
   .description('构建入口文件')
   .action(async function(){
-    console.log(chalk.green('构建入口文件'));
+    console.log(chalk.green('🚀 构建入口文件'));
     await config();
   })
 
