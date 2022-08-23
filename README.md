@@ -2,43 +2,47 @@
 
 **使用 Monorepo 管理组件库**
 
-
 ## Packages
 
-| name        | Description                      |
-| ----------- | -------------------------------- |
-| antd-waffle | 使用 antd 二次封装的偏业务组件库 |
-| waffle-tool | antd-waffle 的 node 工具库       |
+| name                                                                                          | Description                      |
+| --------------------------------------------------------------------------------------------- | -------------------------------- |
+| [antd-waffle](https://github.com/FengBeans/antd-waffle/tree/feature/mdx/packages)             | 使用 antd 二次封装的偏业务组件库 |
+| [waffle-tool](https://github.com/FengBeans/antd-waffle/tree/feature/mdx/packages/waffle-tool) | antd-waffle 的 node 工具库       |
 
 ## 如何使用
 
 ### 开发
+
 ```
-// open the storybook in local 
+// open the storybook in local
 pnpm run start:sb
 ```
 
 ### 打包
+
 ```
 // build
 pnpm run build
 ```
 
 ### 测试项目
+
 在`umi`中运行
+
 ```
 pnpm run start:u
 
 ```
 
 在`typescript-react` 中运行
+
 ```
 pnpm run start:tr
 ```
 
 ## antd-waffle
 
-根据下列规范开发 `antd-waffle` 能让你尽快熟悉 `antd-waffle` 
+根据下列规范开发 `antd-waffle` 能让你尽快熟悉 `antd-waffle`
 
 ### 命名
 
@@ -107,22 +111,32 @@ Test.defaultProps = {
 
 ```
 
-因为`antd-waffle`支持`按需加载`,使用的插件为`babel-import-plugin`。根据文件格式来自动加载样式。（本身可以在 gulp 打包的时候进行文件区分，但是它作为一个代码和开发规范更好）
+因为`antd-waffle`支持`按需加载`,使用的插件为`babel-import-plugin`。根据文件格式来自动加载样式。（本身可以在 gulp 打包的时候进行文件区分，但是它作为一个代码和开发规范更好）,推荐使用`waffle-tool`来创建组件模板，他是按照上述格式来创建的
+
+```
+pnpm run waffle-tool create component-name
+```
 
 ### 组件内使用其他组件
 
 当你的组件需要使用到其他的组件时候，比如你在 login 组件中需要使用 antd-waffle 其他样式，你需要单独引入，且在引入他的样式，或者从根目录下`index.tsx`中引入
 
-
 ## waffle-tool
 
 一个使用 node 开发，帮助 antd-waffle 开发的工具库
 
-| 姓名       | 描述                               |
-| ---------- | ---------------------------------- |
-| auto-entry | 根据项目结构自动生成入口文件的代码 |
+| 姓名                                                                                                                               | 描述                               |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| [auto-entry](https://github.com/FengBeans/antd-waffle/blob/feature/mdx/packages/waffle-tool/auto-entry/create-components-entry.js) | 根据项目结构自动生成入口文件的代码 |
+| [create-generator](https://github.com/FengBeans/antd-waffle/tree/master/packages/waffle-tool/create-generator)                     | 创建组件模板                       |
 
 ### auto-entry
+
+pnpm run waffle-tool entry
+
+### create-generator
+
+pnpm run waffle-tool create components-name
 
 #### 如何使用
 
@@ -130,6 +144,5 @@ Test.defaultProps = {
 
 ```
 // use waffle-tool
-npm run waffle-tool 
+npm run waffle-tool
 ```
-
