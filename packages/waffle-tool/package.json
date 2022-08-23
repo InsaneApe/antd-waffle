@@ -2,15 +2,15 @@
   "name": "@fengbeans/waffle-tool",
   "version": "1.2.0",
   "description": "tool class",
-  "main": "./cli.js",
+  "main": "./bin/cli.js",
   "bin": {
-    "waffle-tool": "./cli.js"
+    "waffle-tool": "./bin/cli.js"
   },
   "files": [
-    "cli.js",
-    "config.js",
+    "bin",
+    "constants",
     "auto-entry",
-    "compile-way",
+    "create-generator",
     "util"
   ],
   "repository": {
@@ -24,9 +24,13 @@
   },
   "homepage": "https://github.com/FengBeans/waffle-tool#readme",
   "dependencies": {
+    "chalk": "4.0.0",
     "commander": "^9.2.0",
+    "debug": "^4.3.4",
     "lodash": "^4.17.21",
     "semver": "^7.3.7",
-    "yargs-parser": "^21.0.1"
+    "yargs-parser": "^21.0.1",
+    "yeoman-environment": "^3.10.0",
+    "yeoman-generator": "^5.7.0"
   }
 }
