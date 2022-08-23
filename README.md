@@ -10,7 +10,12 @@
 | [waffle-tool](https://github.com/FengBeans/antd-waffle/tree/feature/mdx/packages/waffle-tool) | antd-waffle 的 node 工具库       |
 
 ## 如何使用
+使用pnpm来install本packages。因为A库依赖B库，所以在使用前
+```
+pnpm install 
 
+pnpm run build
+```
 ### 开发
 
 ```
