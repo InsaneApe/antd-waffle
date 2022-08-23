@@ -6,14 +6,14 @@ export interface IVideoButtonGroupProps {
   isStartPlay?: boolean;
   isFullscreen?: boolean;
   onPlayAndPause: () => void;
-  onFullscreen: () => void;
+
 }
 
 const VideoControlBottom = (props: IVideoButtonGroupProps) => {
-  const { isStartPlay, isFullscreen, onPlayAndPause,onFullscreen } = props;
+  const { isStartPlay, isFullscreen, onPlayAndPause, } = props;
 
   const handleClickFullscreen = () => {
-    onFullscreen && onFullscreen();
+    
   }
 
   return (

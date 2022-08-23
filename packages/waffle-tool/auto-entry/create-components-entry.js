@@ -5,11 +5,28 @@ const { camelCase } = require('lodash');
 
 const tips = "//请勿手动更新，自动更新;\n";
 
+function config() {
+  const config = {
+    autoEntry: true,
+  };
+  try {
+    const waffle = require(`${process.cwd()}/.waffle.ts`);
+    if (waffle.autoEntryConfig.autoEntry) {
+      createComponentsEntry(waffle.autoEntryConfig.autoEntryFilter);
+    }
+  } catch {
+    if (config.autoEntry) {
+      createComponentsEntry();
+    }
+    return console.log("没有.waffle.ts文件");
+  }
+};
+
 const createComponentsEntry = (filter) => {
   const url = process.cwd();
   const filesArray = fs.readdirSync(path.resolve(`${url}/src`));
   const filterFilesArray  = filesArray.filter((file)=>{
-    if(filter.includes(file)){
+    if(!!filter && filter.includes(file)){
       return false
     }
     return true
@@ -36,4 +53,4 @@ const createComponentsEntry = (filter) => {
   );
 };
 
-module.exports = createComponentsEntry;
+module.exports = config;
