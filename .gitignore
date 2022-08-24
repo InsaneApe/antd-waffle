@@ -8,3 +8,4 @@ storybook-static/
 yarn.lock
 badapple.mp4
 es
+pnpm-lock.yaml
