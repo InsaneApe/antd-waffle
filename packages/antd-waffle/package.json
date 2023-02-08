@@ -1,14 +1,14 @@
 {
-  "name": "@fengbeans/antd-waffle",
+  "name": "@insaneape/antd-waffle",
   "version": "2.0.0",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "homepage": "https://github.com/FengBeans/antd-waffle",
+  "homepage": "https://github.com/InsaneApe/antd-waffle",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FengBeans/antd-waffle"
+    "url": "https://github.com/InsaneApe/antd-waffle"
   },
   "scripts": {
     "start": "npm run waffle-tool && start-storybook -p 6006",
@@ -16,7 +16,7 @@
     "clean": "rimraf lib es dist",
     "build:types": "tsc -p tsconfig.build.json && cpr lib es",
     "build:gulp": "gulp",
-    "waffle-tool":"waffle-tool",
+    "waffle-tool": "waffle-tool",
     "build": "npm run waffle-tool entry && npm run clean && npm run build:types && gulp ",
     "lint": "eslint --ext .ts --ext .tsx src/ --fix"
   },
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
-    "@fengbeans/waffle-tool": "workspace:^1.2.0",
+    "@insaneape/waffle-tool": "workspace:^1.2.0",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",

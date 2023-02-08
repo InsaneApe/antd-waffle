@@ -1,6 +1,6 @@
 {
-  "name": "@fengbeans/waffle-tool",
-  "version": "1.2.0",
+  "name": "@insaneape/waffle-tool",
+  "version": "1.3.0",
   "description": "tool class",
   "main": "./bin/cli.js",
   "bin": {
@@ -15,14 +15,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FengBeans/waffle-tool.git"
+    "url": "git+https://github.com/InsaneApe/waffle-tool.git"
   },
   "author": "jian.liu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/FengBeans/waffle-tool/issues"
+    "url": "https://github.com/InsaneApe/waffle-tool/issues"
   },
-  "homepage": "https://github.com/FengBeans/waffle-tool#readme",
+  "homepage": "https://github.com/InsaneApe/waffle-tool#readme",
   "dependencies": {
     "chalk": "4.0.0",
     "commander": "^9.2.0",

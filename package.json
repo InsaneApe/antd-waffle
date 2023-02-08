@@ -6,7 +6,7 @@
   "author": "jian.liu",
   "license": "ISC",
   "scripts": {
-    "build": "pnpm -filter=@fengbeans/* run build",
+    "build": "pnpm -filter=@insaneape/* run build",
     "clear:node_modules": "npkill",
     "changeset": "changeset",
     "version-packages": "changeset version",

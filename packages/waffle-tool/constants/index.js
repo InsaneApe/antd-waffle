@@ -5,5 +5,5 @@ const TEMPLATE_PATH = 'templates';
 module.exports = {
   DEFAULT_CONFIG,
   CREATE_GENERATOR,
-  COMPONENT_MODULE
+  TEMPLATE_PATH
 }
