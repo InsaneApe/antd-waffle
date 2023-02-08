@@ -1,29 +1,33 @@
 const {Command} = require("commander");
-const program = new Command();
 const semver = require("semver");
 const config = require("./auto-entry/create-components-entry");
 const { runGenerator } = require('./create-generator/createGenerator');
 const chalk = require('chalk');
 
+const program = new Command();
+
 program
-  .version(require("./package.json").version)
+  .version(require("./package.json").version);
+
+console.log(1111);
 
 program
   .command('create <type>')
-  .alias('-c')
   .description('创建组件模板')
-  .action(async function(type){
+  .action(async function (type) {
+
     console.log(chalk.green('🚀 创建组件模板,请稍等'));
-    await runGenerator({type});
+    await runGenerator({ type });
+    console.log(chalk.green('🚀 创建成功'));
   })
 
 program
   .command('entry')
-  .alias('-e')
   .description('构建入口文件')
-  .action(async function(){
-    console.log(chalk.green('🚀 构建入口文件'));
-    await config();
+  .action(function () {
+    console.log(chalk.green('🚀 构建入口文件中...'));
+    config();
+    console.log(chalk.green('🚀 构建入口文件成功！'));
   })
 
 program.parse(process.argv);

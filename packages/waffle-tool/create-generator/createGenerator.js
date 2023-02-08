@@ -2,7 +2,7 @@ const yeoman = require("yeoman-environment");
 const path = require("path");
 const { camelCase } = require("lodash");
 const paths = require("../constants/paths");
-const { CREATE_GENERATOR, COMPONENT_MODULE } = require("../constants");
+const { CREATE_GENERATOR, TEMPLATE_PATH } = require("../constants");
 
 const temPath = async (file) => {
   const { absToolPath } = await paths(path.dirname(__dirname));
@@ -32,7 +32,7 @@ const runGenerator = async ({ type, cwd = process.cwd() }) => {
   const generator = require("./index");
   const BasicGenerator = new generator({
     env,
-    resolved: await temPath(COMPONENT_MODULE),
+    resolved: await temPath(TEMPLATE_PATH),
     args: {
       ...componentConfig
     }
