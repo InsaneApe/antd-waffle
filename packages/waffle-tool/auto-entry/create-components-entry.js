@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { titleCase } = require("../util");
 const { camelCase } = require('lodash');
+const chalk = require('chalk');
 
 const tips = "//请勿手动更新，自动更新;\n";
 
@@ -51,6 +52,9 @@ const createComponentsEntry = (filter) => {
     path.resolve(`${url}/src/theme/components.less`),
     entryFilesComponentsLess
   );
+  console.log(chalk.green(path.resolve(`${url}/src/index.tsx`)));
+  console.log(chalk.green(path.resolve(`${url}/src/theme/index.ts`)));
+  console.log(chalk.green(path.resolve(`${url}/src/theme/components.less`)));
 };
 
 module.exports = config;

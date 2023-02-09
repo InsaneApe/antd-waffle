@@ -1,24 +1,20 @@
 const {Command} = require("commander");
 const semver = require("semver");
-const config = require("./auto-entry/create-components-entry");
-const { runGenerator } = require('./create-generator/createGenerator');
+const config = require("../auto-entry/create-components-entry");
+const { runGenerator } = require('../create-generator/createGenerator');
 const chalk = require('chalk');
 
 const program = new Command();
 
 program
-  .version(require("./package.json").version);
-
-console.log(1111);
+  .version(require("../package.json").version);
 
 program
   .command('create <type>')
   .description('创建组件模板')
   .action(async function (type) {
-
     console.log(chalk.green('🚀 创建组件模板,请稍等'));
     await runGenerator({ type });
-    console.log(chalk.green('🚀 创建成功'));
   })
 
 program
