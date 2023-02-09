@@ -1,6 +1,6 @@
 {
   "name": "@insaneape/waffle-tool",
-  "version": "1.3.0",
+  "version": "3.0.0",
   "description": "tool class",
   "main": "./bin/cli.js",
   "bin": {
