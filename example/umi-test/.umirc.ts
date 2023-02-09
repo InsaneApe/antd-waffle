@@ -1,18 +1,16 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from "umi";
 
 export default defineConfig({
-  nodeModulesTransform: {
-    type: 'none',
-  },
   routes: [
-    { path: '/', component: '@/pages/index' },
+    { path: "/", component: "index" },
+    { path: "/docs", component: "docs" },
   ],
-  fastRefresh: {},
+  npmClient: 'pnpm',
   extraBabelPlugins: [
     [
       'import',
       {
-        libraryName: '@fengbeans/antd-waffle',
+        libraryName: '@insaneape/antd-waffle',
         libraryDirectory: 'es',
         style: true,
       },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login,FullScreen, Waterfall } from '@fengbeans/antd-waffle';
+import { Login,FullScreen, Waterfall } from '@insaneape/antd-waffle';
 import { Button } from 'antd';
 
 const {useFullScreenHandle} =FullScreen;
@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="App">
       <Login>
+        123
         <Button>
           点击
         </Button>
